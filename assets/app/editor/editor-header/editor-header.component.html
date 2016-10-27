@@ -1,0 +1,9 @@
+<div class="element" (mouseover)="tmpHeader.showOverlay=true" (mouseleave)="tmpHeader.showOverlay=false">
+    <dip-editor-overlay [element]="tmpHeader" *ngIf="!tmpHeader.showControl"></dip-editor-overlay>
+
+    <dip-hidden *ngIf="!header.display"></dip-hidden>
+    <div *ngIf="header.display" [style.background]="header.background" [style.height.px]="header.height">
+        logo
+    </div>
+</div>
+<dip-header-control *ngIf="tmpHeader.showControl" [header]="header" [tmpHeader]="tmpHeader"></dip-header-control>

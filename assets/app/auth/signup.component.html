@@ -1,0 +1,56 @@
+<div class="card centered">
+    <div class="card-title">Sign up</div>
+    <dip-error></dip-error>
+    <form class="top10" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+        <div class="input-field">
+            <input type="text"
+                   id="firstName"
+                   name="firstName"
+                   formControlName="firstName"
+                   #fn
+                   [class.active]="fn.value">
+            <label for="firstName">First name</label>
+        </div>
+        <div class="input-field">
+            <input type="text"
+                   id="lastName"
+                   name="lastName"
+                   formControlName="lastName"
+                   #ln
+                   [class.active]="ln.value">
+            <label for="lastName">Last name</label>
+        </div>
+        <div class="input-field">
+            <input type="email"
+                   id="email"
+                   name="email"
+                   formControlName="email"
+                   #email
+                   [class.active]="email.value">
+            <label for="email">Email</label>
+        </div>
+        <div class="input-field">
+            <input type="password"
+                   id="password"
+                   name="password"
+                   formControlName="password"
+                   #pass
+                   [class.active]="pass.value">
+            <label for="password">Password</label>
+        </div>
+        <div class="input-field">
+            <input type="password"
+                   id="confirmPassword"
+                   name="confirmPassword"
+                   formControlName="confirmPassword"
+                   #confPass
+                   [class.active]="confPass.value">
+            <label for="confirmPassword">Confirm password</label>
+        </div>
+        <button class="button"
+                type="submit"
+                [disabled]="!signUpForm.valid">
+            Login
+        </button>
+    </form>
+</div>

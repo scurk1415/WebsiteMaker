@@ -1,0 +1,8 @@
+<div class="account-box" (click)="toggleOptions()">
+    <a>
+        user
+    </a>
+    <ul *ngIf="showOptions">
+        <li (click)="logOut()">Logout</li>
+    </ul>
+</div>

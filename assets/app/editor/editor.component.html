@@ -1,0 +1,16 @@
+<div id="editor-app-wrapper" *ngIf="solution">
+    <div id="editor-app-buttons">
+        <dip-editor-controls (saveSolution)="saveSolution()"></dip-editor-controls>
+    </div>
+
+    <div id="editor-app">
+
+        <dip-editor-header [header]="solution.page.header"></dip-editor-header>
+        <dip-editor-nav [nav]="solution.page.nav"></dip-editor-nav>
+        <dip-editor-main [main]="solution.page.main"></dip-editor-main>
+        <dip-editor-footer [footer]="solution.page.footer"></dip-editor-footer>
+    </div>
+</div>
+<div *ngIf="!solution">
+    Waiting for solution
+</div>

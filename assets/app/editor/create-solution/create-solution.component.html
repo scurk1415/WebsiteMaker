@@ -1,0 +1,19 @@
+<div class="card centered">
+    <div class="card-title">Create new</div>
+    <form class="top10" [formGroup]="createSolutionForm" (ngSubmit)="onSubmit()">
+        <div class="input-field">
+            <input type="text"
+                   id="name"
+                   name="name"
+                   formControlName="name"
+                   #name
+                   [class.active]="name.value">
+            <label for="name">Name</label>
+        </div>
+        <button class="button top20"
+                type="submit"
+                [disabled]="!createSolutionForm.valid">
+            Create
+        </button>
+    </form>
+</div>

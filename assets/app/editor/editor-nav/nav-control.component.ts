@@ -1,17 +1,32 @@
 import {Component, OnInit, Input} from "@angular/core";
-import {Header} from "../models/header";
+import {Nav, NavItem} from "../models/nav";
 
 @Component({
-    selector: 'dip-header-control',
-    templateUrl: './header-control.component.html'
+    selector: 'dip-nav-control',
+    templateUrl: 'nav-control.component.html'
 })
-export class HeaderControlComponent implements OnInit {
-    @Input() header: Header;
-    @Input() tmpHeader: any;
+export class NavControlComponent implements OnInit{
 
-    constructor() {
+    @Input() nav: Nav;
+    @Input() tmpNav: any;
+
+
+    ngOnInit() {
+        if(!this.nav.menu){
+            this.nav.menu = [];
+        }
     }
 
-    ngOnInit() { }
+    addItem(){
+        var item = {
+            name: 'titula'
+        };
+        this.nav.menu.push(item);
+    }
 
+    deleteItem(item){
+        console.log('ddd');
+        var index = this.nav.menu.indexOf(item);
+        this.nav.menu.splice(index,1);
+    }
 }

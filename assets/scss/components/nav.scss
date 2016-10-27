@@ -1,0 +1,48 @@
+header .nav-wrapper{
+  background: $primary;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
+  nav{
+    width: 1360px;
+    margin: 0 auto;
+    ul{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li{
+      float: left;
+    }
+    li a{
+      color: #ffffff;
+      display: block;
+      padding: 20px;
+    }
+
+    li a:not(.brand-logo):hover,
+    li.active a{
+      background: $primary-hover;
+    }
+  }
+
+  .account-box{
+    position: relative;
+
+    ul{
+      position: absolute;
+      top: 100%;
+      right: 0;
+      max-width: 200px;
+      background: white;
+    }
+    li{
+      padding: 10px 20px;
+      border-bottom: 1px solid gray;
+      cursor: pointer;
+    }
+  }
+}

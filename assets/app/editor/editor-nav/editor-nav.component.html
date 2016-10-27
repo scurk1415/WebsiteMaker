@@ -1,0 +1,5 @@
+<div class="element editor_nav" (mouseover)="tmpNav.showOverlay=true" (mouseleave)="tmpNav.showOverlay=false">
+    <dip-editor-overlay [element]="tmpNav" *ngIf="!tmpNav.showControl"></dip-editor-overlay>
+
+</div>
+<dip-nav-control *ngIf="tmpNav.showControl" [nav]="nav" [tmpNav]="tmpNav"></dip-nav-control>

@@ -1,0 +1,15 @@
+<div class="card centered">
+    <div class="clearfix">
+        <div class="card-title left">Solutions</div>
+        <a class="button icon add right" [routerLink]="['create']" title="Create new">+</a>
+    </div>
+
+    <ul class="collection with-header">
+        <li class="collection-item clearfix relative" *ngFor="let solution of solutions">
+            <a [routerLink]="[solution._id]" style="display: block">
+                {{solution.name}}
+            </a>
+            <a class="delete right" (click)="deleteSolution(solution)"></a>
+        </li>
+    </ul>
+</div>
