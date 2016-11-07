@@ -18,6 +18,7 @@ import {EditorControlsComponent} from "./editor-controls.component";
 import {HiddenComponent} from "./shared/hidden.component";
 import {NavControlComponent} from "./editor-nav/nav-control.component";
 
+import { ColorPickerModule } from 'angular2-color-picker';
 
 @NgModule({
     imports: [
@@ -25,7 +26,8 @@ import {NavControlComponent} from "./editor-nav/nav-control.component";
         editorRouting,
         ReactiveFormsModule,
         SharedModule,
-        FormsModule
+        FormsModule,
+        ColorPickerModule
     ],
     declarations: [
         EditorComponent,
