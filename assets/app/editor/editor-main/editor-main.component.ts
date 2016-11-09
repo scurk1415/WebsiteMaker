@@ -6,9 +6,17 @@ import {Main} from "../models/main";
     templateUrl: './editor-main.component.html'
 })
 export class EditorMainComponent implements OnInit {
-    @Input() main: Main;
+    @Input() public main: Main;
+
+    public tmpMain= {};
+
     constructor() { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.tmpMain = {
+            showControl: false,
+            name: "Main"
+        }
+    }
     
 }

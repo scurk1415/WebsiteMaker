@@ -8,8 +8,14 @@ import {Footer} from "../models/footer";
 export class EditorFooterComponent implements OnInit {
     @Input() public footer: Footer;
 
+    public tmpFooter= {};
+
     constructor() { }
 
-    ngOnInit() { }
-
+    ngOnInit() {
+        this.tmpFooter = {
+            showControl: false,
+            name: "Footer"
+        }
+    }
 }

@@ -1,5 +1,5 @@
-import {Component, OnInit, Input} from "@angular/core";
-import {Nav} from "../models/nav";
+import { Component, OnInit, Input } from "@angular/core";
+import { Nav } from "../models/nav";
 
 @Component({
     selector: 'dip-editor-nav',
@@ -8,10 +8,15 @@ import {Nav} from "../models/nav";
 })
 export class EditorNavComponent implements OnInit {
     @Input() nav: Nav;
-    public tmpNav = { showControl: false};
+
+    public tmpNav = {
+        showControl: false,
+        name: "Nav"
+    };
 
     constructor() { }
 
-    ngOnInit() { }
+    ngOnInit() {
+    }
     
 }

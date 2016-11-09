@@ -1,5 +1,6 @@
 import {Component, OnInit, Input} from "@angular/core";
-import {Nav, NavItem} from "../models/nav";
+import {Nav} from "../models/nav";
+import { ControlViews } from "../../shared/enums";
 
 @Component({
     selector: 'dip-nav-control',
@@ -9,6 +10,9 @@ export class NavControlComponent implements OnInit{
 
     @Input() nav: Nav;
     @Input() tmpNav: any;
+    controlViews = ControlViews;
+
+    public edit: Array<boolean> = new Array();
 
 
     ngOnInit() {

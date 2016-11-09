@@ -1,0 +1,37 @@
+<div class="form-field clearfix">
+    <div class="form-label">
+        <label for="display">Display</label>
+    </div>
+    <div class="checkbox-wrapper">
+        <input id="display"
+               type="checkbox"
+               [(ngModel)]="header.display"
+               [checked]="header.display">
+
+        <label for="display"></label>
+    </div>
+</div>
+<div *ngIf="header.display">
+    <div class="clearfix">
+        <div class="left">
+            <div class="form-label">
+                <label for="height">Height</label>
+            </div>
+            <input id="height"
+                   class="textbox"
+                   [(ngModel)]="header.height">
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="left">
+            <div class="form-label">
+                <label for="background">Background</label>
+            </div>
+            <input id="background"
+                   class="colorpicker"
+                   name="background"
+                   type="text"
+                   [(ngModel)]="header.background">
+        </div>
+    </div>
+</div>

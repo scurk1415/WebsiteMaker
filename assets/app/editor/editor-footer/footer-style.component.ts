@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Input } from "@angular/core/src/metadata/directives";
-import { Nav } from "../models/nav";
+import { Footer } from "../models/footer";
 
 @Component({
-    selector: 'dip-nav-style',
-    templateUrl: 'nav-style.component.html'
+    selector: 'dip-footer-style',
+    templateUrl: 'footer-style.component.html'
 })
-export class NavStyleComponent implements OnInit {
-    @Input() nav: Nav;
+export class FooterStyleComponent implements OnInit {
+    @Input() footer: Footer;
 
     constructor() { }
 

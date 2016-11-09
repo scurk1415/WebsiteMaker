@@ -7,10 +7,15 @@ import {Header} from "../models/header";
 })
 export class EditorHeaderComponent implements OnInit {
     @Input() header: Header;
-    public tmpHeader = { showControl: false};
+    public tmpHeader = {};
 
     constructor() { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.tmpHeader = {
+            showControl: false,
+            name: "Header"
+        };
+    }
     
 }

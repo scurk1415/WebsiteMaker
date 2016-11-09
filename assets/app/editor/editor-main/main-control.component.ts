@@ -1,15 +1,15 @@
 import {Component, OnInit, Input} from "@angular/core";
 import { ControlViews } from "../../shared/enums";
-import { Footer } from "../models/footer";
+import { Main } from "../models/main";
 
 @Component({
-    selector: 'dip-footer-control',
-    templateUrl: 'footer-control.component.html'
+    selector: 'dip-main-control',
+    templateUrl: 'main-control.component.html'
 })
-export class FooterControlComponent implements OnInit{
+export class MainControlComponent implements OnInit{
 
-    @Input() footer: Footer;
-    @Input() tmpFooter: any;
+    @Input() main: Main;
+    @Input() tmpMain: any;
     controlViews = ControlViews;
 
     ngOnInit() {

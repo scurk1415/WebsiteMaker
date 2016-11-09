@@ -1,41 +1,10 @@
 <div class="card centered" style="background: #ffffff;">
-    <div class="form-field clearfix">
-        <div class="form-label">
-            <label for="display">Display</label>
-        </div>
-        <div class="checkbox-wrapper">
-            <input id="display"
-                   type="checkbox"
-                   [(ngModel)]="header.display"
-                   [checked]="header.display">
+    <dip-control-header [control]="tmpHeader"></dip-control-header>
 
-            <label for="display"></label>
-        </div>
+    <div *ngIf="tmpHeader.selection == controlViews.Edit">
+        Edit
     </div>
-    <div *ngIf="header.display">
-        <div class="clearfix">
-            <div class="left">
-                <div class="form-label">
-                    <label for="height">Height</label>
-                </div>
-                <input id="height"
-                       class="textbox"
-                       [(ngModel)]="header.height">
-            </div>
-        </div>
-        <div class="clearfix">
-            <div class="left">
-                <div class="form-label">
-                    <label for="background">Background</label>
-                </div>
-                <input id="background"
-                       class="colorpicker"
-                       name="background"
-                       type="text"
-                       [(ngModel)]="header.background">
-            </div>
-        </div>
+    <div *ngIf="tmpHeader.selection == controlViews.Style">
+        <dip-header-style [header]="header"></dip-header-style>
     </div>
-
-    <button class="button" (click)="tmpHeader.showControl=false">Close</button>
 </div>

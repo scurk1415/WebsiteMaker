@@ -1,42 +1,45 @@
 .relative{
-  position: relative !important;
+    position: relative !important;
 }
 .absolute{
-  position: absolute !important;
+    position: absolute !important;
 }
 .left{
-  float: left !important;
+    float: left !important;
 }
 .right{
-  float: right !important;
+    float: right !important;
 }
 .clearfix:after {
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  content: " ";
-  clear: both;
-  height: 0;
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
 }
 .top0{
-  margin-top: 0 !important;
+    margin-top: 0 !important;
 }
 .top10{
-  margin-top: 10px !important;
+    margin-top: 10px !important;
 }
 .top20{
-  margin-top: 20px !important;
+    margin-top: 20px !important;
 }
 .left0{
-  margin-left: 0;
+    margin-left: 0;
 }
 .left20{
-  margin-left: 20px;
+    margin-left: 20px;
 }
-
 .form-field{
-  margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 .form-label{
-  margin-bottom: 5px;
+    margin-bottom: 5px;
+}
+.ellipsis{
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
