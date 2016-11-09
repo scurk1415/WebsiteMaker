@@ -1,0 +1,12 @@
+<div class="card centered" style="background: #ffffff;">
+    <dip-control-header [control]="tmpFooter"></dip-control-header>
+
+    <div *ngIf="tmpFooter.selection == controlViews.Edit">
+        edit
+    </div>
+    <div *ngIf="tmpFooter.selection == controlViews.Style">
+        <dip-footer-style [footer]="footer"></dip-footer-style>
+    </div>
+
+    <button class="button" (click)="tmpFooter.showControl=false">Close</button>
+</div>
