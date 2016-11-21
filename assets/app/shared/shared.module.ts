@@ -1,7 +1,8 @@
-import {NgModule} from "@angular/core";
-import {CommonModule} from "@angular/common";
-import {ErrorComponent} from "../error/error.component";
-import {FormsModule} from "@angular/forms";
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { ErrorComponent } from "../error/error.component";
+import { FormsModule } from "@angular/forms";
+import { ComboboxComponent } from "./controls/combobox.component";
 
 @NgModule({
     imports:[
@@ -9,10 +10,12 @@ import {FormsModule} from "@angular/forms";
         FormsModule
     ],
     declarations:[
-        ErrorComponent
+        ErrorComponent,
+        ComboboxComponent
     ],
     exports:[
-        ErrorComponent
+        ErrorComponent,
+        ComboboxComponent
     ]
 })
 

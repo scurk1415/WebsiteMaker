@@ -1,0 +1,15 @@
+<div class="combobox">
+    <div class="cb-trigger" (click)="onOpen()" [class.empty]="!displayed_item.value" [ngStyle]="cbStyle">
+        {{displayed_item.text}}
+        <span class="down-arrow"></span>
+    </div>
+    <ul class="cb-items" *ngIf="open">
+        <li class="cb-item"
+            [class.selected]="displayed_item.value==item.value"
+            (click)="selectItem(item.value)"
+            *ngFor="let item of items">
+
+            {{item.text}}
+        </li>
+    </ul>
+</div>

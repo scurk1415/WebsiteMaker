@@ -1,5 +1,5 @@
 import {Component, OnInit, Input} from "@angular/core";
-import {Nav} from "../models/nav";
+import { Nav, NavItem } from "../models/nav";
 import { ControlViews } from "../../shared/enums";
 
 @Component({
@@ -22,14 +22,11 @@ export class NavControlComponent implements OnInit{
     }
 
     addItem(){
-        var item = {
-            name: 'titula'
-        };
+        var item = new NavItem();
         this.nav.menu.push(item);
     }
 
     deleteItem(item){
-        console.log('ddd');
         var index = this.nav.menu.indexOf(item);
         this.nav.menu.splice(index,1);
     }

@@ -9,7 +9,7 @@
             <li class="dg-row" *ngFor="let item of nav.menu; let i = index;">
                 <div class="dg-row-item clearfix">
                     <div class="left ellipsis" style="max-width: 150px; width: 150px; text-overflow: ellipsis;">
-                        {{item.name}}
+                        {{item.title}}
                     </div>
                     <div class="left left20 ellipsis" style="max-width: 300px; width: 300px; text-overflow: ellipsis;">
                         {{item.action}}
@@ -19,8 +19,8 @@
                 </div>
                 <div class="dg-row-alternative" *ngIf="edit[i]==true">
                     <div class="input-field">
-                        <input [(ngModel)]="item.name"
-                               [class.active]="item.name">
+                        <input [(ngModel)]="item.title"
+                               [class.active]="item.title">
                         <label>Title</label>
                     </div>
                     <div class="input-field">
@@ -36,5 +36,11 @@
     </div>
     <div *ngIf="tmpNav.selection == controlViews.Style">
         <dip-nav-style [nav]="nav"></dip-nav-style>
+    </div>
+
+    <div>
+        <pre>
+            {{nav | json:4}}
+        </pre>
     </div>
 </div>

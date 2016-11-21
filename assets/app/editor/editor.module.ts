@@ -14,7 +14,7 @@ import {HiddenComponent} from "./shared/hidden.component";
 
 import { ColorPickerModule } from 'angular2-color-picker';
 import { ControlHeaderComponent } from "./shared/control-header.component";
-import { NavComponent } from "./editor-nav/nav";
+import { NavComponents } from "./editor-nav/navComponents";
 import { HeaderComponents } from "./editor-header/header";
 import { FooterComponents } from "./editor-footer/footer";
 import { MainComponents } from "./editor-main/main";
@@ -32,7 +32,7 @@ import { MainComponents } from "./editor-main/main";
         ControlHeaderComponent,
         EditorComponent,
         HeaderComponents,
-        NavComponent,
+        NavComponents,
         FooterComponents,
         MainComponents,
         SolutionListComponent,

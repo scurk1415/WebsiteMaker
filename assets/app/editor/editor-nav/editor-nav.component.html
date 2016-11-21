@@ -6,7 +6,7 @@
             *ngFor="let item of nav.menu"
             [ngStyle]="{'background': nav.tab_color}">
 
-            <a [attr.href]="item.action" [ngStyle]="{'color': nav.font_color}">{{item.name}}</a>
+            <a [attr.href]="item.action" [ngStyle]="{'color': nav.font_color, 'font-size': nav.font_size}">{{item.title}}</a>
         </li>
     </ul>
 </div>
