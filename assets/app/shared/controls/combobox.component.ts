@@ -10,6 +10,7 @@ export class ComboboxComponent implements OnInit {
     @Input() items: Array<SelectListItem>;
     @Input() selectedItem: string = "12px";
     @Input() cbStyle: string;
+    @Input() label: string;
     @Output() selected = new EventEmitter();
 
     displayed_item: SelectListItem;
@@ -22,7 +23,10 @@ export class ComboboxComponent implements OnInit {
     // emit selected value
     selectItem(value){
         this.open = false;
-        this.selected.emit(value);
+        this.selectedItem = value;
+        console.log(this.selectedItem );
+        console.log(value);
+        this.selected.emit(this.selectedItem);
         this.changeSelectedText(value);
     }
 

@@ -25,7 +25,6 @@ export class NavStyleComponent implements OnInit {
             { text: "19px", value: "19px"},
             { text: "20px", value: "20px"},
         ];
-
     }
 
     onFontSizeSelect(event){

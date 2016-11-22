@@ -1,3 +1,82 @@
-<div class="form-field">
-    style
+<div class="form-field clearfix">
+    <div class="clearfix">
+        <div class="left">
+            <div class="form-label">
+                <label for="displayFooter">Display</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input id="displayFooter"
+                       type="checkbox"
+                       [(ngModel)]="footer.display"
+                       [checked]="footer.display">
+
+                <label for="displayFooter"></label>
+            </div>
+        </div>
+        <div class="left left20">
+            <div class="form-label">
+                <label for="Copyright">Copyright</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input id="Copyright"
+                       type="checkbox"
+                       [(ngModel)]="footer.display_copyright"
+                       [checked]="footer.display_copyright">
+
+                <label for="Copyright"></label>
+            </div>
+        </div>
+        <div class="left left20">
+            <div class="form-label">
+                <label for="BackgroundColor">Background</label>
+            </div>
+            <input id="BackgroundColor"
+                   class="colorpicker"
+                   [(colorPicker)]="footer.background"
+                   [style.background]="footer.background"
+                   [cpPosition]="'bottom'"
+                   [cpCancelButton]="true"
+                   [cpCancelButtonClass]= "'colorpicker-button button'"/>
+        </div>
+        <div class="left left20">
+            <div class="form-label">
+                <label for="CopyrightBackground">Copyright</label>
+            </div>
+            <input id="CopyrightBackground"
+                   class="colorpicker"
+                   [(colorPicker)]="footer.copyright_background"
+                   [style.background]="footer.copyright_background"
+                   [cpPosition]="'bottom'"
+                   [cpCancelButton]="true"
+                   [cpCancelButtonClass]= "'colorpicker-button button'"/>
+        </div>
+        <div class="left left20">
+            <div class="form-label">
+                <label for="FontColor">Font color</label>
+            </div>
+            <input id="FontColor"
+                   class="colorpicker"
+                   [(colorPicker)]="footer.font_color"
+                   [style.background]="footer.font_color"
+                   [cpPosition]="'bottom'"
+                   [cpCancelButton]="true"
+                   [cpCancelButtonClass]= "'colorpicker-button button'"/>
+        </div>
+        <div class="left left20">
+            <div class="form-label">
+                <label for="LinkColor">Link color</label>
+            </div>
+            <input id="LinkColor"
+                   class="colorpicker"
+                   [(colorPicker)]="footer.link_color"
+                   [style.background]="footer.link_color"
+                   [cpPosition]="'bottom'"
+                   [cpCancelButton]="true"
+                   [cpCancelButtonClass]= "'colorpicker-button button'"/>
+        </div>
+    </div>
+    <div class="clearfix">
+        <dip-combobox class="left" [label]="'Title size'" [items]="font_sizes"  [(selectedItem)]="footer.title_size" (selected)="onTitleSizeChange($event)" [cbStyle]="{width: '200px'}"></dip-combobox>
+        <dip-combobox class="left20 left" [label]="'Font size'" [items]="font_sizes"  [selectedItem]="footer.font_size" (selected)="onFontSizeChange($event)" [cbStyle]="{width: '200px'}"></dip-combobox>
+    </div>
 </div>

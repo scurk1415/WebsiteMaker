@@ -1,29 +1,26 @@
 <div class="element" (mouseover)="tmpFooter.showOverlay=true" (mouseleave)="tmpFooter.showOverlay=false">
     <dip-editor-overlay [element]="tmpFooter" *ngIf="!tmpFooter.showControl"></dip-editor-overlay>
 
-    <footer class="page-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
+    <dip-hidden *ngIf="!footer.display"></dip-hidden>
 
-                    <ul class="footer-menu">
-                        <li class="footer-menu-item" *ngFor="let link of footer.links">
+    <footer *ngIf="footer.display" [ngStyle]="{'background':footer.background, 'color': footer.font_color, 'font-size': footer.font_size}">
+        <div class="footer-data">
+            <div class="width-half">
+                <h5 class="white-text" [style.fontSize]="footer.title_size">{{footer.title}}</h5>
+                <p class="grey-text text-lighten-4">{{footer.text}}</p>
+            </div>
+            <div class="width-half" *ngIf="footer.links.length > 0">
+                <h5 class="white-text" [style.fontSize]="footer.title_size">{{footer.link_title}}</h5>
 
-                            <a [attr.href]="link.action">{{link.title}}</a>
-                        </li>
-                    </ul>
-                </div>
+                <ul class="footer-menu clearfix">
+                    <li class="footer-menu-item ellipsis" *ngFor="let link of footer.links">
+                        <a [attr.href]="link.action" [style.color]="footer.link_color">{{link.title}}</a>
+                    </li>
+                </ul>
             </div>
         </div>
-        <div class="footer-copyright">
-            <div class="container">
-                © 2016 Copyright Text
-            </div>
+        <div class="footer-copyright" *ngIf="footer.display_copyright" [style.background]="footer.copyright_background">
+            © {{footer.copyright_text}}
         </div>
     </footer>
 </div>
