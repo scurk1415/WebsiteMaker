@@ -6,7 +6,7 @@
  .nav-menu-item{
      padding: 10px 20px;
      display: inline-block;
-     margin-left: 20px;
+     margin: 0 10px;
  }
  .nav-absolute{
      position: absolute;

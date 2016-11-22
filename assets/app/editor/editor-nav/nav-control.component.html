@@ -1,4 +1,4 @@
-<div class="card centered" style="background: #ffffff;">
+<div class="card centered">
     <dip-control-header [control]="tmpNav"></dip-control-header>
 
     <div *ngIf="tmpNav.selection == controlViews.Edit">
@@ -36,11 +36,5 @@
     </div>
     <div *ngIf="tmpNav.selection == controlViews.Style">
         <dip-nav-style [nav]="nav"></dip-nav-style>
-    </div>
-
-    <div>
-        <pre>
-            {{nav | json:4}}
-        </pre>
     </div>
 </div>

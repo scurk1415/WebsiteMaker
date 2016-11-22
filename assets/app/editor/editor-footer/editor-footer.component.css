@@ -1,0 +1,12 @@
+footer{
+    padding: 20px;
+}
+.footer-menu{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.footer-menu-item{
+    padding: 5px 0;
+    margin: 0 10px;
+}

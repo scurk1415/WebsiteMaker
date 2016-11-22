@@ -16,6 +16,20 @@
 
         <div class="left left20">
             <div class="form-label">
+                <label for="alignRight">Right</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input id="alignRight"
+                       type="checkbox"
+                       [(ngModel)]="nav.align_right"
+                       [checked]="nav.align_right">
+
+                <label for="alignRight"></label>
+            </div>
+        </div>
+
+        <div class="left left20">
+            <div class="form-label">
                 <label for="BackgroundColor">Background</label>
             </div>
             <input id="BackgroundColor"

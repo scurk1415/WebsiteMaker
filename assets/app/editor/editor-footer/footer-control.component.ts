@@ -1,6 +1,6 @@
 import {Component, OnInit, Input} from "@angular/core";
 import { ControlViews } from "../../shared/enums";
-import { Footer } from "../models/footer";
+import { Footer, FooterLink } from "../models/footer";
 
 @Component({
     selector: 'dip-footer-control',
@@ -12,7 +12,21 @@ export class FooterControlComponent implements OnInit{
     @Input() tmpFooter: any;
     controlViews = ControlViews;
 
+    public edit: Array<boolean> = new Array();
+
     ngOnInit() {
+        if(!this.footer.links){
+            this.footer.links = [];
+        }
     }
 
+
+    addItem(){
+        var item = new FooterLink("Link");
+        this.footer.links.push(item);
+    }
+
+    deleteItem(index){
+        this.footer.links.splice(index,1);
+    }
 }

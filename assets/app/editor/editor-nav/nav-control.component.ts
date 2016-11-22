@@ -22,7 +22,7 @@ export class NavControlComponent implements OnInit{
     }
 
     addItem(){
-        var item = new NavItem();
+        var item = new NavItem("Link");
         this.nav.menu.push(item);
     }
 

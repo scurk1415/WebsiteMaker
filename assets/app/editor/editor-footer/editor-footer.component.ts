@@ -3,7 +3,8 @@ import {Footer} from "../models/footer";
 
 @Component({
     selector: 'dip-editor-footer',
-    templateUrl: './editor-footer.component.html'
+    templateUrl: './editor-footer.component.html',
+    styleUrls: ['./editor-footer.component.css']
 })
 export class EditorFooterComponent implements OnInit {
     @Input() public footer: Footer;
