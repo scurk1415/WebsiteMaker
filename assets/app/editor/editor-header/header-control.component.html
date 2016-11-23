@@ -2,7 +2,12 @@
     <dip-control-header [control]="tmpHeader"></dip-control-header>
 
     <div *ngIf="tmpHeader.selection == controlViews.Edit">
-        Edit
+
+        Logo: {{header.logo}}
+        <input type="file"
+               ngFileSelect
+               [options]="options"
+               (onUpload)="handleUpload($event)">
     </div>
     <div *ngIf="tmpHeader.selection == controlViews.Style">
         <dip-header-style [header]="header"></dip-header-style>

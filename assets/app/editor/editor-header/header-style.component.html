@@ -1,4 +1,4 @@
-<div class="form-field clearfix">
+<div class="form-field">
     <div class="form-label">
         <label for="display">Display</label>
     </div>
@@ -11,27 +11,32 @@
         <label for="display"></label>
     </div>
 </div>
-<div *ngIf="header.display">
-    <div class="clearfix">
-        <div class="left">
-            <div class="form-label">
-                <label for="height">Height</label>
-            </div>
-            <input id="height"
-                   class="textbox"
-                   [(ngModel)]="header.height">
+
+<div class="form-field clearfix" *ngIf="header.display">
+    <div class="left">
+        <div class="form-label">
+            <label for="Background">Background</label>
         </div>
+        <input id="Background"
+               class="colorpicker"
+               [(colorPicker)]="header.background"
+               [style.background]="header.background"
+               [cpPosition]="'bottom'"
+               [cpOKButton]="true"
+               [cpOKButtonClass]= "'colorpicker-button button right10'"
+               [cpCancelButton]="true"
+               [cpCancelButtonClass]= "'colorpicker-button button'"/>
     </div>
-    <div class="clearfix">
-        <div class="left">
-            <div class="form-label">
-                <label for="background">Background</label>
-            </div>
-            <input id="background"
-                   class="colorpicker"
-                   name="background"
-                   type="text"
-                   [(ngModel)]="header.background">
-        </div>
+    <div class="input-field left left20">
+        <input [(ngModel)]="header.height"
+               [class.active]="header.height"
+               style="width: 100px;">
+        <label>Height</label>
+    </div>
+    <div class="input-field left left20">
+        <input [(ngModel)]="header.padding_top"
+               [class.active]="header.padding_top"
+               style="width: 100px;">
+        <label>Padding top</label>
     </div>
 </div>

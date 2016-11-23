@@ -6,7 +6,6 @@ import { Header } from "../models/header";
     templateUrl: 'header-style.component.html'
 })
 export class HeaderStyleComponent implements OnInit {
-
     @Input() header: Header;
 
     constructor() { }

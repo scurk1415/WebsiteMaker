@@ -1,7 +1,9 @@
-<div class="element" (mouseover)="tmpHeader.showOverlay=true" (mouseleave)="tmpHeader.showOverlay=false">
+<div class="element" (mouseover)="tmpHeader.showOverlay=true" (mouseleave)="tmpHeader.showOverlay=false" [style.paddingTop.px]="header.padding_top">
     <dip-editor-overlay [element]="tmpHeader" *ngIf="!tmpHeader.showControl"></dip-editor-overlay>
 
     <dip-hidden *ngIf="!header.display"></dip-hidden>
-    <div *ngIf="header.display" [style.background]="header.background" [style.height.px]="header.height"></div>
+    <div *ngIf="header.display" [style.background]="header.background" [style.height.px]="header.height">
+        <img [src]="header.logo">
+    </div>
 </div>
 <dip-header-control *ngIf="tmpHeader.showControl" [header]="header" [tmpHeader]="tmpHeader"></dip-header-control>

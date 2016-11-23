@@ -1,5 +1,6 @@
 var express = require('express');
 var path = require('path');
+
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
@@ -9,6 +10,7 @@ var mongoose = require('mongoose');
 var appRoutes = require('./routes/app');
 var authRoutes = require('./routes/auth');
 var solutionRoutes = require('./routes/solution');
+var uploadRoutes = require('./routes/upload');
 
 var app = express();
 mongoose.Promise = global.Promise;
@@ -33,17 +35,17 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.use('/upload', uploadRoutes);
 app.use('/solution', solutionRoutes);
 app.use('/authenticate', authRoutes);
 app.use('/', appRoutes);
+
+app.listen(10050, function(){
+    console.log('ng2-uploader server running on port 10050.');
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   res.render('index');
 });
-
-/*app.use(function (req,res) {
-  res.render(path.join(__dirname + '/views/index.hbs'));
-});*/
-
 module.exports = app;
