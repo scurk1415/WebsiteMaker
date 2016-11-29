@@ -1,0 +1,25 @@
+<div class="uploader">
+    <!--if no file-->
+    <label class="uploader-zone"
+           *ngIf="!inputFile"
+           for="uploader"
+           ngFileDrop
+           [options]="options"
+           (onUpload)="handleUpload($event)"
+           [ngClass]="{'file-over': hasBaseDropZoneOver}"
+           (onFileOver)="fileOverBase($event)">
+        Upload (drag & drop)
+
+        <input type="file"
+               id="uploader"
+               style="display: none;"
+               ngFileSelect
+               [options]="options"
+               (onUpload)="handleUpload2($event)">
+    </label>
+
+    <!--if file uploaded-->
+    <div class="with-background" *ngIf="inputFile" [ngStyle]="{'background-image': 'url(/uploaded/'+ inputFile.filename +')' }">
+        <div class="delete-image" (click)="deleteImage()"></div>
+    </div>
+</div>

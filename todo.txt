@@ -1,0 +1,5 @@
+Uploader:
+    - icon for deleteing image
+
+Editor -> Controls:
+    - icons for edit, style, close, theme

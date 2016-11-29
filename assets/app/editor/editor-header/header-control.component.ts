@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from "@angular/core";
+import { Component, OnInit, Input, NgZone } from "@angular/core";
 import {Header} from "../models/header";
 import { ControlViews } from "../../shared/enums";
 
@@ -10,28 +10,29 @@ export class HeaderControlComponent implements OnInit {
     @Input() header: Header;
     @Input() tmpHeader: any;
 
-    uploadFile: any;
-    hasBaseDropZoneOver: boolean = false;
-    options: Object = {
-        url: 'http://localhost:10050/upload'
-    };
+    private options: Object;
+    //private response: any = {};
     controlViews = ControlViews;
 
     constructor() {
     }
 
-    ngOnInit() { }
 
-    handleUpload(data): void {
+    ngOnInit() {
+        this.options = {
+            url: 'http://localhost:10050/upload'
+        };
+    }
+
+    onFileUploaded(file){
+        console.log(file);
+        this.header.logo = file;
+    }
+
+    /*handleUpload(data): void {
         if (data && data.response) {
             data = JSON.parse(data.response);
-            this.uploadFile = data;
-            this.header.logo = "/uploaded/"+this.uploadFile[0].filename;
+            this.header.logo = data[0];
         }
-    }
-
-    fileOverBase(e:any):void {
-        this.hasBaseDropZoneOver = e;
-    }
-
+    }*/
 }
