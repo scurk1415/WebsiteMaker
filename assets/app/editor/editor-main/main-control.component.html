@@ -2,9 +2,48 @@
     <dip-control-header [control]="tmpMain"></dip-control-header>
 
     <div *ngIf="tmpMain.selection == controlViews.Edit">
-        edit
+        <button class="button small" (click)="addItem()">Add item</button>
+
+        <!-- links -->
+        <ul class="datagrid">
+            <li class="dg-row" *ngFor="let item of main.items; let i = index;">
+                <div class="dg-row-item clearfix">
+                    <div class="left ellipsis" style="max-width: 100%; text-overflow: ellipsis;">
+                        {{item.title}}
+                    </div>
+
+                    <button class="right left20" (click)="deleteItem(item)">Delete</button>
+                    <button class="right left20" (click)="edit[i]=true">Edit</button>
+                </div>
+                <div class="dg-row-alternative" *ngIf="edit[i]==true">
+                    <div style="display: flex; align-items: flex-start;">
+                        <!--Image-->
+                        <dip-uploader [inputFile]="item.image" (uploadedFile)="onFileUploaded($event, item)" [width]="200"></dip-uploader>
+
+                        <!--Text-->
+                        <div class="left20">
+                            <div class="input-field">
+                                <input [(ngModel)]="item.title"
+                                       [class.active]="item.title">
+                                <label>Title</label>
+                            </div>
+                            <div class="top20">
+                                <textarea [(ngModel)]="item.description"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button (click)="edit[i]=false">Close</button>
+                </div>
+            </li>
+        </ul>
     </div>
+
     <div *ngIf="tmpMain.selection == controlViews.Style">
         <dip-main-style [main]="main"></dip-main-style>
+    </div>
+
+    <div *ngIf="tmpMain.selection == controlViews.Theme">
+        <dip-main-theme [main]="main"></dip-main-theme>
     </div>
 </div>

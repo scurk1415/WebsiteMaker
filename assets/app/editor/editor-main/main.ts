@@ -1,9 +1,11 @@
 import { EditorMainComponent } from "./editor-main.component";
 import { MainControlComponent } from "./main-control.component";
 import { MainStyleComponent } from "./main-style.component";
+import { MainThemeComponent } from "./main-theme.component";
 
 export const MainComponents = [
     EditorMainComponent,
     MainControlComponent,
-    MainStyleComponent
+    MainStyleComponent,
+    MainThemeComponent
 ]

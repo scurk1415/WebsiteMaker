@@ -1,3 +1,66 @@
-<div class="form-field">
-    style
+<div class="form-field clearfix">
+    <div class="left">
+        <div class="form-label">
+            <label for="Background">Background</label>
+        </div>
+        <input id="Background"
+               class="colorpicker"
+               [(colorPicker)]="main.background"
+               [style.background]="main.background"
+               [cpPosition]="'bottom'"
+               [cpOKButton]="true"
+               [cpOKButtonClass]= "'colorpicker-button button right10'"
+               [cpCancelButton]="true"
+               [cpCancelButtonClass]= "'colorpicker-button button'"/>
+    </div>
+    <div class="left left20">
+        <div class="form-label">
+            <label for="CardBackground">Card</label>
+        </div>
+        <input id="CardBackground"
+               class="colorpicker"
+               [(colorPicker)]="main.card_background"
+               [style.background]="main.card_background"
+               [cpPosition]="'bottom'"
+               [cpOKButton]="true"
+               [cpOKButtonClass]= "'colorpicker-button button right10'"
+               [cpCancelButton]="true"
+               [cpCancelButtonClass]= "'colorpicker-button button'"/>
+    </div>
+    <div class="left left20">
+        <div class="form-label">
+            <label for="TitleColor">Title</label>
+        </div>
+        <input id="TitleColor"
+               class="colorpicker"
+               [(colorPicker)]="main.title_color"
+               [style.background]="main.title_color"
+               [cpPosition]="'bottom'"
+               [cpOKButton]="true"
+               [cpOKButtonClass]= "'colorpicker-button button right10'"
+               [cpCancelButton]="true"
+               [cpCancelButtonClass]= "'colorpicker-button button'"/>
+    </div>
+    <div class="left left20">
+        <div class="form-label">
+            <label for="DescriptionColor">Description</label>
+        </div>
+        <input id="DescriptionColor"
+               class="colorpicker"
+               [(colorPicker)]="main.description_color"
+               [style.background]="main.description_color"
+               [cpPosition]="'bottom'"
+               [cpOKButton]="true"
+               [cpOKButtonClass]= "'colorpicker-button button right10'"
+               [cpCancelButton]="true"
+               [cpCancelButtonClass]= "'colorpicker-button button'"/>
+    </div>
+</div>
+<div class="form-field clearfix">
+    <div class="left">
+        <dip-combobox [items]="font_sizes" [label]="'Title'" [selectedItem]="main.title_size" (selected)="onTitleSizeSelect($event)" [cbStyle]="{width: '200px'}"></dip-combobox>
+    </div>
+    <div class="left left20">
+        <dip-combobox [items]="font_sizes" [label]="'Description'" [selectedItem]="main.description_size_size" (selected)="onDescriptionSizeSelect($event)" [cbStyle]="{width: '200px'}"></dip-combobox>
+    </div>
 </div>

@@ -1,4 +1,5 @@
 export enum ControlViews{
     Edit,
-    Style
+    Style,
+    Theme
 }

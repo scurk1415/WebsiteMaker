@@ -1,6 +1,8 @@
 import {Component, OnInit, Input} from "@angular/core";
 import { ControlViews } from "../../shared/enums";
-import { Main } from "../models/main";
+import { Main, MainItem } from "../models/main";
+
+declare var tinymce: any;
 
 @Component({
     selector: 'dip-main-control',
@@ -12,7 +14,26 @@ export class MainControlComponent implements OnInit{
     @Input() tmpMain: any;
     controlViews = ControlViews;
 
+    public edit: Array<boolean> = new Array();
+
     ngOnInit() {
+        if(!this.main.items){
+            this.main.items = [];
+        }
     }
 
+    addItem(){
+        var item = new MainItem("Title");
+        this.main.items.push(item);
+    }
+
+    deleteItem(item){
+        var index = this.main.items.indexOf(item);
+        this.main.items.splice(index,1);
+    }
+
+    onFileUploaded(file, item){
+        let itemIndex = this.main.items.indexOf(item);
+        this.main.items[itemIndex].image = file;
+    }
 }

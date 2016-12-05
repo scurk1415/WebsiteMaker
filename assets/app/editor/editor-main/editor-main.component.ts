@@ -15,7 +15,8 @@ export class EditorMainComponent implements OnInit {
     ngOnInit() {
         this.tmpMain = {
             showControl: false,
-            name: "Main"
+            name: "Main",
+            theme_on: true
         }
     }
     

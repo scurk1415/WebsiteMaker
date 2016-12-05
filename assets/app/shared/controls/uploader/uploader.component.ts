@@ -12,6 +12,7 @@ export class UploaderComponent implements OnInit {
 
     @Input() inputFile: Object;
     @Input() inputOptions: Object;
+    @Input() width: Number;
     @Output() uploadedFile = new EventEmitter();
 
     private response: any = {};
