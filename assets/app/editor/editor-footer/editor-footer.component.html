@@ -7,7 +7,7 @@
         <div class="footer-data">
             <div class="width-half">
                 <h5 class="white-text" [style.fontSize]="footer.title_size">{{footer.title}}</h5>
-                <p class="grey-text text-lighten-4">{{footer.text}}</p>
+                <p [innerHTML]="footer.text | sanitizeHtml"></p>
             </div>
             <div class="width-half" *ngIf="footer.links.length > 0">
                 <h5 class="white-text" [style.fontSize]="footer.title_size">{{footer.link_title}}</h5>
@@ -19,9 +19,7 @@
                 </ul>
             </div>
         </div>
-        <div class="footer-copyright" *ngIf="footer.display_copyright" [style.background]="footer.copyright_background">
-            © {{footer.copyright_text}}
-        </div>
+        <div class="footer-copyright" *ngIf="footer.display_copyright" [style.background]="footer.copyright_background" [innerHTML]="footer.copyright_text | sanitizeHtml"></div>
     </footer>
 </div>
 <dip-footer-control *ngIf="tmpFooter.showControl" [footer]="footer" [tmpFooter]="tmpFooter"></dip-footer-control>

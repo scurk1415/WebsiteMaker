@@ -1,13 +1,13 @@
-import {Http, Headers, Response} from "@angular/http";
-import {Observable} from "rxjs/rx";
-import {Injectable, EventEmitter} from "@angular/core";
-import {Solution} from "./models/solution";
-import {Footer} from "./models/footer";
-import {Header} from "./models/header";
-import {Main} from "./models/main";
-import {Nav} from "./models/nav";
-import {Page} from "./models/page";
-import {AuthService} from "../auth/auth.service";
+import { Http, Headers, Response } from "@angular/http";
+import { Observable } from "rxjs/rx";
+import { Injectable, EventEmitter } from "@angular/core";
+import { Solution } from "./models/solution";
+import { Footer } from "./models/footer";
+import { Header } from "./models/header";
+import { Main } from "./models/main";
+import { Nav } from "./models/nav";
+import { Page } from "./models/page";
+import { AuthService } from "../auth/auth.service";
 
 @Injectable()
 export class EditorService{
@@ -54,12 +54,14 @@ export class EditorService{
         const footer = new Footer();
         const main = new Main();
         const nav = new Nav();
-        const page = new Page(header,nav,main,footer);
+        const page = new Page(header,nav,main,footer)
+        let pages = new Array<Page>();
+        pages.push(page);
 
-        const solution = new Solution(AuthService.getUserId(),name,page);
+        const solution = new Solution(AuthService.getUserId(),name, pages);
 
-        var body = JSON.stringify(solution);
-        var headers = new Headers({'Content-type': 'application/json'});
+        const body = JSON.stringify(solution);
+        const headers = new Headers({'Content-type': 'application/json'});
 
         return this._http.post('http://localhost:3000/solution/create', body, {headers:headers})
             .map( (response: Response) => {
@@ -81,9 +83,9 @@ export class EditorService{
     }
 
     saveSolution(solution: Solution){
+        console.log(solution);
         const body = JSON.stringify(solution);
-
-        var headers = new Headers({'Content-type': 'application/json'});
+        const headers = new Headers({'Content-type': 'application/json'});
 
         return this._http.put('http://localhost:3000/solution/'+ solution._id, body, {headers })
             .map( response => response.json())

@@ -20,7 +20,6 @@ export class FooterControlComponent implements OnInit{
         }
     }
 
-
     addItem(){
         var item = new FooterLink("Link");
         this.footer.links.push(item);
@@ -28,5 +27,17 @@ export class FooterControlComponent implements OnInit{
 
     deleteItem(index){
         this.footer.links.splice(index,1);
+    }
+
+    keyupHandlerFunction(value, property){
+        switch (property) {
+            case 'text':
+                this.footer.text = value;
+                break;
+
+            case 'copyright_text':
+                this.footer.copyright_text = value;
+                break;
+        }
     }
 }

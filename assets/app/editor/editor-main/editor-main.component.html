@@ -1,20 +1,8 @@
 <div class="element" (mouseover)="tmpMain.showOverlay=true" (mouseleave)="tmpMain.showOverlay=false" [style.background]="main.background">
     <dip-editor-overlay [element]="tmpMain" *ngIf="!tmpMain.showControl"></dip-editor-overlay>
 
-    <div style="min-height: 200px; display: flex; flex-wrap: wrap; justify-content: center;">
-        <div *ngFor="let item of main.items" style="width: 33%; padding: 20px; box-sizing: border-box; text-align: center;">
-            <div style="padding: 0 20px 20px;" [style.background]="main.card_background">
-                <div class="bottom10" *ngIf="item.image">
-                    <img src="/uploaded/{{item.image.filename}}" style="height: 200px;">
-                </div>
-                <div [ngStyle]="{'color': main.title_color, 'font-size': main.title_size}">
-                    {{item.title}}
-                </div>
-                <div class="break-word" [ngStyle]="{'color': main.description_color, 'font-size': main.description_size}">
-                    {{item.description}}
-                </div>
-            </div>
-        </div>
-    </div>
+    <dip-main-layout-one [main]="main" *ngIf="main.layout == layoutTypes.Grid"></dip-main-layout-one>
+    <dip-main-layout-two [main]="main" *ngIf="main.layout == layoutTypes.Rows"></dip-main-layout-two>
+    <div style="height: 200px;"></div>
 </div>
 <dip-main-control *ngIf="tmpMain.showControl" [main]="main" [tmpMain]="tmpMain"></dip-main-control>

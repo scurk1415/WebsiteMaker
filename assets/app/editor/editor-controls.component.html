@@ -1,3 +1,9 @@
-<div>
-    <button class="button" (click)="save()">Save</button>
+
+<div class="clearfix">
+    <button class="button left" *ngIf="pages.length > 1" (click)="changePage('-')">Previous</button>
+
+    <button class="button" (click)="save()">Save {{pages.length}} </button>
+    <button class="button left20" (click)="addPage()">Add Page</button>
+
+    <button class="button right" *ngIf="pages.length > 1" (click)="changePage('+')">Next</button>
 </div>

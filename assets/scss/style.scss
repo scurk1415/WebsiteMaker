@@ -9,34 +9,36 @@
 @import 'editor';
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: $background;
-  margin: 0 auto;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background: $background;
+    margin: 0 auto;
 }
 a {
-  color: #00b7ff;
-  cursor: pointer;
-  text-decoration: none;
+    color: #00b7ff;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 a.delete:hover{
   color: #ff0000;
 }
-
+h1{
+    margin: 0 0 10px 0;
+}
 .main-wrapper{
-  max-width: 1360px;
-  margin: 0 auto;
-  padding: 76px 20px 20px;
-  box-sizing: border-box;
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 76px 20px 20px;
+    box-sizing: border-box;
 }
 
 #error-panel .card-panel{
-  padding: 10px;
+    padding: 10px;
 }
 
 .element{
-  overflow: hidden;
-  position: relative;
+    overflow: hidden;
+    position: relative;
 }
 
 

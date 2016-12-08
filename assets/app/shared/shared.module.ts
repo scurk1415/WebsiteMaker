@@ -5,6 +5,8 @@ import { FormsModule } from "@angular/forms";
 import { ComboboxComponent } from "./controls/combobox.component";
 import { UploaderComponent } from "./controls/uploader/uploader.component";
 import { Ng2UploaderModule } from "ng2-uploader";
+import { TinyMceComponent } from "./controls/tinymce.component";
+import { SanitizeHtml } from "./pipes/sanitize-html.pipe";
 
 @NgModule({
     imports:[
@@ -15,12 +17,16 @@ import { Ng2UploaderModule } from "ng2-uploader";
     declarations:[
         ErrorComponent,
         ComboboxComponent,
-        UploaderComponent
+        UploaderComponent,
+        TinyMceComponent,
+        SanitizeHtml
     ],
     exports:[
         ErrorComponent,
         ComboboxComponent,
-        UploaderComponent
+        UploaderComponent,
+        TinyMceComponent,
+        SanitizeHtml
     ]
 })
 

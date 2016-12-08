@@ -50,14 +50,6 @@ export class UploaderComponent implements OnInit {
         }
     }
 
-    handleUpload2(data): void {
-        console.log(data);
-        if (data && data.response) {
-            data = JSON.parse(data.response);
-            this.uploadedFile.emit(data[0]);
-        }
-    }
-
     fileOverBase(e:any):void {
         this.hasBaseDropZoneOver = e;
     }

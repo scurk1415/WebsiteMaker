@@ -3,3 +3,8 @@ export enum ControlViews{
     Style,
     Theme
 }
+
+export enum MainLayoutTypes{
+    Grid,
+    Rows
+}

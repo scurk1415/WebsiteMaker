@@ -9,6 +9,8 @@ export class Footer{
         public font_color?: string,
         public link_color?: string,
         public title?: string,
+        public text?: string,
+        public copyright_text?: string,
         public link_title?: string,
     ){}
 }

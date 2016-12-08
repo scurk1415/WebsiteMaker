@@ -1,0 +1,15 @@
+<div>
+    <div style="display: flex;" [ngClass]="{'reverse-row': i%2 != 0}" *ngFor="let item of main.items; let i = index">
+        <div style="flex: 1;" *ngIf="item.image">
+            <img src="/uploaded/{{item.image.filename}}" style="width: 100%;">
+        </div>
+        <div class="align-center" style="padding: 20px; flex: 1;">
+            <h1 [ngStyle]="{'color': main.title_color, 'font-size': main.title_size}">
+                {{item.title}}
+            </h1>
+            <div class="break-word top10"
+                 [innerHTML]="item.description | sanitizeHtml">
+            </div>
+        </div>
+    </div>
+</div>

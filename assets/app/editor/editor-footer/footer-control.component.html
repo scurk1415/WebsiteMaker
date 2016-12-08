@@ -21,15 +21,16 @@
         <div class="form-field clearfix">
             <div class="left">
                 <div class="form-label">
-                    <label for="FooterText">Text</label>
+                    <label>Text</label>
                 </div>
-                <textarea id="FooterText" cols="35" rows="5" [(ngModel)]="footer.text"></textarea>
+                <dip-tinymce [elementId]="'FooterText'" [content]="footer.text" (onEditorKeyup)="keyupHandlerFunction($event, 'text')"></dip-tinymce>
             </div>
-            <div class="left left20">
+            <div class="left top20">
                 <div class="form-label">
-                    <label for="CopyrightText">Copyright text</label>
+                    <label>Copyright text</label>
                 </div>
-                <textarea id="CopyrightText" cols="35" rows="5" [(ngModel)]="footer.copyright_text"></textarea>
+
+                <dip-tinymce [elementId]="'CopyrightText'" [content]="footer.copyright_text" (onEditorKeyup)="keyupHandlerFunction($event, 'copyright_text')"></dip-tinymce>
             </div>
         </div>
         <!--Items-->

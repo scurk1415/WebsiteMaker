@@ -5,9 +5,8 @@ export class Main{
         public background? : string,
         public card_background? : string,
         public title_color? : string,
-        public description_color? : string,
         public title_size? : string,
-        public description_size? : string,
+        public layout?: number
     ){}
 }
 

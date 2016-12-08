@@ -1,0 +1,15 @@
+<div style="min-height: 200px; display: flex; flex-wrap: wrap; justify-content: center;">
+    <div *ngFor="let item of main.items" style="width: 33%; padding: 20px; box-sizing: border-box; text-align: center;">
+        <div style="padding: 0 20px 20px;" [style.background]="main.card_background">
+            <div class="bottom10" *ngIf="item.image">
+                <img src="/uploaded/{{item.image.filename}}" style="height: 200px;">
+            </div>
+            <div [ngStyle]="{'color': main.title_color, 'font-size': main.title_size}">
+                {{item.title}}
+            </div>
+            <div class="break-word"
+                 [innerHTML]="item.description | sanitizeHtml">
+            </div>
+        </div>
+    </div>
+</div>

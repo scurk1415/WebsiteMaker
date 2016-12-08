@@ -1,8 +1,6 @@
-import {Component, OnInit, Input} from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { ControlViews } from "../../shared/enums";
 import { Main, MainItem } from "../models/main";
-
-declare var tinymce: any;
 
 @Component({
     selector: 'dip-main-control',
@@ -15,6 +13,8 @@ export class MainControlComponent implements OnInit{
     controlViews = ControlViews;
 
     public edit: Array<boolean> = new Array();
+
+    public test;
 
     ngOnInit() {
         if(!this.main.items){
@@ -36,4 +36,9 @@ export class MainControlComponent implements OnInit{
         let itemIndex = this.main.items.indexOf(item);
         this.main.items[itemIndex].image = file;
     }
+
+    keyupHandlerFunction(value, item){
+        item.description = value;
+    }
+
 }

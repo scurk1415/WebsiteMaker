@@ -1,13 +1,13 @@
 <div id="editor-app-wrapper" *ngIf="solution">
     <div id="editor-app-buttons">
-        <dip-editor-controls (saveSolution)="saveSolution()"></dip-editor-controls>
+        <dip-editor-controls (saveSolution)="saveSolution()" [pages]="solution.pages" (changeSelectedPage)="changeCurrentPage($event)"></dip-editor-controls>
     </div>
 
     <div id="editor-app" class="relative">
-        <dip-editor-header [header]="solution.page.header"></dip-editor-header>
-        <dip-editor-nav [nav]="solution.page.nav"></dip-editor-nav>
-        <dip-editor-main [main]="solution.page.main"></dip-editor-main>
-        <dip-editor-footer [footer]="solution.page.footer"></dip-editor-footer>
+        <dip-editor-header [header]="page.header"></dip-editor-header>
+        <dip-editor-nav [nav]="page.nav"></dip-editor-nav>
+        <dip-editor-main [main]="page.main"></dip-editor-main>
+        <dip-editor-footer [footer]="page.footer"></dip-editor-footer>
     </div>
 </div>
 <div *ngIf="!solution">

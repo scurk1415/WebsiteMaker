@@ -40,7 +40,7 @@ import { MainComponents } from "./editor-main/main";
         CreateSolutionComponent,
         OverlayComponent,
         EditorControlsComponent,
-        HiddenComponent
+        HiddenComponent,
     ],
     providers: [EditorService]
 })

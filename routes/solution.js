@@ -72,9 +72,8 @@ router.put('/:id', function(req, res, next){
                 obj: {message: 'no solution'}
             });
         }
-        console.log(req.body);
-        doc.page = req.body.page;
-        //console.log(doc);
+
+        doc.pages = req.body.pages;
         doc.save(function(err, result){
             if(err){
                 return res.status(404).json({

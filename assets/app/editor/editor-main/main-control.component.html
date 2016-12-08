@@ -2,6 +2,10 @@
     <dip-control-header [control]="tmpMain"></dip-control-header>
 
     <div *ngIf="tmpMain.selection == controlViews.Edit">
+
+        <div [innerHTML]="test | sanitizeHtml"></div>
+
+
         <button class="button small" (click)="addItem()">Add item</button>
 
         <!-- links -->
@@ -13,7 +17,8 @@
                     </div>
 
                     <button class="right left20" (click)="deleteItem(item)">Delete</button>
-                    <button class="right left20" (click)="edit[i]=true">Edit</button>
+                    <button class="right left20" *ngIf="edit[i]!=true" (click)="edit[i]=true">Edit</button>
+                    <button class="right left20" *ngIf="edit[i]==true" (click)="edit[i]=false">Close</button>
                 </div>
                 <div class="dg-row-alternative" *ngIf="edit[i]==true">
                     <div style="display: flex; align-items: flex-start;">
@@ -28,12 +33,11 @@
                                 <label>Title</label>
                             </div>
                             <div class="top20">
-                                <textarea [(ngModel)]="item.description"></textarea>
+                                <dip-tinymce [elementId]="'test'" [content]="item.description" (onEditorKeyup)="keyupHandlerFunction($event , item)"></dip-tinymce>
                             </div>
                         </div>
                     </div>
 
-                    <button (click)="edit[i]=false">Close</button>
                 </div>
             </li>
         </ul>
