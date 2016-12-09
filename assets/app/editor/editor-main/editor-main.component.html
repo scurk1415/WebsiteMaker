@@ -1,8 +1,10 @@
-<div class="element" (mouseover)="tmpMain.showOverlay=true" (mouseleave)="tmpMain.showOverlay=false" [style.background]="main.background">
+<div class="element" (mouseover)="tmpMain.showOverlay=true" (mouseleave)="tmpMain.showOverlay=false" [style.background]="main.background" style="min-height: 200px;">
     <dip-editor-overlay [element]="tmpMain" *ngIf="!tmpMain.showControl"></dip-editor-overlay>
 
     <dip-main-layout-one [main]="main" *ngIf="main.layout == layoutTypes.Grid"></dip-main-layout-one>
     <dip-main-layout-two [main]="main" *ngIf="main.layout == layoutTypes.Rows"></dip-main-layout-two>
-    <div style="height: 200px;"></div>
 </div>
-<dip-main-control *ngIf="tmpMain.showControl" [main]="main" [tmpMain]="tmpMain"></dip-main-control>
+
+<div class="draggable-directive" [ng2-draggable]="tmpMain.float" *ngIf="tmpMain.showControl">
+    <dip-main-control [main]="main" [tmpMain]="tmpMain"></dip-main-control>
+</div>

@@ -8,7 +8,7 @@ import { SelectListItem } from "./select-list-item";
 })
 export class ComboboxComponent implements OnInit {
     @Input() items: Array<SelectListItem>;
-    @Input() selectedItem: string = "12px";
+    @Input() selectedItem: string = "";
     @Input() cbStyle: string;
     @Input() label: string;
     @Output() selected = new EventEmitter();
@@ -24,8 +24,6 @@ export class ComboboxComponent implements OnInit {
     selectItem(value){
         this.open = false;
         this.selectedItem = value;
-        console.log(this.selectedItem );
-        console.log(value);
         this.selected.emit(this.selectedItem);
         this.changeSelectedText(value);
     }

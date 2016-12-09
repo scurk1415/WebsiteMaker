@@ -3,7 +3,7 @@
         <label>{{label}}</label>
     </div>
     <div class="combobox">
-        <div class="cb-trigger" (click)="onOpen()" [class.empty]="!displayed_item.value" [ngStyle]="cbStyle">
+        <div class="cb-trigger" (click)="onOpen()" [class.empty]="displayed_item.value === ''" [ngStyle]="cbStyle">
             {{displayed_item.text}}
             <span class="down-arrow"></span>
         </div>

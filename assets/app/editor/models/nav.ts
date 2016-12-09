@@ -9,6 +9,7 @@ export class Nav{
 export class NavItem{
     constructor(
         public title?: string,
-        public action?: string
+        public action?: string,
+        public action_type?: Number
     ){}
 }

@@ -1,9 +1,14 @@
+<div id="editor-app-buttons">
+    <button class="button" *ngIf="pages.length > 1" (click)="onChangePage('-')" [disabled]="index == 0">Previous</button>
 
-<div class="clearfix">
-    <button class="button left" *ngIf="pages.length > 1" (click)="changePage('-')">Previous</button>
+    <h1 class="align-center" style="flex: 10;">Page {{index+1}}</h1>
 
-    <button class="button" (click)="save()">Save {{pages.length}} </button>
-    <button class="button left20" (click)="addPage()">Add Page</button>
+    <button class="button" *ngIf="pages.length > 1" (click)="onChangePage('+')" [disabled]="index == pages.length -1">Next</button>
+</div>
 
-    <button class="button right" *ngIf="pages.length > 1" (click)="changePage('+')">Next</button>
+<div class="flex" style="flex-direction: column; position: fixed; left: 40px; top: 40%;">
+    <span class="right20"></span>
+    <button class="button" (click)="onSave()">Save</button>
+    <button class="button top20" (click)="onAddPage()">Add Page</button>
+    <button class="button top20" (click)="onDeletePage(index)">Delete Page {{index+1}}</button>
 </div>

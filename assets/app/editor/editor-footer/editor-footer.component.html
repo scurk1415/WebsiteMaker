@@ -22,4 +22,7 @@
         <div class="footer-copyright" *ngIf="footer.display_copyright" [style.background]="footer.copyright_background" [innerHTML]="footer.copyright_text | sanitizeHtml"></div>
     </footer>
 </div>
-<dip-footer-control *ngIf="tmpFooter.showControl" [footer]="footer" [tmpFooter]="tmpFooter"></dip-footer-control>
+
+<div class="draggable-directive" [ng2-draggable]="tmpFooter.float" *ngIf="tmpFooter.showControl">
+    <dip-footer-control [footer]="footer" [tmpFooter]="tmpFooter"></dip-footer-control>
+</div>

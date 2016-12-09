@@ -15,7 +15,8 @@
                         {{item.action}}
                     </div>
                     <button class="right left20" (click)="deleteItem(item)">Delete</button>
-                    <button class="right left20" (click)="edit[i]=true">Edit</button>
+                    <button class="right left20" (click)="edit[i]=false" *ngIf="edit[i]">Close</button>
+                    <button class="right left20" (click)="edit[i]=true" *ngIf="!edit[i]">Edit</button>
                 </div>
                 <div class="dg-row-alternative" *ngIf="edit[i]==true">
                     <div class="input-field">
@@ -23,13 +24,20 @@
                                [class.active]="item.title">
                         <label>Title</label>
                     </div>
-                    <div class="input-field">
+
+                    <div class="clearfix form-field">
+                        <dip-combobox [items]="action_types" [selectedItem]="item.action_type"  (selected)="onActionTypeSelect($event, item)" [cbStyle]="{width: '200px'}"></dip-combobox>
+                    </div>
+
+                    <div class="input-field" *ngIf="item.action_type == navActionTypes.Url">
                         <input [(ngModel)]="item.action"
                                [class.active]="item.action">
                         <label>URL (with http://)</label>
                     </div>
 
-                    <button (click)="edit[i]=false">Close</button>
+                    <div class="input-field" *ngIf="item.action_type == navActionTypes.AppPage">
+                        Mogoce dela
+                    </div>
                 </div>
             </li>
         </ul>

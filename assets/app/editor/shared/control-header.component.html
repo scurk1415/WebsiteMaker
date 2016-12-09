@@ -6,6 +6,10 @@
         <button (click)="control.selection=controlViews.Edit">Edit</button>
         <button (click)="control.selection=controlViews.Style">Style</button>
         <button *ngIf="control.theme_on" (click)="control.selection=controlViews.Theme">Theme</button>
+
+        <button (click)="control.float=true" *ngIf="!control.float">Float</button>
+        <button (click)="control.float=false" *ngIf="control.float">Dock</button>
+
         <button (click)="control.showControl=false">Close</button>
     </div>
 </div>

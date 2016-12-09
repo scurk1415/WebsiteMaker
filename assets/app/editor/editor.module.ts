@@ -18,6 +18,7 @@ import { NavComponents } from "./editor-nav/navComponents";
 import { HeaderComponents } from "./editor-header/header";
 import { FooterComponents } from "./editor-footer/footer";
 import { MainComponents } from "./editor-main/main";
+import { Draggable } from "../shared/controls/dragable.directive";
 
 @NgModule({
     imports: [
@@ -41,6 +42,7 @@ import { MainComponents } from "./editor-main/main";
         OverlayComponent,
         EditorControlsComponent,
         HiddenComponent,
+        Draggable
     ],
     providers: [EditorService]
 })

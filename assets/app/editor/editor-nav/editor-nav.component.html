@@ -10,4 +10,6 @@
         </li>
     </ul>
 </div>
-<dip-nav-control *ngIf="tmpNav.showControl" [nav]="nav" [tmpNav]="tmpNav"></dip-nav-control>
+<div class="draggable-directive" [ng2-draggable]="tmpNav.float" *ngIf="tmpNav.showControl">
+    <dip-nav-control [nav]="nav" [tmpNav]="tmpNav" [pages]="pages"></dip-nav-control>
+</div>

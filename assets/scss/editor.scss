@@ -50,4 +50,26 @@
             padding: 20px 10px;
         }
     }
+
+    .draggable-directive{
+        z-index: 500;
+        width: 50%;
+        margin: 0 auto;
+        position: relative;
+    }
+    .draggable-directive .card{
+        width: 100%;
+    }
+    /* Applies a grabbing hand on top of the div that's draggable*/
+    .cursor-draggable {
+        cursor: grab;
+        cursor: -moz-grab;
+        cursor: -webkit-grab;
+    }
+    /*  Apply a "closed-hand" cursor during drag operation. */
+    .cursor-draggable:active {
+        cursor: grabbing;
+        cursor: -moz-grabbing;
+        cursor: -webkit-grabbing;
+    }
 }

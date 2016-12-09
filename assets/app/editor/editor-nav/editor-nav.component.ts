@@ -8,6 +8,7 @@ import { Nav } from "../models/nav";
 })
 export class EditorNavComponent implements OnInit {
     @Input() nav: Nav;
+    @Input() pages;
 
     public tmpNav = {
         showControl: false,
