@@ -1,8 +1,8 @@
-import {Component, OnInit, OnDestroy} from "@angular/core";
-import {ActivatedRoute, Router} from "@angular/router";
-import {Subscription} from "rxjs";
-import {EditorService} from "./editor.service";
-import {Solution} from "./models/solution";
+import { Component, OnInit, OnDestroy } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { Subscription } from "rxjs";
+import { EditorService } from "./editor.service";
+import { Solution } from "./models/solution";
 import { Page } from "./models/page";
 
 @Component({
@@ -50,6 +50,9 @@ export class EditorComponent implements OnInit, OnDestroy{
         }
     }
 
+    changeTheme(value: number){
+        this.solution.theme = value;
+    }
     deletePage(index: number){
         this.solution.pages.splice(index,1);
         this.page = this.solution.pages[0];
@@ -58,4 +61,6 @@ export class EditorComponent implements OnInit, OnDestroy{
     ngOnDestroy(): void{
         this.subscription.unsubscribe();
     }
+
+
 }

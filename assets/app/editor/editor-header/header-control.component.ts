@@ -4,7 +4,7 @@ import { ControlViews } from "../../shared/enums";
 
 @Component({
     selector: 'dip-header-control',
-    templateUrl: './header-control.component.html'
+    templateUrl: 'header-control.component.html'
 })
 export class HeaderControlComponent implements OnInit {
     @Input() header: Header;

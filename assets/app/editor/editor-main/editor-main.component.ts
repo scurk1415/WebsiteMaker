@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Main } from "../models/main";
-import { MainLayoutTypes } from "../../shared/enums";
+import { SolutionThemes } from "../../shared/enums";
 
 @Component({
     selector: 'dip-editor-main',
@@ -8,9 +8,11 @@ import { MainLayoutTypes } from "../../shared/enums";
 })
 export class EditorMainComponent implements OnInit {
     @Input() public main: Main;
+    @Input() theme: Number;
+
+    public solutionThemes = SolutionThemes;
 
     public tmpMain= {};
-    public layoutTypes = MainLayoutTypes;
 
     constructor() { }
 

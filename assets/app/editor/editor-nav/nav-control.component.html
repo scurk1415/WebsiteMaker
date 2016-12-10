@@ -1,48 +1,50 @@
-<div class="card centered">
-    <dip-control-header [control]="tmpNav"></dip-control-header>
+<div class="draggable-directive" [ng2-draggable]="tmpNav.float" *ngIf="tmpNav.showControl">
+    <div class="card centered">
+        <dip-control-header [control]="tmpNav"></dip-control-header>
 
-    <div *ngIf="tmpNav.selection == controlViews.Edit">
-        <button class="button small" (click)="addItem()">Add item</button>
+        <div *ngIf="tmpNav.selection == controlViews.Edit">
+            <button class="button small" (click)="addItem()">Add item</button>
 
-        <!-- links -->
-        <ul class="datagrid">
-            <li class="dg-row" *ngFor="let item of nav.menu; let i = index;">
-                <div class="dg-row-item clearfix">
-                    <div class="left ellipsis" style="max-width: 150px; width: 150px; text-overflow: ellipsis;">
-                        {{item.title}}
+            <!-- links -->
+            <ul class="datagrid">
+                <li class="dg-row" *ngFor="let item of nav.menu; let i = index;">
+                    <div class="dg-row-item clearfix">
+                        <div class="left ellipsis" style="max-width: 150px; width: 150px; text-overflow: ellipsis;">
+                            {{item.title}}
+                        </div>
+                        <div class="left left20 ellipsis" style="max-width: 300px; width: 300px; text-overflow: ellipsis;">
+                            {{item.action}}
+                        </div>
+                        <button class="right left20" (click)="deleteItem(item)">Delete</button>
+                        <button class="right left20" (click)="edit[i]=false" *ngIf="edit[i]">Close</button>
+                        <button class="right left20" (click)="edit[i]=true" *ngIf="!edit[i]">Edit</button>
                     </div>
-                    <div class="left left20 ellipsis" style="max-width: 300px; width: 300px; text-overflow: ellipsis;">
-                        {{item.action}}
-                    </div>
-                    <button class="right left20" (click)="deleteItem(item)">Delete</button>
-                    <button class="right left20" (click)="edit[i]=false" *ngIf="edit[i]">Close</button>
-                    <button class="right left20" (click)="edit[i]=true" *ngIf="!edit[i]">Edit</button>
-                </div>
-                <div class="dg-row-alternative" *ngIf="edit[i]==true">
-                    <div class="input-field">
-                        <input [(ngModel)]="item.title"
-                               [class.active]="item.title">
-                        <label>Title</label>
-                    </div>
+                    <div class="dg-row-alternative" *ngIf="edit[i]==true">
+                        <div class="input-field">
+                            <input [(ngModel)]="item.title"
+                                   [class.active]="item.title">
+                            <label>Title</label>
+                        </div>
 
-                    <div class="clearfix form-field">
-                        <dip-combobox [items]="action_types" [selectedItem]="item.action_type"  (selected)="onActionTypeSelect($event, item)" [cbStyle]="{width: '200px'}"></dip-combobox>
-                    </div>
+                        <div class="clearfix form-field">
+                            <dip-combobox [items]="action_types" [selectedItem]="item.action_type"  (selected)="onActionTypeSelect($event, item)" [cbStyle]="{width: '200px'}"></dip-combobox>
+                        </div>
 
-                    <div class="input-field" *ngIf="item.action_type == navActionTypes.Url">
-                        <input [(ngModel)]="item.action"
-                               [class.active]="item.action">
-                        <label>URL (with http://)</label>
-                    </div>
+                        <div class="input-field" *ngIf="item.action_type == navActionTypes.Url">
+                            <input [(ngModel)]="item.action"
+                                   [class.active]="item.action">
+                            <label>URL (with http://)</label>
+                        </div>
 
-                    <div class="input-field" *ngIf="item.action_type == navActionTypes.AppPage">
-                        Mogoce dela
+                        <div class="input-field" *ngIf="item.action_type == navActionTypes.AppPage">
+                            Mogoce dela
+                        </div>
                     </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-    <div *ngIf="tmpNav.selection == controlViews.Style">
-        <dip-nav-style [nav]="nav"></dip-nav-style>
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="tmpNav.selection == controlViews.Style">
+            <dip-nav-style [nav]="nav"></dip-nav-style>
+        </div>
     </div>
 </div>

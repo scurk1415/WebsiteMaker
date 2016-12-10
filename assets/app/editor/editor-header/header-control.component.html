@@ -1,23 +1,25 @@
-<div class="card centered">
-    <dip-control-header [control]="tmpHeader"></dip-control-header>
+<div class="draggable-directive" [ng2-draggable]="tmpHeader.float" *ngIf="tmpHeader.showControl">
+    <div class="card centered">
+        <dip-control-header [control]="tmpHeader"></dip-control-header>
 
-    <div *ngIf="tmpHeader.selection == controlViews.Edit">
-        <div class="form-field">
-            <div class="input-field">
-                <input [(ngModel)]="header.title"
-                       [class.active]="header.title"
-                       style="width: 300px;">
-                <label>Title</label>
+        <div *ngIf="tmpHeader.selection == controlViews.Edit">
+            <div class="form-field">
+                <div class="input-field">
+                    <input [(ngModel)]="header.title"
+                           [class.active]="header.title"
+                           style="width: 300px;">
+                    <label>Title</label>
+                </div>
+            </div>
+            <div class="form-field">
+                <div class="form-label">
+                    <label>Background image</label>
+                </div>
+                <dip-uploader [inputFile]="header.logo" (uploadedFile)="onFileUploaded($event)"></dip-uploader>
             </div>
         </div>
-        <div class="form-field">
-            <div class="form-label">
-                <label>Background image</label>
-            </div>
-            <dip-uploader [inputFile]="header.logo" (uploadedFile)="onFileUploaded($event)"></dip-uploader>
+        <div *ngIf="tmpHeader.selection == controlViews.Style">
+            <dip-header-style [header]="header"></dip-header-style>
         </div>
-    </div>
-    <div *ngIf="tmpHeader.selection == controlViews.Style">
-        <dip-header-style [header]="header"></dip-header-style>
     </div>
 </div>

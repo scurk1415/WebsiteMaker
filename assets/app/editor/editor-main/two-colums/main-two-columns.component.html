@@ -1,0 +1,7 @@
+<div class="element main-two-column" (mouseover)="tmpMain.showOverlay=true" (mouseleave)="tmpMain.showOverlay=false" [style.background]="main.background">
+    <dip-editor-overlay [element]="tmpMain" *ngIf="!tmpMain.showControl"></dip-editor-overlay>
+
+    nekej pa je
+</div>
+
+<dip-main-control [main]="main" [tmpMain]="tmpMain"></dip-main-control>

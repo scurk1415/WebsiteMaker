@@ -1,22 +1,24 @@
-<div id="editor-app-buttons">
+<div id="editor-app-buttons relative">
 
-    <div class="relative" style="flex: 10;">
+    <div class="pointer" style="width: 200px; margin: 0 auto">
         <h1 class="align-center relative" (click)="displayPages()">Page {{index + 1}} <span class="down-arrow"></span></h1>
-        <div *ngIf="showPages" class="pages-menu clearfix">
+    </div>
+    <div *ngIf="showPages" class="pages-menu clearfix">
 
-            <div class="page-wrapper relative left bottom10" *ngFor="let page of pages; let i = index">
-                <div class="page" [ngClass]="{'selected': index == i}" (click)="onChangePage(i)">
-                    {{i + 1}}
-                </div>
-                <button class="material-icons delete-button" (click)="onDeletePage(i)" *ngIf="pages.length > 1" title="Delete page">delete</button>
+        <div class="page-wrapper relative left bottom10" *ngFor="let page of pages; let i = index">
+            <div class="page" [ngClass]="{'selected': index == i}" (click)="onChangePage(i)">
+                {{i + 1}}
             </div>
-
-            <button class="button icon add left add-page" (click)="onAddPage()" title="Add page">+</button>
+            <button class="material-icons delete-button" (click)="onDeletePage(i)" *ngIf="pages.length > 1" title="Delete page">delete</button>
         </div>
+
+        <button class="button icon add left add-page" (click)="onAddPage()" title="Add page">+</button>
     </div>
 </div>
 
 <div class="flex" style="flex-direction: column; position: fixed; left: 40px; top: 40%;">
     <span class="right20"></span>
     <button class="button" (click)="onSave()">Save</button>
+    <button class="button" (click)="changeTheme(1)">1</button>
+    <button class="button" (click)="changeTheme(2)">2</button>
 </div>

@@ -10,6 +10,7 @@ export class EditorControlsComponent {
     @Output() deletePage = new EventEmitter<Number>();
     @Output() changeSelectedPage = new EventEmitter<Number>();
     @Output() saveSolution = new EventEmitter();
+    @Output() changeSolutionSolution = new EventEmitter<Number>();
 
     @Input() pages;
     @Input() page;
@@ -43,5 +44,9 @@ export class EditorControlsComponent {
     onChangePage(type: number){
         this.changeSelectedPage.emit(type);
         this.showPages = false;
+    }
+
+    changeTheme(theme: Number){
+        this.changeSolutionSolution.emit(theme);
     }
 }

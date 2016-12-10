@@ -1,0 +1,9 @@
+.editor_nav{
+    width: 20%;
+    position: absolute;
+    min-height: 760px;
+    height: auto;
+
+    padding: 20px;
+    box-sizing: border-box;
+}

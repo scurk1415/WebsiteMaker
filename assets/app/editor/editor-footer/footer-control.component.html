@@ -1,72 +1,74 @@
-<div class="card centered">
-    <dip-control-header [control]="tmpFooter"></dip-control-header>
+<div class="draggable-directive" [ng2-draggable]="tmpFooter.float" *ngIf="tmpFooter.showControl">
+    <div class="card centered">
+        <dip-control-header [control]="tmpFooter"></dip-control-header>
 
-    <div *ngIf="tmpFooter.selection == controlViews.Edit">
-        <!--Titles-->
-        <div class="form-field clearfix top20">
-            <div class="input-field left">
-                <input [(ngModel)]="footer.title"
-                       [class.active]="footer.title"
-                        style="width: 300px;">
-                <label>Title</label>
-            </div>
-
-            <div class="input-field left left20">
-                <input [(ngModel)]="footer.link_title"
-                       [class.active]="footer.link_title"
-                       style="width: 300px;">
-                <label>Link title</label>
-            </div>
-        </div>
-        <div class="form-field clearfix">
-            <div class="left">
-                <div class="form-label">
-                    <label>Text</label>
-                </div>
-                <dip-tinymce [elementId]="'FooterText'" [content]="footer.text" (onEditorKeyup)="keyupHandlerFunction($event, 'text')"></dip-tinymce>
-            </div>
-            <div class="left top20">
-                <div class="form-label">
-                    <label>Copyright text</label>
+        <div *ngIf="tmpFooter.selection == controlViews.Edit">
+            <!--Titles-->
+            <div class="form-field clearfix top20">
+                <div class="input-field left">
+                    <input [(ngModel)]="footer.title"
+                           [class.active]="footer.title"
+                            style="width: 300px;">
+                    <label>Title</label>
                 </div>
 
-                <dip-tinymce [elementId]="'CopyrightText'" [content]="footer.copyright_text" (onEditorKeyup)="keyupHandlerFunction($event, 'copyright_text')"></dip-tinymce>
+                <div class="input-field left left20">
+                    <input [(ngModel)]="footer.link_title"
+                           [class.active]="footer.link_title"
+                           style="width: 300px;">
+                    <label>Link title</label>
+                </div>
+            </div>
+            <div class="form-field clearfix">
+                <div class="left">
+                    <div class="form-label">
+                        <label>Text</label>
+                    </div>
+                    <dip-tinymce [elementId]="'FooterText'" [content]="footer.text" (onEditorKeyup)="keyupHandlerFunction($event, 'text')"></dip-tinymce>
+                </div>
+                <div class="left top20">
+                    <div class="form-label">
+                        <label>Copyright text</label>
+                    </div>
+
+                    <dip-tinymce [elementId]="'CopyrightText'" [content]="footer.copyright_text" (onEditorKeyup)="keyupHandlerFunction($event, 'copyright_text')"></dip-tinymce>
+                </div>
+            </div>
+            <!--Items-->
+            <div class="form-field">
+                <button class="button small" (click)="addItem()">Add item</button>
+
+                <!-- links -->
+                <ul class="datagrid">
+                    <li class="dg-row" *ngFor="let link of footer.links; let i = index;">
+                        <div class="dg-row-item clearfix">
+                            <div class="left ellipsis" style="max-width: 150px; width: 150px; text-overflow: ellipsis;">
+                                {{link.title}}
+                            </div>
+                            <div class="left left20 ellipsis" style="max-width: 300px; width: 300px; text-overflow: ellipsis;">
+                                {{link.action}}
+                            </div>
+                            <button class="right left20" (click)="deleteItem(i)">Delete</button>
+                            <button class="right left20" (click)="edit[i]=true">Edit</button>
+                        </div>
+                        <div class="dg-row-alternative" *ngIf="edit[i]==true">
+                            <div class="input-field">
+                                <input [(ngModel)]="link.title" [class.active]="link.title">
+                                <label>Title</label>
+                            </div>
+                            <div class="input-field">
+                                <input [(ngModel)]="link.action"  [class.active]="link.action">
+                                <label>URL (with http://)</label>
+                            </div>
+
+                            <button (click)="edit[i]=false">Close</button>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
-        <!--Items-->
-        <div class="form-field">
-            <button class="button small" (click)="addItem()">Add item</button>
-
-            <!-- links -->
-            <ul class="datagrid">
-                <li class="dg-row" *ngFor="let link of footer.links; let i = index;">
-                    <div class="dg-row-item clearfix">
-                        <div class="left ellipsis" style="max-width: 150px; width: 150px; text-overflow: ellipsis;">
-                            {{link.title}}
-                        </div>
-                        <div class="left left20 ellipsis" style="max-width: 300px; width: 300px; text-overflow: ellipsis;">
-                            {{link.action}}
-                        </div>
-                        <button class="right left20" (click)="deleteItem(i)">Delete</button>
-                        <button class="right left20" (click)="edit[i]=true">Edit</button>
-                    </div>
-                    <div class="dg-row-alternative" *ngIf="edit[i]==true">
-                        <div class="input-field">
-                            <input [(ngModel)]="link.title" [class.active]="link.title">
-                            <label>Title</label>
-                        </div>
-                        <div class="input-field">
-                            <input [(ngModel)]="link.action"  [class.active]="link.action">
-                            <label>URL (with http://)</label>
-                        </div>
-
-                        <button (click)="edit[i]=false">Close</button>
-                    </div>
-                </li>
-            </ul>
+        <div *ngIf="tmpFooter.selection == controlViews.Style">
+            <dip-footer-style [footer]="footer"></dip-footer-style>
         </div>
-    </div>
-    <div *ngIf="tmpFooter.selection == controlViews.Style">
-        <dip-footer-style [footer]="footer"></dip-footer-style>
     </div>
 </div>

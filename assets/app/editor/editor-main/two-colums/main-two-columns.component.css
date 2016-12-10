@@ -1,0 +1,7 @@
+.main-two-column{
+    width: 80%;
+    left: 20%;
+    min-height: 900px;
+    padding: 20px;
+    box-sizing: border-box;
+}

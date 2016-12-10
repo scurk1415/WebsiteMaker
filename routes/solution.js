@@ -74,6 +74,7 @@ router.put('/:id', function(req, res, next){
         }
 
         doc.pages = req.body.pages;
+        doc.theme = req.body.theme;
         doc.save(function(err, result){
             if(err){
                 return res.status(404).json({
@@ -120,8 +121,7 @@ router.post('/create', function(req, res, next){
         theme: req.body.theme,
         pages: req.body.pages,
     });
-    console.log(req.body.pages);
-    console.log(solution);
+
     solution.save(function(err, result){
         if(err){
             return res.status(404).json({
