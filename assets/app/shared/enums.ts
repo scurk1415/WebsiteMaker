@@ -1,3 +1,8 @@
+export enum SolutionThemes{
+    Normal = 1,
+    TwoColumns = 2
+}
+
 export enum ControlViews{
     Edit,
     Style,

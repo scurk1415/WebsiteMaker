@@ -42,14 +42,11 @@ export class EditorComponent implements OnInit, OnDestroy{
         );
     }
 
-    changeCurrentPage(prevNext){
+    changeCurrentPage(index){
         let currentIndex = this.solution.pages.indexOf(this.page);
 
-        if (prevNext == '+' && currentIndex < this.solution.pages.length - 1){
-            this.page = this.solution.pages[currentIndex + 1];
-        }
-        else if(prevNext == '-' && currentIndex > 0){
-            this.page = this.solution.pages[currentIndex +- 1];
+        if (index !=  currentIndex){
+            this.page = this.solution.pages[index];
         }
     }
 

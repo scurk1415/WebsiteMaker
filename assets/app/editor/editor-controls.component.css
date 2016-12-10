@@ -1,0 +1,70 @@
+.down-arrow{
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 7px solid #000000;
+    position: relative;
+    left: 5px;
+    top: 17px;
+}
+
+.pages-menu{
+    max-width: 520px;
+    position: absolute;
+    background: #ffffff;
+    padding: 20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 16;
+}
+.pages-menu .page-wrapper{
+    width: 50px;
+    height: 75px;
+    border: 2px solid gray;
+    border-radius: 5px;
+    margin: 0 20px;
+}
+.pages-menu .page{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e8dfdf;
+}
+.pages-menu .page.selected{
+    background: #00ccb9;
+}
+
+.pages-menu .page:not(.selected):hover{
+    background: #a0f9f1;
+}
+
+.add-page{
+    background: #C3C3C3;
+    padding: 10px 15px;
+    margin-top: 10px;
+}
+.add-page:hover{
+    background: #009688;
+}
+.delete-button{
+    border-radius: 100%;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    padding: 2px;
+    font-size: 20px;
+    line-height: 20px;
+    background: #F44336;
+    color: #fff;
+    border: none;
+    transition: .2s ease-out;
+    cursor: pointer;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.delete-button:hover{
+    background: #F43100;
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18),0 4px 15px 0 rgba(0,0,0,0.15);
+}

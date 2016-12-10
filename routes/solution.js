@@ -117,9 +117,11 @@ router.post('/create', function(req, res, next){
     var solution = new Solution({
         userId: req.body.userId,
         name: req.body.name,
-        page: req.body.page,
+        theme: req.body.theme,
+        pages: req.body.pages,
     });
-
+    console.log(req.body.pages);
+    console.log(solution);
     solution.save(function(err, result){
         if(err){
             return res.status(404).json({

@@ -1,14 +1,22 @@
 <div id="editor-app-buttons">
-    <button class="button" *ngIf="pages.length > 1" (click)="onChangePage('-')" [disabled]="index == 0">Previous</button>
 
-    <h1 class="align-center" style="flex: 10;">Page {{index+1}}</h1>
+    <div class="relative" style="flex: 10;">
+        <h1 class="align-center relative" (click)="displayPages()">Page {{index + 1}} <span class="down-arrow"></span></h1>
+        <div *ngIf="showPages" class="pages-menu clearfix">
 
-    <button class="button" *ngIf="pages.length > 1" (click)="onChangePage('+')" [disabled]="index == pages.length -1">Next</button>
+            <div class="page-wrapper relative left bottom10" *ngFor="let page of pages; let i = index">
+                <div class="page" [ngClass]="{'selected': index == i}" (click)="onChangePage(i)">
+                    {{i + 1}}
+                </div>
+                <button class="material-icons delete-button" (click)="onDeletePage(i)" *ngIf="pages.length > 1" title="Delete page">delete</button>
+            </div>
+
+            <button class="button icon add left add-page" (click)="onAddPage()" title="Add page">+</button>
+        </div>
+    </div>
 </div>
 
 <div class="flex" style="flex-direction: column; position: fixed; left: 40px; top: 40%;">
     <span class="right20"></span>
     <button class="button" (click)="onSave()">Save</button>
-    <button class="button top20" (click)="onAddPage()">Add Page</button>
-    <button class="button top20" (click)="onDeletePage(index)">Delete Page {{index+1}}</button>
 </div>

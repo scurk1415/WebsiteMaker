@@ -10,6 +10,13 @@
                    [class.active]="name.value">
             <label for="name">Name</label>
         </div>
+
+        <div class="form-field">
+            <input type="hidden" id="theme" name="theme" formControlName="theme">
+
+            <dip-themes [selectedThemeId]="themeId" (changeTheme)="changeTheme($event)"></dip-themes>
+        </div>
+
         <button class="button top20"
                 type="submit"
                 [disabled]="!createSolutionForm.valid">
