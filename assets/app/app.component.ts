@@ -6,5 +6,4 @@
 })
 
 export class AppComponent {
-  test: string = "fuck yeah";  
 }
