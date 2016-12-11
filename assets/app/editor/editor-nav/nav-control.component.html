@@ -36,7 +36,7 @@
                             <label>URL (with http://)</label>
                         </div>
 
-                        <div class="input-field" *ngIf="item.action_type == navActionTypes.AppPage">
+                        <div class="clearfix form-field" *ngIf="item.action_type == navActionTypes.AppPage">
                             <dip-combobox [items]="solution_pages" [selectedItem]="item.page"  (selected)="onPageSelect($event, item)" [cbStyle]="{width: '200px'}"></dip-combobox>
                         </div>
                     </div>

@@ -55,6 +55,20 @@
                [cpCancelButton]="true"
                [cpCancelButtonClass]= "'colorpicker-button button'"/>
     </div>
+    <div class="left left20">
+        <div class="form-label">
+            <label for="LabelColor">Label</label>
+        </div>
+        <input id="LabelColor"
+               class="colorpicker"
+               [(colorPicker)]="main.label_color"
+               [style.background]="main.label_color"
+               [cpPosition]="'bottom'"
+               [cpOKButton]="true"
+               [cpOKButtonClass]= "'colorpicker-button button right10'"
+               [cpCancelButton]="true"
+               [cpCancelButtonClass]= "'colorpicker-button button'"/>
+    </div>
 </div>
 <div class="form-field clearfix">
     <div class="left">

@@ -9,7 +9,6 @@ import { MainLayoutTypes } from "../../shared/enums";
 export class MainThemeComponent implements OnInit {
 
     @Input() main: Main;
-    @Input() tmpMain: any;
 
     public layoutTypes = MainLayoutTypes;
 

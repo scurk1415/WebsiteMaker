@@ -1,12 +1,16 @@
 export class Main{
     constructor(
         public name?: string,
+        public title? : string,
+        public description? : string,
         public items?: Array<MainItem>,
         public background? : string,
         public card_background? : string,
         public title_color? : string,
         public title_size? : string,
-        public layout?: number
+        public layout?: number,
+        public form_items?: Array<FormItem>,
+        public label_color? : string,
     ){}
 }
 
@@ -15,5 +19,13 @@ export class MainItem{
         public title?: string,
         public description?: string,
         public image?: Object
+    ){}
+}
+
+export class FormItem{
+    constructor(
+        public label?: string,
+        public form_type?: number,
+        public required?: boolean
     ){}
 }

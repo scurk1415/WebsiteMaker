@@ -11,10 +11,19 @@ export enum ControlViews{
 
 export enum MainLayoutTypes{
     Grid,
-    Rows
+    Rows,
+    Text,
+    ContactForm
 }
 
 export enum NavActionTypes{
     Url = 1,
     AppPage = 2
+}
+
+export enum FormTypes{
+    Text = 1,
+    Email = 2,
+    Phone = 3,
+    Message = 4
 }

@@ -1,7 +1,9 @@
 <div class="element main-two-column" (mouseover)="tmpMain.showOverlay=true" (mouseleave)="tmpMain.showOverlay=false" [style.background]="main.background">
     <dip-editor-overlay [element]="tmpMain" *ngIf="!tmpMain.showControl"></dip-editor-overlay>
 
-    nekej pa je
+    <dip-main-layout-one [main]="main" *ngIf="main.layout == layoutTypes.Grid"></dip-main-layout-one>
+    <dip-main-layout-two [main]="main" *ngIf="main.layout == layoutTypes.Rows"></dip-main-layout-two>
+    <dip-main-layout-text [main]="main" *ngIf="main.layout == layoutTypes.Text || main.layout == layoutTypes.ContactForm"></dip-main-layout-text>
 </div>
 
 <dip-main-control [main]="main" [tmpMain]="tmpMain" ></dip-main-control>
