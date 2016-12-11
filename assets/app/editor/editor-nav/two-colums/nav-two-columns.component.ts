@@ -8,13 +8,21 @@ import { Nav } from "../../models/nav";
 })
 export class NavTwoColumnsComponent implements OnInit {
     @Input() nav: Nav;
-    @Input() tmpNav;
     @Input() pages;
 
+    public tmpNav = {
+        showControl: false,
+        name: "Nav",
+        float: true,
+        disableDock: true,
+        dragPosition:{
+            left: '300px',
+            top: '50px'
+        }
+    };
     constructor() { }
 
     ngOnInit() {
-        this.tmpNav.float = true;
     }
     
 }

@@ -7,12 +7,8 @@
                          [index]="solution.pages.indexOf(page)">
     </dip-editor-controls>
 
-    <div id="editor-app" class="relative clearfix">
-        <dip-editor-header [header]="page.header" [theme]="solution.theme"></dip-editor-header>
-        <dip-editor-nav [nav]="page.nav" [pages]="solution.pages" [theme]="solution.theme"></dip-editor-nav>
-        <dip-editor-main [main]="page.main" [theme]="solution.theme"></dip-editor-main>
-        <dip-editor-footer [footer]="page.footer" [theme]="solution.theme"></dip-editor-footer>
-    </div>
+    <dip-editor-normal [solution]="solution" [page]="page" *ngIf="solution.theme == solutionThemes.Normal"></dip-editor-normal>
+    <dip-editor-two-columns [solution]="solution" [page]="page" *ngIf="solution.theme == solutionThemes.TwoColumns"></dip-editor-two-columns>
 </div>
 <div *ngIf="!solution">
     Waiting for solution

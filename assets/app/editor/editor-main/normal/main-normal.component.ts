@@ -8,7 +8,8 @@ import { MainLayoutTypes } from "../../../shared/enums";
 })
 export class MainNormalComponent implements OnInit {
     @Input() main: Main;
-    @Input() tmpMain;
+
+    public tmpMain= {};
 
     public layoutTypes = MainLayoutTypes;
 

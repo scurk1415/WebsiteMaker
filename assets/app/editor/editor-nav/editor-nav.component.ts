@@ -13,10 +13,6 @@ export class EditorNavComponent implements OnInit {
 
     public solutionThemes = SolutionThemes;
 
-    public tmpNav = {
-        showControl: false,
-        name: "Nav"
-    };
 
     constructor() { }
 

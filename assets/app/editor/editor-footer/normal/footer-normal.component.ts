@@ -9,8 +9,11 @@ import { Footer } from "../../models/footer";
 })
 export class FooterNormalComponent implements OnInit {
     @Input() footer: Footer;
-    @Input() tmpFooter;
 
+    public tmpFooter= {
+        showControl: false,
+        name: "Footer"
+    };
     constructor() { }
 
     ngOnInit() { }

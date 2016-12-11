@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from "@angular/core";
+import { Component, OnInit, Input, OnChanges } from "@angular/core";
 import { Nav, NavItem } from "../models/nav";
 import { ControlViews, NavActionTypes } from "../../shared/enums";
 import { SelectListItem } from "../../shared/controls/select-list-item";
@@ -15,6 +15,7 @@ export class NavControlComponent implements OnInit{
     controlViews = ControlViews;
     navActionTypes = NavActionTypes;
     public action_types: Array<SelectListItem> = [];
+    public solution_pages: Array<SelectListItem>;
 
     public edit: Array<boolean> = new Array();
 
@@ -28,6 +29,13 @@ export class NavControlComponent implements OnInit{
             { text: "Url", value: this.navActionTypes.Url},
             { text: "App page", value: this.navActionTypes.AppPage}
         ];
+
+        this.solution_pages = [];
+        this.solution_pages.push(new SelectListItem("Select page", ""));
+        for (let i = 0; i< this.pages.length; i++){
+            let item = new SelectListItem("Page" + (i+1), i);
+            this.solution_pages.push(item);
+        }
     }
 
     addItem(){
@@ -44,5 +52,9 @@ export class NavControlComponent implements OnInit{
 
     onActionTypeSelect(event: Number, item: NavItem){
         item.action_type = event;
+    }
+
+    onPageSelect(event: Number, item: NavItem){
+        item.page = event;
     }
 }

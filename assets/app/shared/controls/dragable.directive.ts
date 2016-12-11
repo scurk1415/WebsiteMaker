@@ -7,6 +7,7 @@ export class Draggable implements OnInit{
     topStart:number=0;
     leftStart:number=0;
     _allowDrag:boolean = true;
+    _dragPosition;
     md:boolean;
 
     constructor(public element: ElementRef) {}
@@ -62,11 +63,22 @@ export class Draggable implements OnInit{
         event.stopPropagation();
     }
 
+    @Input('ng2-draggable-position')
+    set dragPosition(value){
+        this._dragPosition = value;
+    }
+
     @Input('ng2-draggable')
-    set allowDrag(value:boolean){
+    set allowDrag(value:boolean) {
         this._allowDrag = value;
-        if(this._allowDrag)
+        if (this._allowDrag) {
             this.element.nativeElement.className += ' cursor-draggable';
+
+            if (this._dragPosition) {
+                this.element.nativeElement.style.left = this._dragPosition.left;
+                this.element.nativeElement.style.top = this._dragPosition.top;
+            }
+        }
         else {
             this.element.nativeElement.className = this.element.nativeElement.className.replace( ' cursor-draggable', '' );
 
@@ -74,4 +86,5 @@ export class Draggable implements OnInit{
             this.element.nativeElement.style.left = '0';
         }
     }
+
 }

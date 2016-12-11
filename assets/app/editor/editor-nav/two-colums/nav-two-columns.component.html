@@ -1,7 +1,14 @@
 <div class="element editor_nav" [ngStyle]="{'background': nav.background}" (mouseover)="tmpNav.showOverlay=true" (mouseleave)="tmpNav.showOverlay=false">
     <dip-editor-overlay [element]="tmpNav" *ngIf="!tmpNav.showControl"></dip-editor-overlay>
 
-    test 2
+    <ul class="nav-menu">
+        <li class="nav-menu-item"
+            *ngFor="let item of nav.menu"
+            [ngStyle]="{'background': nav.tab_color}">
+
+            <a [attr.href]="item.action" [ngStyle]="{'color': nav.font_color, 'font-size': nav.font_size}">{{item.title}}</a>
+        </li>
+    </ul>
 </div>
 
-<dip-nav-control [nav]="nav" [tmpNav]="tmpNav" [pages]="pages"></dip-nav-control>
+<dip-nav-control [nav]="nav" [tmpNav]="tmpNav" [pages]="pages" *ngIf="tmpNav.showControl"></dip-nav-control>

@@ -8,10 +8,15 @@ import { Nav } from "../../models/nav";
 })
 export class NavNormalComponent implements OnInit {
     @Input() nav: Nav;
-    @Input() tmpNav;
     @Input() pages;
+    public tmpNav = {
+        showControl: false,
+        name: "Nav"
+    };
 
     constructor() { }
+
+
 
     ngOnInit() { }
     

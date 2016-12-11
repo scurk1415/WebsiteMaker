@@ -7,7 +7,11 @@ import { Header } from "../../models/header";
 })
 export class HeaderNormalComponent implements OnInit {
     @Input() header: Header;
-    @Input() tmpHeader;
+
+    public tmpHeader= {
+        showControl: false,
+        name: "Header"
+    };
 
     constructor() { }
 

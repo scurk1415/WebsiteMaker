@@ -14,6 +14,7 @@ export class NavItem{
     constructor(
         public title?: string,
         public action?: string,
-        public action_type?: Number
+        public action_type?: Number,
+        public page?: Number,
     ){}
 }

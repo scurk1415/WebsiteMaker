@@ -8,12 +8,15 @@ import { Main } from "../../models/main";
 })
 export class MainTwoColumnsComponent implements OnInit {
     @Input() main: Main;
-    @Input() tmpMain;
+
+    public tmpMain = {
+        name: 'Main',
+        float: true
+    };
 
     constructor() { }
 
     ngOnInit() {
-        this.tmpMain.float = true;
     }
 
 }

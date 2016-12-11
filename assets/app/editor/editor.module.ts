@@ -20,6 +20,8 @@ import { FooterComponents } from "./editor-footer/footer";
 import { MainComponents } from "./editor-main/main";
 import { Draggable } from "../shared/controls/dragable.directive";
 import { SolutionThemesComponent } from "./solution-themes/solution-themes.component";
+import { EditorNormalComponent } from "./editor-themes/editor-normal.component";
+import { EditorTwoColumnsComponent } from "./editor-themes/editor-two-columns.component";
 
 @NgModule({
     imports: [
@@ -44,7 +46,9 @@ import { SolutionThemesComponent } from "./solution-themes/solution-themes.compo
         EditorControlsComponent,
         HiddenComponent,
         Draggable,
-        SolutionThemesComponent
+        SolutionThemesComponent,
+        EditorNormalComponent,
+        EditorTwoColumnsComponent
     ],
     providers: [EditorService]
 })

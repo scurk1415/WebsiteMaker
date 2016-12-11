@@ -10,7 +10,6 @@ export class EditorFooterComponent implements OnInit {
     @Input() public footer: Footer;
     @Input() theme: Number;
 
-    public solutionThemes = SolutionThemes;
 
     public tmpFooter= {};
 

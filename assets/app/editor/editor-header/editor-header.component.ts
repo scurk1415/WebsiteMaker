@@ -8,18 +8,11 @@ import { SolutionThemes } from "../../shared/enums";
 })
 export class EditorHeaderComponent implements OnInit {
     @Input() header: Header;
-    public tmpHeader = {};
     @Input() theme: Number;
-
-    public solutionThemes = SolutionThemes;
 
     constructor() { }
 
     ngOnInit() {
-        this.tmpHeader = {
-            showControl: false,
-            name: "Header"
-        };
     }
     
 }

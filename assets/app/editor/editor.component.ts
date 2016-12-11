@@ -4,6 +4,7 @@ import { Subscription } from "rxjs";
 import { EditorService } from "./editor.service";
 import { Solution } from "./models/solution";
 import { Page } from "./models/page";
+import { SolutionThemes } from "../shared/enums";
 
 @Component({
     selector: 'dip-editor',
@@ -14,6 +15,8 @@ export class EditorComponent implements OnInit, OnDestroy{
     public solution: Solution = null;
     private subscription: Subscription;
     public page: Page;
+
+    public solutionThemes = SolutionThemes;
 
     constructor (private _editorSvc: EditorService, private route: ActivatedRoute){}
 
