@@ -17,7 +17,7 @@ export class AuthService{
     onSignUp(user: User){
         var body = JSON.stringify(user);
         var headers = new Headers({'Content-type': 'application/json'});
-        return this._http.post('http://localhost:3000/authenticate', body, { headers: headers })
+        return this._http.post('https://diplomska-angular2.herokuapp.com/authenticate', body, { headers: headers })
                         .map(response => response.json())
                         .catch(error => Observable.throw(error.json()));
     }
@@ -25,7 +25,8 @@ export class AuthService{
     onSignIn(user: User){
         var body = JSON.stringify(user);
         var headers = new Headers({'Content-type': 'application/json'});
-        return this._http.post('http://localhost:3000/authenticate/signin', body, { headers: headers })
+        //http://localhost:3000/
+        return this._http.post('https://diplomska-angular2.herokuapp.com/authenticate/signin', body, { headers: headers })
             .map(response => response.json())
             .catch(error => Observable.throw(error.json()));
     }
