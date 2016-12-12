@@ -1,1 +1,16 @@
-market
+<div class="flex">
+    <div class="columns" *ngFor="let plan of plans">
+        <ul class="price">
+            <li class="header">{{plan.name}}</li>
+            <li class="grey">$ {{plan.price | formatedPrice}}</li>
+            <li class="grey-dark">{{plan.solutions}} solutions</li>
+            <li *ngIf="isLoggedIn">
+                <a class="button"  (click)="openCheckout(plan.price, plan.solutions)">Buy now</a>
+            </li>
+            <li *ngIf="!isLoggedIn">
+                <a class="button"  [routerLink]="['/auth','login']">Login</a>
+                <a class="button"  [routerLink]="['/auth','signup']">Sign up</a>
+            </li>
+        </ul>
+    </div>
+</div>

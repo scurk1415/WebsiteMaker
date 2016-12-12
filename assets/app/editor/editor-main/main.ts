@@ -7,7 +7,6 @@ import { MainLayoutTwoComponent } from "./layouts/main-layout-two.component";
 import { MainNormalComponent } from "./normal/main-normal.component";
 import { MainTwoColumnsComponent } from "./two-colums/main-two-columns.component";
 import { MainLayoutTextComponent } from "./layouts/main-layout-text.component";
-import { MainLayoutContactFormComponent } from "./layouts/main-layout-contact-form.component";
 
 export const MainComponents = [
     EditorMainComponent,
@@ -18,6 +17,5 @@ export const MainComponents = [
     MainLayoutTwoComponent,
     MainNormalComponent,
     MainTwoColumnsComponent,
-    MainLayoutTextComponent,
-    MainLayoutContactFormComponent
+    MainLayoutTextComponent
 ]

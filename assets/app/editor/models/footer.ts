@@ -12,6 +12,7 @@ export class Footer{
         public text?: string,
         public copyright_text?: string,
         public link_title?: string,
+        public display_copyright?: boolean
     ){}
 }
 

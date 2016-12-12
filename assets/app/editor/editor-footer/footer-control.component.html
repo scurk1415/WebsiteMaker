@@ -27,11 +27,12 @@
                     <dip-tinymce [elementId]="'FooterText'" [content]="footer.text" (onEditorKeyup)="keyupHandlerFunction($event, 'text')"></dip-tinymce>
                 </div>
                 <div class="left top20">
-                    <div class="form-label">
+                    <div class="input-field left">
+                        <input [(ngModel)]="footer.copyright_text"
+                               [class.active]="footer.copyright_text"
+                               style="width: 300px;">
                         <label>Copyright text</label>
                     </div>
-
-                    <dip-tinymce [elementId]="'CopyrightText'" [content]="footer.copyright_text" (onEditorKeyup)="keyupHandlerFunction($event, 'copyright_text')"></dip-tinymce>
                 </div>
             </div>
             <!--Items-->

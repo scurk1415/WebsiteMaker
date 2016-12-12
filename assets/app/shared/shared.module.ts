@@ -7,6 +7,7 @@ import { UploaderComponent } from "./controls/uploader/uploader.component";
 import { Ng2UploaderModule } from "ng2-uploader";
 import { TinyMceComponent } from "./controls/tinymce.component";
 import { SanitizeHtml } from "./pipes/sanitize-html.pipe";
+import { FormatedPrice } from "./pipes/formated-price.pipe";
 
 @NgModule({
     imports:[
@@ -19,14 +20,16 @@ import { SanitizeHtml } from "./pipes/sanitize-html.pipe";
         ComboboxComponent,
         UploaderComponent,
         TinyMceComponent,
-        SanitizeHtml
+        SanitizeHtml,
+        FormatedPrice
     ],
     exports:[
         ErrorComponent,
         ComboboxComponent,
         UploaderComponent,
         TinyMceComponent,
-        SanitizeHtml
+        SanitizeHtml,
+        FormatedPrice
     ]
 })
 

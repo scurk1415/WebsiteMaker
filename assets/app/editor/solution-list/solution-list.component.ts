@@ -1,23 +1,46 @@
-import {Component, OnInit} from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import {EditorService} from "../editor.service";
 import {Solution} from "../models/solution";
+import { User } from "../../auth/user";
+import { AuthService } from "../../auth/auth.service";
 
 @Component({
     selector: 'dip-solution-list',
     templateUrl: './solution-list.component.html'
 })
 export class SolutionListComponent implements OnInit {
-    public solutions: Solution[] = [];
 
-    constructor(private _editorSvc: EditorService) { }
+    public solutions: Solution[] = [];
+    public user: User;
+
+    constructor(private _editorSvc: EditorService, private _authSvc: AuthService) { }
 
     ngOnInit() {
+        //get solutions by user
         this._editorSvc.getSolutions().subscribe(
             response => {
                 this.solutions = response
             },
             error => console.log('error component')
-        )
+        );
+
+        console.log(this._authSvc.user);
+        console.log(this.user);
+
+        //if user is loaded
+        if (this._authSvc.user){
+            this.user = this._authSvc.user;
+        }
+        else{
+            console.log("no user yet");
+            //get user data
+            this._authSvc.getUser().subscribe(
+                response => {
+                    this.user = response;
+                },
+                error => console.log(error)
+            );
+        }
     }
 
     deleteSolution(solution: Solution){

@@ -8,24 +8,28 @@
         </div>
     </div>
     <div *ngIf="main.layout == layoutTypes.ContactForm">
-        <div class="form-field align-left" *ngFor="let item of main.form_items; let i = index"  style="width: 33%; padding: 20px; box-sizing: border-box; text-align: center;">
+        <div class="form-field" style="width: 33%; padding: 20px; box-sizing: border-box; text-align: center; margin: 0 auto;">
 
-            <div class="form-label align-left" [ngStyle]="{'color': main.label_color}">
-                <label>{{item.label}}</label>
+            <div class="form-field" *ngFor="let item of main.form_items; let i = index">
+                <div class="form-label align-left" [ngStyle]="{'color': main.label_color}">
+                    <label>{{item.label}}</label>
+                </div>
+
+                <div *ngIf="item.form_type == form_types.Text">
+                    <input type="text">
+                </div>
+                <div *ngIf="item.form_type == form_types.Email">
+                    <input type="email">
+                </div>
+                <div *ngIf="item.form_type == form_types.Phone">
+                    <input type="tel">
+                </div>
+                <div *ngIf="item.form_type == form_types.Message">
+                    <textarea cols="30" rows="10"></textarea>
+                </div>
             </div>
 
-            <div *ngIf="item.form_type == form_types.Text">
-                <input type="text">
-            </div>
-            <div *ngIf="item.form_type == form_types.Email">
-                <input type="email">
-            </div>
-            <div *ngIf="item.form_type == form_types.Phone">
-                <input type="tel">
-            </div>
-            <div *ngIf="item.form_type == form_types.Message">
-                <textarea cols="30" rows="10"></textarea>
-            </div>
+            <button class="button" [ngStyle]="{background: main.button_background, color: main.button_color}">{{main.button_label || 'Submit'}}</button>
         </div>
     </div>
 </div>

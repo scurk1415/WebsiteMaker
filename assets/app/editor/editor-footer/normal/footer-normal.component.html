@@ -20,7 +20,7 @@
             </div>
         </div>
 
-        <div class="footer-copyright" *ngIf="footer.display_copyright" [style.background]="footer.copyright_background" [innerHTML]="footer.copyright_text | sanitizeHtml"></div>
+        <div class="footer-copyright" *ngIf="footer.display_copyright" [style.background]="footer.copyright_background">{{footer.copyright_text}}</div>
     </footer>
 </div>
 

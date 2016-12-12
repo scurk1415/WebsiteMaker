@@ -18,6 +18,42 @@
 
                 <!--ContactForm only-->
                 <div class="form-field" *ngIf="main.layout == layoutTypes.ContactForm">
+                    <div class="form-field clearfix">
+                        <div class="input-field left">
+                            <input [(ngModel)]="main.button_label"
+                                   [class.active]="main.button_label"
+                                    style="width: 200px;">
+                            <label>Button Label</label>
+                        </div>
+                        <div class="left left20">
+                            <div class="form-label">
+                                <label for="ButtonBackgroundColor">Background</label>
+                            </div>
+                            <input id="ButtonBackgroundColor"
+                                   class="colorpicker"
+                                   [(colorPicker)]="main.button_background"
+                                   [style.background]="main.button_background"
+                                   [cpPosition]="'bottom'"
+                                   [cpOKButton]="true"
+                                   [cpOKButtonClass]= "'colorpicker-button button right10'"
+                                   [cpCancelButton]="true"
+                                   [cpCancelButtonClass]= "'colorpicker-button button'"/>
+                        </div>
+                        <div class="left left20">
+                            <div class="form-label">
+                                <label for="ButtonTextColor">Color</label>
+                            </div>
+                            <input id="ButtonTextColor"
+                                   class="colorpicker"
+                                   [(colorPicker)]="main.button_color"
+                                   [style.background]="main.button_color"
+                                   [cpPosition]="'bottom'"
+                                   [cpOKButton]="true"
+                                   [cpOKButtonClass]= "'colorpicker-button button right10'"
+                                   [cpCancelButton]="true"
+                                   [cpCancelButtonClass]= "'colorpicker-button button'"/>
+                        </div>
+                    </div>
                     <button class="button small" (click)="addFormItem()">Add item</button>
 
                     <ul class="datagrid">

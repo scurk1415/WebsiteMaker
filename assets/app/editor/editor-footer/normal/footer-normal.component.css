@@ -1,5 +1,12 @@
-.footer-data, .footer-copyright{
+
+.footer-data{
     padding: 20px;
+}
+.footer-copyright{
+    padding: 10px 20px;
+}
+.footer-copyright p{
+    margin: 0;
 }
 .footer-data{
     display: flex;

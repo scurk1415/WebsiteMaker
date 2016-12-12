@@ -11,6 +11,11 @@ export class Main{
         public layout?: number,
         public form_items?: Array<FormItem>,
         public label_color? : string,
+        public button_label? : string,
+        public button_background? : string,
+        public button_color? : string,
+
+
     ){}
 }
 

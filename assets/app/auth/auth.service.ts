@@ -7,6 +7,7 @@ import {FormControl} from "@angular/forms";
 
 @Injectable()
 export class AuthService{
+    public user : User = null;
 
     constructor(private _http: Http) { }
 
@@ -14,10 +15,21 @@ export class AuthService{
         return localStorage.getItem('userId');
     }
 
+    getUser(){
+        const userId = localStorage.getItem('userId');
+
+        return this._http.get('http://localhost:3000/authenticate/getUser/'+userId)
+                        .map( response => {
+                            this.user = response.json().user;
+                            return this.user;
+                        })
+                        .catch( error => Observable.throw(error.json()));
+    }
+
     onSignUp(user: User){
         var body = JSON.stringify(user);
         var headers = new Headers({'Content-type': 'application/json'});
-        return this._http.post('https://diplomska-angular2.herokuapp.com/authenticate', body, { headers: headers })
+        return this._http.post('http://localhost:3000/authenticate', body, { headers: headers })
                         .map(response => response.json())
                         .catch(error => Observable.throw(error.json()));
     }
@@ -25,10 +37,25 @@ export class AuthService{
     onSignIn(user: User){
         var body = JSON.stringify(user);
         var headers = new Headers({'Content-type': 'application/json'});
-        //http://localhost:3000/
-        return this._http.post('https://diplomska-angular2.herokuapp.com/authenticate/signin', body, { headers: headers })
-            .map(response => response.json())
-            .catch(error => Observable.throw(error.json()));
+
+        return this._http.post('http://localhost:3000/authenticate/signin', body, { headers: headers })
+                        .map(response => response.json())
+                        .catch(error => Observable.throw(error.json()));
+    }
+
+    updateUserPlan(assets: number){
+        var user = {
+            id: localStorage.getItem('userId'),
+            solutions: assets
+        };
+
+        var body = JSON.stringify(user);
+        var headers = new Headers({'Content-type': 'application/json'});
+        console.log("tlele");
+
+        return this._http.put('http://localhost:3000/authenticate/updatePlan', body, { headers: headers })
+                        .map(response => response.json())
+                        .catch(error => error.json());
     }
 
     onLogout(){

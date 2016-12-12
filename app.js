@@ -11,13 +11,14 @@ var appRoutes = require('./routes/app');
 var authRoutes = require('./routes/auth');
 var solutionRoutes = require('./routes/solution');
 var uploadRoutes = require('./routes/upload');
+var stripeRoutes = require('./routes/stripe');
 
 var app = express();
 mongoose.Promise = global.Promise;
 //dev enviroment
-//mongoose.connect('localhost:27017/diploma');
+mongoose.connect('localhost:27017/diploma');
 //mongolab
-mongoose.connect('admin_ales:diplomska@ds119568.mlab.com:19568/diplomska');
+// mongoose.connect('admin_ales:diplomska@ds119568.mlab.com:19568/diplomska');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -32,15 +33,16 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE, OPTIONS');
-  next();
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE, OPTIONS');
+    next();
 });
 
 app.use('/upload', uploadRoutes);
 app.use('/solution', solutionRoutes);
 app.use('/authenticate', authRoutes);
+app.use('/checkout', stripeRoutes);
 app.use('/', appRoutes);
 
 app.listen(10050, function(){
@@ -49,6 +51,7 @@ app.listen(10050, function(){
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  res.render('index');
+    res.render('index');
 });
+
 module.exports = app;

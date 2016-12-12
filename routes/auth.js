@@ -12,7 +12,8 @@ router.post('/', function (req, res, next) {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         password: passHash.generate(req.body.password),
-        email: req.body.email
+        email: req.body.email,
+        allowed_solutions: 0
     });
 
     user.save(function(err, result){
@@ -61,6 +62,61 @@ router.post('/signin', function (req, res, next) {
             title: 'Success',
             token: token,
             userId: doc._id
+        });
+    });
+});
+
+//Save solution by id
+router.put('/updatePlan', function(req, res, next){
+    User.findById(req.body.id, function(err, doc){
+        if(err){
+            return res.status(404).json({
+                title: 'error',
+                obj: err
+            });
+        }
+        if(!doc){
+            return res.status(404).json({
+                title: 'No user found!',
+                obj: {message: 'No user found!'}
+            });
+        }
+
+        doc.allowed_solutions = Number(doc.allowed_solutions) + req.body.solutions;
+        doc.save(function(err, result){
+            if(err){
+                return res.status(404).json({
+                    title: 'Could not update plan',
+                    obj: err
+                });
+            }
+
+            res.status(200).json({
+                title: 'Plan updated',
+                obj: result
+            });
+        });
+    });
+});
+
+//Get user bt id
+router.get('/getUser/:id', function(req, res, next){
+    User.findOne({userId: req.param.userId}, function(err, doc){
+        if(err){
+            return res.status(404).json({
+                title: 'error',
+                obj: err
+            });
+        }
+        if(!doc){
+            return res.status(404).json({
+                title: 'No user found!',
+                obj: {message: 'No user found!'}
+            });
+        }
+
+        res.status(200).json({
+            user: doc
         });
     });
 });

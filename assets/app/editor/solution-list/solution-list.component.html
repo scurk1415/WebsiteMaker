@@ -1,7 +1,8 @@
-<div class="card centered">
+<div class="card centered" *ngIf="user">
     <div class="clearfix">
         <div class="card-title left">Solutions</div>
-        <a class="button icon add right" [routerLink]="['create']" title="Create new">+</a>
+        <a class="button icon add right" [routerLink]="['create']" title="Create new" *ngIf="user.allowed_solutions > solutions.length">+</a>
+        <a class="button icon add right" [routerLink]="['/market']" title="Buy assets" *ngIf="user.allowed_solutions <= solutions.length">+</a>
     </div>
 
     <ul class="collection with-header">
@@ -12,4 +13,7 @@
             <a class="delete right" (click)="deleteSolution(solution)"></a>
         </li>
     </ul>
+</div>
+<div class="card centered" *ngIf="!user">
+    loading
 </div>
