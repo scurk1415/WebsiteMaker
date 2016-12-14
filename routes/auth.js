@@ -99,7 +99,7 @@ router.put('/updatePlan', function(req, res, next){
     });
 });
 
-//Get user bt id
+//Get user by id
 router.get('/getUser/:id', function(req, res, next){
     User.findOne({userId: req.param.userId}, function(err, doc){
         if(err){

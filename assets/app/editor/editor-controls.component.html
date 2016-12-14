@@ -19,6 +19,6 @@
 <div class="flex" style="flex-direction: column; position: fixed; left: 40px; top: 40%;">
     <span class="right20"></span>
     <button class="button" (click)="onSave()">Save</button>
-    <button class="button" (click)="changeTheme(1)">1</button>
-    <button class="button" (click)="changeTheme(2)">2</button>
+    <h1 class="top20 align-center">Themes</h1>
+    <button class="button" [ngClass]="{'top20': !isFirst, 'selected': themeId == theme.value}"  *ngFor="let theme of themes; let isFirst = first" (click)="changeTheme(theme.value)">{{theme.name}}</button>
 </div>

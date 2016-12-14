@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter, Input } from "@angular/core";
+import { SolutionThemes } from "../shared/enums";
 
 @Component({
     selector: 'dip-editor-controls',
@@ -10,13 +11,25 @@ export class EditorControlsComponent {
     @Output() deletePage = new EventEmitter<Number>();
     @Output() changeSelectedPage = new EventEmitter<Number>();
     @Output() saveSolution = new EventEmitter();
-    @Output() changeSolutionSolution = new EventEmitter<Number>();
+    @Output() changePageSolution = new EventEmitter<Number>();
 
     @Input() pages;
     @Input() page;
     @Input() index;
+    @Input() themeId;
 
     public showPages: boolean = false;
+    public themeTypes = SolutionThemes;
+    public themes = [
+        {
+            name: 'Normal',
+            value: this.themeTypes.Normal
+        },
+        {
+            name: 'Two columns',
+            value: this.themeTypes.TwoColumns
+        },
+    ];
 
     constructor() { }
 
@@ -47,6 +60,6 @@ export class EditorControlsComponent {
     }
 
     changeTheme(theme: Number){
-        this.changeSolutionSolution.emit(theme);
+        this.changePageSolution.emit(theme);
     }
 }

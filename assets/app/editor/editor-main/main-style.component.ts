@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Input } from "@angular/core/src/metadata/directives";
 import { Main } from "../models/main";
+import { MainLayoutTypes } from "../../shared/enums";
 
 @Component({
     selector: 'dip-main-style',
@@ -8,7 +9,10 @@ import { Main } from "../models/main";
 })
 export class MainStyleComponent implements OnInit {
     @Input() main: Main;
-    font_sizes = [];
+    private font_sizes = [];
+    private paddings = [];
+
+    public layoutTypes = MainLayoutTypes;
 
     constructor() { }
 
@@ -35,9 +39,19 @@ export class MainStyleComponent implements OnInit {
             { text: "29px", value: "29px"},
             { text: "30px", value: "30px"},
         ];
-    }
-
-    onTitleSizeSelect(event){
-        this.main.title_size = event;
+        this.paddings = [
+            { text: "Select size...", value: ""},
+            { text: "0", value: "0"},
+            { text: "5px", value: "5px"},
+            { text: "10px", value: "10px"},
+            { text: "15px", value: "15px"},
+            { text: "20px", value: "20px"},
+            { text: "25px", value: "25px"},
+            { text: "30px", value: "30px"},
+            { text: "35px", value: "35px"},
+            { text: "40px", value: "40px"},
+            { text: "45px", value: "45px"},
+            { text: "50px", value: "50px"},
+        ];
     }
 }

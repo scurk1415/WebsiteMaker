@@ -55,7 +55,7 @@ export class EditorService{
         const footer = new Footer();
         const main = new Main();
         const nav = new Nav();
-        const page = new Page(header,nav,main,footer)
+        const page = new Page(header, nav, main, footer, 1)
         let pages = new Array<Page>();
         pages.push(page);
 

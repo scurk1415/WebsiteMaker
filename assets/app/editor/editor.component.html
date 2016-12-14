@@ -3,12 +3,13 @@
                          [pages]="solution.pages"
                          (changeSelectedPage)="changeCurrentPage($event)"
                          (deletePage)="deletePage($event)"
-                         (changeSolutionSolution)="changeTheme($event)"
+                         (changePageSolution)="changeTheme($event)"
+                         [themeId]="solution.theme"
                          [index]="solution.pages.indexOf(page)">
     </dip-editor-controls>
 
-    <dip-editor-normal [solution]="solution" [page]="page" *ngIf="solution.theme == solutionThemes.Normal"></dip-editor-normal>
-    <dip-editor-two-columns [solution]="solution" [page]="page" *ngIf="solution.theme == solutionThemes.TwoColumns"></dip-editor-two-columns>
+    <dip-editor-normal [solution]="solution" [page]="page" *ngIf="page.theme == solutionThemes.Normal"></dip-editor-normal>
+    <dip-editor-two-columns [solution]="solution" [page]="page" *ngIf="page.theme == solutionThemes.TwoColumns"></dip-editor-two-columns>
 </div>
 <div *ngIf="!solution">
     Waiting for solution

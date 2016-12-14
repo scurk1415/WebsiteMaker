@@ -24,15 +24,11 @@ export class SolutionListComponent implements OnInit {
             error => console.log('error component')
         );
 
-        console.log(this._authSvc.user);
-        console.log(this.user);
-
-        //if user is loaded
+        //if user is loaded in service
         if (this._authSvc.user){
             this.user = this._authSvc.user;
         }
         else{
-            console.log("no user yet");
             //get user data
             this._authSvc.getUser().subscribe(
                 response => {

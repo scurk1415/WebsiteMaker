@@ -55,7 +55,9 @@ export class EditorComponent implements OnInit, OnDestroy{
 
     changeTheme(value: number){
         this.solution.theme = value;
+        this.solution.pages[this.solution.pages.indexOf(this.page)].theme = value;
     }
+
     deletePage(index: number){
         this.solution.pages.splice(index,1);
         this.page = this.solution.pages[0];

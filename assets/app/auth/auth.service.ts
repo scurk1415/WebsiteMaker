@@ -51,7 +51,6 @@ export class AuthService{
 
         var body = JSON.stringify(user);
         var headers = new Headers({'Content-type': 'application/json'});
-        console.log("tlele");
 
         return this._http.put('http://localhost:3000/authenticate/updatePlan', body, { headers: headers })
                         .map(response => response.json())
