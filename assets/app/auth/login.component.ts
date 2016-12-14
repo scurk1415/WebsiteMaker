@@ -34,8 +34,6 @@ export class LoginComponent implements OnInit {
         const user = new User(this.loginForm.value.email, this.loginForm.value.password);
         this._authSvc.onSignIn(user).subscribe(
             data => {
-                localStorage.setItem('token', data.token);
-                localStorage.setItem('userId', data.userId);
                 this._router.navigateByUrl('/');
             },
             error => this._errorSvc.handleError(error)

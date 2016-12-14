@@ -4,7 +4,6 @@ import { EditorService } from "../editor.service";
 import { Router } from "@angular/router";
 import { ErrorService } from "../../error/error.service";
 import { Solution } from "../models/solution";
-import { SolutionThemes } from "../../shared/enums";
 
 @Component({
     selector: 'dip-create-solution',
@@ -12,21 +11,15 @@ import { SolutionThemes } from "../../shared/enums";
 })
 export class CreateSolutionComponent implements OnInit {
     public createSolutionForm: FormGroup;
-    public themeId: Number = SolutionThemes.Normal;
 
     constructor(private _fb: FormBuilder, private _editorSvc: EditorService, private _router: Router, private _errorSvc: ErrorService) { }
 
     ngOnInit() {
         this.createSolutionForm = this._fb.group(
             {
-                name: ['', Validators.required],
-                theme: [this.themeId, Validators.required],
+                name: ['', Validators.required]
             }
         )
-    }
-
-    changeTheme(event){
-        this.createSolutionForm.value.theme = event;
     }
 
     onSubmit(){

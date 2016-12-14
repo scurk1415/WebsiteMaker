@@ -19,7 +19,6 @@ import { HeaderComponents } from "./editor-header/header";
 import { FooterComponents } from "./editor-footer/footer";
 import { MainComponents } from "./editor-main/main";
 import { Draggable } from "../shared/controls/dragable.directive";
-import { SolutionThemesComponent } from "./solution-themes/solution-themes.component";
 import { EditorNormalComponent } from "./editor-themes/editor-normal.component";
 import { EditorTwoColumnsComponent } from "./editor-themes/editor-two-columns.component";
 
@@ -46,7 +45,6 @@ import { EditorTwoColumnsComponent } from "./editor-themes/editor-two-columns.co
         EditorControlsComponent,
         HiddenComponent,
         Draggable,
-        SolutionThemesComponent,
         EditorNormalComponent,
         EditorTwoColumnsComponent
     ],

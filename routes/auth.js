@@ -19,7 +19,7 @@ router.post('/', function (req, res, next) {
     user.save(function(err, result){
         if(err){
             return res.status(404).json({
-                title: 'An error occurred',
+                title: 'User alreadyt',
                 obj: err
             });
         }
@@ -41,12 +41,14 @@ router.post('/signin', function (req, res, next) {
                 obj: err
             });
         }
+
         if(!doc){
             return res.status(404).json({
                 title: 'The user '+ req.body.email + ' was not found',
                 obj: { message: 'User could not be found!'}
             });
         }
+
         if(!passHash.verify(req.body.password, doc.password)){
             return res.status(404).json({
                 title: 'Wrong password',
@@ -61,7 +63,8 @@ router.post('/signin', function (req, res, next) {
         res.status(200).json({
             title: 'Success',
             token: token,
-            userId: doc._id
+            userId: doc._id,
+            user: doc
         });
     });
 });
@@ -101,7 +104,7 @@ router.put('/updatePlan', function(req, res, next){
 
 //Get user by id
 router.get('/getUser/:id', function(req, res, next){
-    User.findOne({userId: req.param.userId}, function(err, doc){
+    User.findById(req.params.id, function(err, doc){
         if(err){
             return res.status(404).json({
                 title: 'error',

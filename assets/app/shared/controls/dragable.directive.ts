@@ -1,14 +1,14 @@
-import { Directive, Input, ElementRef, HostListener, Renderer, OnInit} from '@angular/core';
+import { Directive, Input, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 
 @Directive({
     selector: '[ng2-draggable]'
 })
 export class Draggable implements OnInit{
-    topStart:number=0;
-    leftStart:number=0;
-    _allowDrag:boolean = true;
+    topStart: number = 0;
+    leftStart: number = 0;
+    _allowDrag: boolean = true;
     _dragPosition;
-    md:boolean;
+    md: boolean;
 
     constructor(public element: ElementRef) {}
 
@@ -36,6 +36,7 @@ export class Draggable implements OnInit{
     @HostListener('document:mousemove', ['$event'])
     onMouseMove(event:MouseEvent) {
         if(this.md && this._allowDrag){
+            console.log(this.element.nativeElement.contains(event.target));
             this.element.nativeElement.style.top = (event.clientY - this.topStart) + 'px';
             this.element.nativeElement.style.left = (event.clientX - this.leftStart) + 'px';
         }

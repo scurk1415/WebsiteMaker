@@ -15,7 +15,11 @@ export class Main{
         public button_background? : string,
         public button_color? : string,
         public padding?: string
-    ){}
+    )
+    {
+        this.items = [];
+        this.form_items = [];
+    }
 }
 
 export class MainItem{

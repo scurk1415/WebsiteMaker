@@ -12,7 +12,6 @@ export enum ControlViews{
 export enum MainLayoutTypes{
     Grid,
     Rows,
-    Text,
     ContactForm
 }
 

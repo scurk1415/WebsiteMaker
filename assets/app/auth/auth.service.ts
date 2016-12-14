@@ -17,7 +17,6 @@ export class AuthService{
 
     getUser(){
         const userId = localStorage.getItem('userId');
-
         return this._http.get('http://localhost:3000/authenticate/getUser/'+userId)
                         .map( response => {
                             this.user = response.json().user;
@@ -39,7 +38,13 @@ export class AuthService{
         var headers = new Headers({'Content-type': 'application/json'});
 
         return this._http.post('http://localhost:3000/authenticate/signin', body, { headers: headers })
-                        .map(response => response.json())
+                        .map(response => {
+                            let data = response.json();
+                            localStorage.setItem('token', data.token);
+                            localStorage.setItem('userId', data.userId);
+                            this.user = data.user;
+                            return data;
+                        })
                         .catch(error => Observable.throw(error.json()));
     }
 

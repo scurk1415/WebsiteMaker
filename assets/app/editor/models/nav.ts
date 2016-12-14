@@ -7,7 +7,10 @@ export class Nav{
         public font_color?: string,
         public align_right?: boolean,
 
-    ){}
+    )
+    {
+        this.menu = [];
+    }
 }
 
 export class NavItem{

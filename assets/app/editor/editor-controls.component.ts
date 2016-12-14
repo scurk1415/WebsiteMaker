@@ -33,7 +33,6 @@ export class EditorControlsComponent {
 
     constructor() { }
 
-    //clone object and add it to pages
     onSave(){
         this.saveSolution.emit();
     }

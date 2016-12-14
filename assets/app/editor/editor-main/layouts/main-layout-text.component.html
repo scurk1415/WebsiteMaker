@@ -1,12 +1,4 @@
 <div class="main-layout-text">
-    <div class="align-center">
-        <h1 [ngStyle]="{'color': main.title_color, 'font-size': main.title_size}" *ngIf="main.title">
-            {{main.title}}
-        </h1>
-        <div class="break-word top10"
-             [innerHTML]="main.description | sanitizeHtml">
-        </div>
-    </div>
     <div *ngIf="main.layout == layoutTypes.ContactForm">
         <div class="form-field" style="width: 33%; padding: 20px; box-sizing: border-box; text-align: center; margin: 0 auto;">
 

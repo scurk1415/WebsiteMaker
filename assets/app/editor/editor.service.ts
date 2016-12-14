@@ -50,7 +50,6 @@ export class EditorService{
     }
 
     createSolution(obj: any){
-        console.log(obj);
         const header = new Header();
         const footer = new Footer();
         const main = new Main();
@@ -59,7 +58,7 @@ export class EditorService{
         let pages = new Array<Page>();
         pages.push(page);
 
-        const solution = new Solution(AuthService.getUserId(), obj.name, obj.theme, pages);
+        const solution = new Solution(AuthService.getUserId(), obj.name, pages);
 
         const body = JSON.stringify(solution);
         const headers = new Headers({'Content-type': 'application/json'});

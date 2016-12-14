@@ -1,6 +1,7 @@
 <div class="account-box" (click)="toggleOptions()">
-    <a>
-        user
+    <a class="username" *ngIf="account" [title]="account.email">
+        {{account.email}}
+
     </a>
     <ul *ngIf="showOptions">
         <li (click)="logOut()">Logout</li>

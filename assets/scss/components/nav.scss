@@ -28,21 +28,4 @@ header .nav-wrapper{
       background: $primary-hover;
     }
   }
-
-  .account-box{
-    position: relative;
-
-    ul{
-      position: absolute;
-      top: 100%;
-      right: 0;
-      max-width: 200px;
-      background: white;
-    }
-    li{
-      padding: 10px 20px;
-      border-bottom: 1px solid gray;
-      cursor: pointer;
-    }
-  }
 }

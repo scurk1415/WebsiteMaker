@@ -1,0 +1,10 @@
+#error-panel{
+    margin: 0 0 10px 0;
+}
+.card-panel{
+    background: #ef5350;
+    color: #fff;
+}
+#error-panel .error-text{
+    margin: 0;
+}

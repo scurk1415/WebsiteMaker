@@ -13,7 +13,10 @@ export class Footer{
         public copyright_text?: string,
         public link_title?: string,
         public display_copyright?: boolean
-    ){}
+    )
+    {
+        this.links = [];
+    }
 }
 
 export class FooterLink{

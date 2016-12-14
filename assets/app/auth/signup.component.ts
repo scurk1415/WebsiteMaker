@@ -2,6 +2,8 @@ import {Component, OnInit} from "@angular/core";
 import {FormBuilder, FormGroup, Validators, FormControl} from "@angular/forms";
 import {AuthService} from "./auth.service";
 import {ErrorService} from "../error/error.service";
+import { User } from "./user";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'dip-signup',
@@ -11,7 +13,7 @@ import {ErrorService} from "../error/error.service";
 export class SignupComponent implements OnInit {
     public signUpForm: FormGroup;
 
-    constructor(private _fb:FormBuilder, private _authSvc: AuthService, private _errorSvc: ErrorService) { };
+    constructor(private _fb:FormBuilder, private _authSvc: AuthService, private _errorSvc: ErrorService, private _router: Router) { };
 
     ngOnInit(): any {
         this.signUpForm = this._fb.group({
@@ -36,8 +38,15 @@ export class SignupComponent implements OnInit {
     onSubmit(){
         this._authSvc.onSignUp(this.signUpForm.value).subscribe(
             data => {
-                // const user = new User(this.signUpForm.value.email, this.signUpForm.value.password);
-                // this._authSvc.onSignIn(user).subscribe();
+                //sign in after signup is done
+
+                const user = new User(this.signUpForm.value.email, this.signUpForm.value.password);
+                this._authSvc.onSignIn(user).subscribe(
+                    data => {
+                        this._router.navigateByUrl('/');
+                    },
+                    error => this._errorSvc.handleError(error)
+                );
             },
             error => this._errorSvc.handleError(error)
         );

@@ -2,105 +2,101 @@
     <div class="card centered">
         <dip-control-header [control]="tmpMain"></dip-control-header>
 
+        <div class="form-field">
+            <div class="input-field">
+                <input [(ngModel)]="main.title"
+                       [class.active]="main.title">
+                <label>Title</label>
+            </div>
+            <div class="top20">
+                <dip-tinymce [elementId]="'test'" [content]="main.description" (onEditorKeyup)="main.description=$event"></dip-tinymce>
+            </div>
+        </div>
+
         <div *ngIf="tmpMain.selection == controlViews.Edit">
-            <!--Text and ContactForm layout-->
-            <div *ngIf="main.layout == layoutTypes.Text || main.layout == layoutTypes.ContactForm">
-                <div class="form-field">
-                    <div class="input-field">
-                        <input [(ngModel)]="main.title"
-                               [class.active]="main.title">
-                        <label>Title</label>
+            <!--ContactForm layout-->
+            <div class="form-field" *ngIf="main.layout == layoutTypes.ContactForm">
+                <div class="form-field clearfix">
+                    <div class="input-field left">
+                        <input [(ngModel)]="main.button_label"
+                               [class.active]="main.button_label"
+                                style="width: 200px;">
+                        <label>Button Label</label>
                     </div>
-                    <div class="top20">
-                        <dip-tinymce [elementId]="'test'" [content]="main.description" (onEditorKeyup)="main.description=$event"></dip-tinymce>
+                    <div class="left left20">
+                        <div class="form-label">
+                            <label for="ButtonBackgroundColor">Background</label>
+                        </div>
+                        <input id="ButtonBackgroundColor"
+                               class="colorpicker"
+                               [(colorPicker)]="main.button_background"
+                               [style.background]="main.button_background"
+                               [cpPosition]="'bottom'"
+                               [cpOKButton]="true"
+                               [cpOKButtonClass]= "'colorpicker-button button right10'"
+                               [cpCancelButton]="true"
+                               [cpCancelButtonClass]= "'colorpicker-button button'"/>
+                    </div>
+                    <div class="left left20">
+                        <div class="form-label">
+                            <label for="ButtonTextColor">Color</label>
+                        </div>
+                        <input id="ButtonTextColor"
+                               class="colorpicker"
+                               [(colorPicker)]="main.button_color"
+                               [style.background]="main.button_color"
+                               [cpPosition]="'bottom'"
+                               [cpOKButton]="true"
+                               [cpOKButtonClass]= "'colorpicker-button button right10'"
+                               [cpCancelButton]="true"
+                               [cpCancelButtonClass]= "'colorpicker-button button'"/>
                     </div>
                 </div>
+                <button class="button small" (click)="addFormItem()">Add item</button>
 
-                <!--ContactForm only-->
-                <div class="form-field" *ngIf="main.layout == layoutTypes.ContactForm">
-                    <div class="form-field clearfix">
-                        <div class="input-field left">
-                            <input [(ngModel)]="main.button_label"
-                                   [class.active]="main.button_label"
-                                    style="width: 200px;">
-                            <label>Button Label</label>
-                        </div>
-                        <div class="left left20">
-                            <div class="form-label">
-                                <label for="ButtonBackgroundColor">Background</label>
+                <ul class="datagrid">
+                    <li class="dg-row" *ngFor="let item of main.form_items; let i = index;">
+                        <div class="dg-row-item clearfix">
+                            <div class="left ellipsis" style="max-width: 100%; text-overflow: ellipsis;">
+                                {{item.label}}
                             </div>
-                            <input id="ButtonBackgroundColor"
-                                   class="colorpicker"
-                                   [(colorPicker)]="main.button_background"
-                                   [style.background]="main.button_background"
-                                   [cpPosition]="'bottom'"
-                                   [cpOKButton]="true"
-                                   [cpOKButtonClass]= "'colorpicker-button button right10'"
-                                   [cpCancelButton]="true"
-                                   [cpCancelButtonClass]= "'colorpicker-button button'"/>
-                        </div>
-                        <div class="left left20">
-                            <div class="form-label">
-                                <label for="ButtonTextColor">Color</label>
-                            </div>
-                            <input id="ButtonTextColor"
-                                   class="colorpicker"
-                                   [(colorPicker)]="main.button_color"
-                                   [style.background]="main.button_color"
-                                   [cpPosition]="'bottom'"
-                                   [cpOKButton]="true"
-                                   [cpOKButtonClass]= "'colorpicker-button button right10'"
-                                   [cpCancelButton]="true"
-                                   [cpCancelButtonClass]= "'colorpicker-button button'"/>
-                        </div>
-                    </div>
-                    <button class="button small" (click)="addFormItem()">Add item</button>
 
-                    <ul class="datagrid">
-                        <li class="dg-row" *ngFor="let item of main.form_items; let i = index;">
-                            <div class="dg-row-item clearfix">
-                                <div class="left ellipsis" style="max-width: 100%; text-overflow: ellipsis;">
-                                    {{item.label}}
+                            <button class="right left20" (click)="deleteItem(item)">Delete</button>
+                            <button class="right left20" *ngIf="edit[i]!=true" (click)="edit[i]=true">Edit</button>
+                            <button class="right left20" *ngIf="edit[i]==true" (click)="edit[i]=false">Close</button>
+                        </div>
+                        <div class="dg-row-alternative" *ngIf="edit[i]==true">
+                            <div style="display: flex; align-items: flex-start;">
+
+                                <!-- Label -->
+                                <div class="input-field">
+                                    <input [(ngModel)]="item.label"
+                                           [class.active]="item.label">
+                                    <label>Label</label>
                                 </div>
 
-                                <button class="right left20" (click)="deleteItem(item)">Delete</button>
-                                <button class="right left20" *ngIf="edit[i]!=true" (click)="edit[i]=true">Edit</button>
-                                <button class="right left20" *ngIf="edit[i]==true" (click)="edit[i]=false">Close</button>
-                            </div>
-                            <div class="dg-row-alternative" *ngIf="edit[i]==true">
-                                <div style="display: flex; align-items: flex-start;">
-
-                                    <!-- Label -->
-                                    <div class="input-field">
-                                        <input [(ngModel)]="item.label"
-                                               [class.active]="item.label">
-                                        <label>Label</label>
-                                    </div>
-
-                                    <div class="clearfix form-field left20">
-                                        <dip-combobox [items]="form_input_types" [selectedItem]="item.form_type"  (selected)="item.form_type=$event" [cbStyle]="{width: '200px'}"></dip-combobox>
-                                    </div>
-
-                                    <div class="form-field left20">
-                                        <div class="form-label">
-                                            <label for="Required">Required</label>
-                                        </div>
-                                        <div class="checkbox-wrapper">
-                                            <input id="Required"
-                                                   type="checkbox"
-                                                   [(ngModel)]="item.required"
-                                                   [checked]="item.required">
-
-                                            <label for="Required"></label>
-                                        </div>
-                                    </div>
+                                <div class="clearfix form-field left20">
+                                    <dip-combobox [items]="form_input_types" [selectedItem]="item.form_type"  (selected)="item.form_type=$event" [cbStyle]="{width: '200px'}"></dip-combobox>
                                 </div>
 
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                                <div class="form-field left20">
+                                    <div class="form-label">
+                                        <label for="Required">Required</label>
+                                    </div>
+                                    <div class="checkbox-wrapper">
+                                        <input id="Required"
+                                               type="checkbox"
+                                               [(ngModel)]="item.required"
+                                               [checked]="item.required">
 
+                                        <label for="Required"></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </li>
+                </ul>
             </div>
 
             <!--Grid and row layout-->

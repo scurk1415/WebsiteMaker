@@ -4,7 +4,8 @@ import {ErrorService} from "./error.service";
 
 @Component({
     selector: 'dip-error',
-    templateUrl: 'error.component.html'
+    templateUrl: 'error.component.html',
+    styleUrls: ['error.component.css']
 })
 export class ErrorComponent implements OnInit{
     public displayError: boolean = false;
