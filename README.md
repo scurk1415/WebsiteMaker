@@ -1,4 +1,4 @@
-# Diplomska naloga 
+____# Diplomska naloga 
 
 For demos please see https://diplomska-angular2.herokuapp.com/ (not working yet).
 
@@ -49,6 +49,12 @@ start node server
 ```
 npm start
 ```
+or
+```
+npm run dev
+```
+to run node in watch mode
+
 compiles .scss files to .css
 ```
 npm run scss
@@ -56,4 +62,9 @@ npm run scss
 runs webpack in watch mode
 ```
 npm run build
+```
+
+runs the script for view page (where you can see finished solution)
+```
+npm run view
 ```
