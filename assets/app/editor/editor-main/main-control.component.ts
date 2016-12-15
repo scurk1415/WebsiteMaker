@@ -10,6 +10,7 @@ export class MainControlComponent implements OnInit{
 
     @Input() main: Main;
     @Input() tmpMain: any;
+
     controlViews = ControlViews;
     public layoutTypes = MainLayoutTypes;
     public form_types = FormTypes;

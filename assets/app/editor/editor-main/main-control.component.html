@@ -4,7 +4,7 @@
 
 
         <div *ngIf="tmpMain.selection == controlViews.Edit">
-            <div class="form-field">
+            <div class="form-field"  *ngIf="main.layout != layoutTypes.Scroll">
                 <div class="input-field">
                     <input [(ngModel)]="main.title"
                            [class.active]="main.title">
@@ -101,7 +101,7 @@
             </div>
 
             <!--Grid and row layout-->
-            <div *ngIf="main.layout == layoutTypes.Grid || main.layout == layoutTypes.Rows">
+            <div *ngIf="main.layout == layoutTypes.Grid || main.layout == layoutTypes.Rows || main.layout == layoutTypes.Scroll">
                 <button class="button small" (click)="addItem()">Add item</button>
 
                 <!-- links -->

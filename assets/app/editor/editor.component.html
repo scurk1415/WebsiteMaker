@@ -1,10 +1,10 @@
 <div id="editor-app-wrapper" *ngIf="solution">
     <dip-editor-controls (saveSolution)="saveSolution()"
-                         [pages]="solution.pages"
+                         [solution]="solution"
                          (changeSelectedPage)="changeCurrentPage($event)"
                          (deletePage)="deletePage($event)"
                          (changePageSolution)="changeTheme($event)"
-                         [themeId]="solution.theme"
+                         [themeId]="page.theme"
                          [index]="solution.pages.indexOf(page)">
     </dip-editor-controls>
 

@@ -1,0 +1,16 @@
+<div class="element main-two-column" [style.background]="main.background">
+
+    <div class="align-center">
+        <h1 [ngStyle]="{'color': main.title_color, 'font-size': main.title_size}" *ngIf="main.title">
+            {{main.title}}
+        </h1>
+        <div class="break-word top10"
+             *ngIf="main.description"
+             [innerHTML]="main.description | sanitizeHtml">
+        </div>
+    </div>
+
+    <dip-main-layout-one [main]="main" *ngIf="main.layout == layoutTypes.Grid"></dip-main-layout-one>
+    <dip-main-layout-two [main]="main" *ngIf="main.layout == layoutTypes.Rows"></dip-main-layout-two>
+    <dip-main-layout-text [main]="main" *ngIf="main.layout == layoutTypes.ContactForm"></dip-main-layout-text>
+</div>

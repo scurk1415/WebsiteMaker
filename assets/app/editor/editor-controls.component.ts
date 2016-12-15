@@ -13,7 +13,7 @@ export class EditorControlsComponent {
     @Output() saveSolution = new EventEmitter();
     @Output() changePageSolution = new EventEmitter<Number>();
 
-    @Input() pages;
+    @Input() solution;
     @Input() page;
     @Input() index;
     @Input() themeId;
@@ -43,9 +43,9 @@ export class EditorControlsComponent {
 
     //clone object and add it to pages
     onAddPage(){
-        let firstPage = JSON.parse(JSON.stringify(this.pages[0]));
+        let firstPage = JSON.parse(JSON.stringify(this.solution.pages[0]));
             // Object.assign({},this.pages[0]);
-        this.pages.push(firstPage);
+        this.solution.pages.push(firstPage);
     }
 
     //delete current page and set the the new current page to page 1

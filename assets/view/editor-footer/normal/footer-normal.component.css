@@ -1,0 +1,33 @@
+
+.footer-data{
+    padding: 20px;
+}
+.footer-copyright{
+    padding: 10px 20px;
+}
+.footer-copyright p{
+    margin: 0;
+}
+.footer-data{
+    display: flex;
+}
+.footer-menu{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.footer-menu-item{
+    padding: 5px 0;
+    margin: 0;
+    width: 50%;
+    max-width:50%;
+    float: left;
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+.width-half{
+    width: 50%;
+}
+h5{
+    margin: 0 0 20px 0;
+}

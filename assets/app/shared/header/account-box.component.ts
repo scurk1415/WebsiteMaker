@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { AuthService } from "../../auth/auth.service";
 import { Router } from "@angular/router";
 import { User } from "../../auth/user";
-let md5 = require('md5');
 
 @Component({
     selector: 'dip-account-box',

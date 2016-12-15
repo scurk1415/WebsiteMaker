@@ -1,7 +1,7 @@
 <div class="element" (mouseover)="tmpMain.showOverlay=true" (mouseleave)="tmpMain.showOverlay=false" [style.background]="main.background" style="min-height: 200px;">
     <dip-editor-overlay [element]="tmpMain" *ngIf="!tmpMain.showControl"></dip-editor-overlay>
 
-    <div class="align-center">
+    <div class="align-center" *ngIf="main.layout != layoutTypes.Scroll">
         <h1 [ngStyle]="{'color': main.title_color, 'font-size': main.title_size}" *ngIf="main.title">
             {{main.title}}
         </h1>
@@ -14,6 +14,7 @@
     <dip-main-layout-one [main]="main" *ngIf="main.layout == layoutTypes.Grid"></dip-main-layout-one>
     <dip-main-layout-two [main]="main" *ngIf="main.layout == layoutTypes.Rows"></dip-main-layout-two>
     <dip-main-layout-text [main]="main" *ngIf="main.layout == layoutTypes.ContactForm"></dip-main-layout-text>
+    <dip-main-scroll [main]="main" *ngIf="main.layout == layoutTypes.Scroll"></dip-main-scroll>
 </div>
 
 <dip-main-control [main]="main" [tmpMain]="tmpMain"></dip-main-control>

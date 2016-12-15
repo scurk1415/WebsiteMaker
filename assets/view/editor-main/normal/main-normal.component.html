@@ -1,0 +1,16 @@
+<div class="element" [style.background]="main.background" style="min-height: 200px;">
+    <div class="align-center" *ngIf="main.layout != layoutTypes.Scroll">
+        <h1 [ngStyle]="{'color': main.title_color, 'font-size': main.title_size}" *ngIf="main.title">
+            {{main.title}}
+        </h1>
+        <div class="break-word top10"
+             *ngIf="main.description"
+             [innerHTML]="main.description | sanitizeHtml">
+        </div>
+    </div>
+
+    <dip-main-layout-one [main]="main" *ngIf="main.layout == layoutTypes.Grid"></dip-main-layout-one>
+    <dip-main-layout-two [main]="main" *ngIf="main.layout == layoutTypes.Rows"></dip-main-layout-two>
+    <dip-main-layout-text [main]="main" *ngIf="main.layout == layoutTypes.ContactForm"></dip-main-layout-text>
+    <dip-main-layout-scroll [main]="main" *ngIf="main.layout == layoutTypes.Scroll"></dip-main-layout-scroll>
+</div>

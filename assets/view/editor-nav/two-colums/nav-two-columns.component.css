@@ -1,0 +1,14 @@
+.editor_nav{
+    min-height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.nav-menu{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.nav-menu-item{
+    padding: 10px 20px;
+    margin: 10px 0;
+}

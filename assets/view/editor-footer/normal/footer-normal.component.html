@@ -1,0 +1,20 @@
+<footer class="element" *ngIf="footer.display" [ngStyle]="{'background':footer.background, 'color': footer.font_color, 'font-size': footer.font_size}">
+
+    <div class="footer-data">
+        <div class="width-half">
+            <h5 class="white-text" [style.fontSize]="footer.title_size">{{footer.title}}</h5>
+            <p [innerHTML]="footer.text | sanitizeHtml"></p>
+        </div>
+        <div class="width-half" *ngIf="footer.links.length > 0">
+            <h5 class="white-text" [style.fontSize]="footer.title_size">{{footer.link_title}}</h5>
+
+            <ul class="footer-menu clearfix">
+                <li class="footer-menu-item ellipsis" *ngFor="let link of footer.links">
+                    <a [attr.href]="link.action" [style.color]="footer.link_color">{{link.title}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-copyright" *ngIf="footer.display_copyright" [style.background]="footer.copyright_background">{{footer.copyright_text}}</div>
+</footer>

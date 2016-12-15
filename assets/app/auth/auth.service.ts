@@ -17,7 +17,7 @@ export class AuthService{
 
     getUser(){
         const userId = localStorage.getItem('userId');
-        return this._http.get('http://localhost:3000/authenticate/getUser/'+userId)
+        return this._http.get('/authenticate/getUser/'+userId)
                         .map( response => {
                             this.user = response.json().user;
                             return this.user;
@@ -28,7 +28,7 @@ export class AuthService{
     onSignUp(user: User){
         var body = JSON.stringify(user);
         var headers = new Headers({'Content-type': 'application/json'});
-        return this._http.post('http://localhost:3000/authenticate', body, { headers: headers })
+        return this._http.post('/authenticate', body, { headers: headers })
                         .map(response => response.json())
                         .catch(error => Observable.throw(error.json()));
     }
@@ -37,7 +37,7 @@ export class AuthService{
         var body = JSON.stringify(user);
         var headers = new Headers({'Content-type': 'application/json'});
 
-        return this._http.post('http://localhost:3000/authenticate/signin', body, { headers: headers })
+        return this._http.post('/authenticate/signin', body, { headers: headers })
                         .map(response => {
                             let data = response.json();
                             localStorage.setItem('token', data.token);
@@ -57,7 +57,7 @@ export class AuthService{
         var body = JSON.stringify(user);
         var headers = new Headers({'Content-type': 'application/json'});
 
-        return this._http.put('http://localhost:3000/authenticate/updatePlan', body, { headers: headers })
+        return this._http.put('/authenticate/updatePlan', body, { headers: headers })
                         .map(response => response.json())
                         .catch(error => error.json());
     }

@@ -7,13 +7,14 @@ import { UploaderComponent } from "./controls/uploader/uploader.component";
 import { Ng2UploaderModule } from "ng2-uploader";
 import { TinyMceComponent } from "./controls/tinymce.component";
 import { SanitizeHtml } from "./pipes/sanitize-html.pipe";
+import { SanitizeUrl } from "./pipes/sanitize-url.pipe";
 import { FormatedPrice } from "./pipes/formated-price.pipe";
 
 @NgModule({
     imports:[
         CommonModule,
         FormsModule,
-        Ng2UploaderModule
+        Ng2UploaderModule,
     ],
     declarations:[
         ErrorComponent,
@@ -21,6 +22,7 @@ import { FormatedPrice } from "./pipes/formated-price.pipe";
         UploaderComponent,
         TinyMceComponent,
         SanitizeHtml,
+        SanitizeUrl,
         FormatedPrice
     ],
     exports:[
@@ -29,6 +31,7 @@ import { FormatedPrice } from "./pipes/formated-price.pipe";
         UploaderComponent,
         TinyMceComponent,
         SanitizeHtml,
+        SanitizeUrl,
         FormatedPrice
     ]
 })

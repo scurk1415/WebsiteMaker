@@ -21,7 +21,7 @@ export class EditorService{
         const body = JSON.stringify({userId: userId});
         const headers = new Headers({'Content-type': 'application/json'});
 
-        return this._http.post('http://localhost:3000/solution/list',body, {headers:headers})
+        return this._http.post('/solution/list',body, {headers:headers})
             .map( response => {
                 let data = response.json().solutions;
                 let solutions: Solution[] =[];
@@ -63,7 +63,7 @@ export class EditorService{
         const body = JSON.stringify(solution);
         const headers = new Headers({'Content-type': 'application/json'});
 
-        return this._http.post('http://localhost:3000/solution/create', body, {headers:headers})
+        return this._http.post('/solution/create', body, {headers:headers})
             .map( (response: Response) => {
                 const data = response.json().obj;
                 solution._id = data._id;
@@ -77,7 +77,7 @@ export class EditorService{
 
     deleteSolution(solution: Solution){
         this.solutions.splice(this.solutions.indexOf(solution), 1);
-        return this._http.delete('http://localhost:3000/solution/'+ solution._id)
+        return this._http.delete('/solution/'+ solution._id)
             .map( response => response.json())
             .catch( error => Observable.throw(error));
     }
@@ -86,7 +86,7 @@ export class EditorService{
         const body = JSON.stringify(solution);
         const headers = new Headers({'Content-type': 'application/json'});
 
-        return this._http.put('http://localhost:3000/solution/'+ solution._id, body, {headers })
+        return this._http.put('/solution/'+ solution._id, body, {headers })
             .map( response => response.json())
             .catch( error => Observable.throw(error));
     }

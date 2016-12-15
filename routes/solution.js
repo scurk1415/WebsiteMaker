@@ -20,7 +20,7 @@ router.post('', function(req, res, next){
         }
 
         res.status(200).json({
-            solutions: doc
+            solution: doc
         });
     });
 });

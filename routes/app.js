@@ -7,8 +7,8 @@ router.get('/', function (req, res) {
 });
 
 /* GET home page. */
-router.get('/preview', function (req, res) {
-    res.render('preview');
+router.get('/view/:id', function (req, res) {
+    res.render('view');
 });
 
 module.exports = router;

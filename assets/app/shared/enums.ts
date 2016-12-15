@@ -12,7 +12,8 @@ export enum ControlViews{
 export enum MainLayoutTypes{
     Grid,
     Rows,
-    ContactForm
+    ContactForm,
+    Scroll
 }
 
 export enum NavActionTypes{
