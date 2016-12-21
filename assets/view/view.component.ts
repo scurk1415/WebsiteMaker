@@ -25,13 +25,16 @@ export class ViewComponent implements OnInit, OnDestroy{
             (params: any) => {
                 this._editorSvc.getSolutionById(params['id']).subscribe(
                     (data: Solution) => {
-                        console.log(data);
                         this.solution = data;
                         this.page = this.solution.pages[0];
                     }
                 );
             }
         );
+
+        this._editorSvc.changePage.subscribe(
+            data => this.page = this.solution.pages[data]
+        )
     }
 
 

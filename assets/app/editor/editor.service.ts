@@ -12,6 +12,7 @@ import { AuthService } from "../auth/auth.service";
 @Injectable()
 export class EditorService{
     public solutionRetrieved = new EventEmitter<Solution>();
+    public pageAddedDeleted = new EventEmitter<Array<Page>>();
     public solutions: Solution[] = [];
 
     constructor(private _http: Http){}
@@ -89,5 +90,9 @@ export class EditorService{
         return this._http.put('/solution/'+ solution._id, body, {headers })
             .map( response => response.json())
             .catch( error => Observable.throw(error));
+    }
+
+    onPageAddedDeleted(pages: Array<Page>){
+        this.pageAddedDeleted.emit(pages);
     }
 }

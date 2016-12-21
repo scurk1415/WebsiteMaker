@@ -27,7 +27,7 @@
                         </div>
 
                         <div class="clearfix form-field">
-                            <dip-combobox [items]="action_types" [selectedItem]="item.action_type"  (selected)="onActionTypeSelect($event, item)" [cbStyle]="{width: '200px'}"></dip-combobox>
+                            <dip-combobox [items]="action_types" [selectedItem]="item.action_type"  (selected)="item.action_type = $event" [cbStyle]="{width: '200px'}"></dip-combobox>
                         </div>
 
                         <div class="input-field" *ngIf="item.action_type == navActionTypes.Url">
@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="clearfix form-field" *ngIf="item.action_type == navActionTypes.AppPage">
-                            <dip-combobox [items]="solution_pages" [selectedItem]="item.page"  (selected)="onPageSelect($event, item)" [cbStyle]="{width: '200px'}"></dip-combobox>
+                            <dip-combobox [items]="solution_pages" [selectedItem]="item.page || ''"  (selected)="item.page = $event" [cbStyle]="{width: '200px'}"></dip-combobox>
                         </div>
                     </div>
                 </li>

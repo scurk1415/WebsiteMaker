@@ -14,7 +14,8 @@ export class Main{
         public button_label? : string,
         public button_background? : string,
         public button_color? : string,
-        public padding?: string
+        public padding?: string,
+        public padding_items?: string
     )
     {
         this.items = [];

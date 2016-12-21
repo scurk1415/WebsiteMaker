@@ -36,5 +36,9 @@ export class ComboboxComponent implements OnInit {
     //get selected item
     changeSelectedText(value: string = ""){
         this.displayed_item = this.items.find(function(item) { return item.value === value; });
+
+        if (!this.displayed_item){
+            this.displayed_item = this.items[0];
+        }
     }
 }

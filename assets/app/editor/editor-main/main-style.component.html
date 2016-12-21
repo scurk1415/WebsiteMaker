@@ -72,9 +72,12 @@
 </div>
 <div class="form-field clearfix">
     <div class="left">
+        <dip-combobox [items]="paddings" [label]="'Padding'" [selectedItem]="main.padding" (selected)="main.padding = $event" [cbStyle]="{width: '200px'}"></dip-combobox>
+    </div>
+    <div class="left left20">
         <dip-combobox [items]="font_sizes" [label]="'Title'" [selectedItem]="main.title_size" (selected)="main.title_size = $event" [cbStyle]="{width: '200px'}"></dip-combobox>
     </div>
     <div class="left left20" *ngIf="main.layout == layoutTypes.Rows">
-        <dip-combobox [items]="paddings" [label]="'Padding'" [selectedItem]="main.padding" (selected)="main.padding = $event" [cbStyle]="{width: '200px'}"></dip-combobox>
+        <dip-combobox [items]="paddings" [label]="'Padding items'" [selectedItem]="main.padding_items" (selected)="main.padding_items = $event" [cbStyle]="{width: '200px'}"></dip-combobox>
     </div>
 </div>

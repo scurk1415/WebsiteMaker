@@ -11,10 +11,10 @@
         </div>
     </div>
 
-    <dip-main-layout-one [main]="main" *ngIf="main.layout == layoutTypes.Grid"></dip-main-layout-one>
-    <dip-main-layout-two [main]="main" *ngIf="main.layout == layoutTypes.Rows"></dip-main-layout-two>
+    <dip-main-layout-grid [main]="main" *ngIf="main.layout == layoutTypes.Grid"></dip-main-layout-grid>
+    <dip-main-layout-rows [main]="main" *ngIf="main.layout == layoutTypes.Rows"></dip-main-layout-rows>
     <dip-main-layout-text [main]="main" *ngIf="main.layout == layoutTypes.ContactForm"></dip-main-layout-text>
-    <dip-main-scroll [main]="main" *ngIf="main.layout == layoutTypes.Scroll"></dip-main-scroll>
+    <dip-main-layout-scroll [main]="main" *ngIf="main.layout == layoutTypes.Scroll"></dip-main-layout-scroll>
 </div>
 
 <dip-main-control [main]="main" [tmpMain]="tmpMain"></dip-main-control>

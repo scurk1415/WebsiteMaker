@@ -2,8 +2,8 @@
     <dip-editor-controls (saveSolution)="saveSolution()"
                          [solution]="solution"
                          (changeSelectedPage)="changeCurrentPage($event)"
-                         (deletePage)="deletePage($event)"
                          (changePageSolution)="changeTheme($event)"
+                         [page]="page"
                          [themeId]="page.theme"
                          [index]="solution.pages.indexOf(page)">
     </dip-editor-controls>

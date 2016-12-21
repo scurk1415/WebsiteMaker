@@ -2,6 +2,7 @@ import { Component, OnInit, Input, OnChanges } from "@angular/core";
 import { Nav, NavItem } from "../models/nav";
 import { ControlViews, NavActionTypes } from "../../shared/enums";
 import { SelectListItem } from "../../shared/controls/select-list-item";
+import { EditorService } from "../editor.service";
 
 @Component({
     selector: 'dip-nav-control',
@@ -15,10 +16,11 @@ export class NavControlComponent implements OnInit{
     controlViews = ControlViews;
     navActionTypes = NavActionTypes;
     public action_types: Array<SelectListItem> = [];
-    public solution_pages: Array<SelectListItem>;
+    public solution_pages: Array<SelectListItem> = [];
 
     public edit: Array<boolean> = new Array();
 
+    constructor(private _editorSvc: EditorService){}
 
     ngOnInit() {
         if(!this.nav.menu){
@@ -30,10 +32,21 @@ export class NavControlComponent implements OnInit{
             { text: "App page", value: this.navActionTypes.AppPage}
         ];
 
+        this._editorSvc.pageAddedDeleted.subscribe(
+            data => {
+                this.pages = data;
+                this.onPagesChange();
+            }
+        );
+
+        this.onPagesChange();
+    }
+
+    onPagesChange(){
         this.solution_pages = [];
         this.solution_pages.push(new SelectListItem("Select page", ""));
         for (let i = 0; i< this.pages.length; i++){
-            let item = new SelectListItem("Page" + (i+1), i);
+            let item = new SelectListItem(this.pages[i].name, i);
             this.solution_pages.push(item);
         }
     }
@@ -48,13 +61,5 @@ export class NavControlComponent implements OnInit{
     deleteItem(item){
         var index = this.nav.menu.indexOf(item);
         this.nav.menu.splice(index,1);
-    }
-
-    onActionTypeSelect(event: Number, item: NavItem){
-        item.action_type = event;
-    }
-
-    onPageSelect(event: Number, item: NavItem){
-        item.page = event;
     }
 }

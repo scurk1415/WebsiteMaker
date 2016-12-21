@@ -2,6 +2,20 @@
     <div class="clearfix">
         <div class="left">
             <div class="form-label">
+                <label for="DisplayNav">Display</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input id="DisplayNav"
+                       type="checkbox"
+                       [(ngModel)]="nav.display"
+                       [checked]="nav.display">
+
+                <label for="DisplayNav"></label>
+            </div>
+        </div>
+
+        <div class="left left20">
+            <div class="form-label">
                 <label for="positionAbsolute">Top</label>
             </div>
             <div class="checkbox-wrapper">

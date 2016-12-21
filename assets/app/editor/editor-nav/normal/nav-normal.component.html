@@ -1,7 +1,8 @@
-<div class="element editor_nav" [ngClass]="{'nav-absolute': nav.absolute}" [ngStyle]="{'background': nav.background}" (mouseover)="tmpNav.showOverlay=true" (mouseleave)="tmpNav.showOverlay=false">
+<div class="element editor_nav" [ngClass]="{'nav-absolute': nav.absolute && nav.display}" [ngStyle]="{'background': nav.background}" (mouseover)="tmpNav.showOverlay=true" (mouseleave)="tmpNav.showOverlay=false">
     <dip-editor-overlay [element]="tmpNav" *ngIf="!tmpNav.showControl"></dip-editor-overlay>
 
-    <ul class="nav-menu" [ngClass]="{'align_right': nav.align_right}">
+    <dip-hidden *ngIf="!nav.display"></dip-hidden>
+    <ul class="nav-menu" *ngIf="nav.display" [ngClass]="{'align_right': nav.align_right}">
         <li class="nav-menu-item"
             *ngFor="let item of nav.menu"
             [ngStyle]="{'background': nav.tab_color}">

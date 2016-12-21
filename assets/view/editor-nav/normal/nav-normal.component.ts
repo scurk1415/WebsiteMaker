@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Nav } from "../../../app/editor/models/nav";
+import { Nav, NavItem } from "../../../app/editor/models/nav";
+import { AppService } from "../../app.service";
 
 @Component({
     selector: 'dip-nav-normal',
@@ -10,6 +11,9 @@ export class NavNormalComponent {
     @Input() nav: Nav;
     @Input() pages;
 
-    constructor() { }
-    
+    constructor(private _appSvc : AppService) { }
+
+    onPageChange(item: NavItem){
+        this._appSvc.onPageChange(item);
+    }
 }

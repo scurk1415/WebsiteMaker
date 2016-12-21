@@ -3,7 +3,7 @@ import { Main } from "../../../models/main";
 import { MainLayoutTypes } from "../../../../shared/enums";
 
 @Component({
-    selector: 'dip-main-scroll',
+    selector: 'dip-main-layout-scroll',
     templateUrl: 'main-scroll.component.html',
     styleUrls: ['main-scroll.component.css']
 })

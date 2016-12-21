@@ -6,7 +6,9 @@ export class Nav{
         public tab_color?: string,
         public font_color?: string,
         public align_right?: boolean,
-
+        public display?: boolean,
+        public absolute?: boolean,
+        public background?: string
     )
     {
         this.menu = [];

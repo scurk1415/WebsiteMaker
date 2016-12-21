@@ -1,5 +1,5 @@
 <div>
-    <div style="display: flex;" [ngClass]="{'reverse-row': i%2 != 0}" [ngStyle]="{paddingTop: main.padding, paddingBottom: main.padding}" *ngFor="let item of main.items; let i = index">
+    <div style="display: flex;" [ngClass]="{'reverse-row': i%2 != 0}" [ngStyle]="{paddingTop: main.padding_items, paddingBottom: main.padding_items}" *ngFor="let item of main.items; let i = index">
         <div *ngIf="item.image" style="width: 40%;">
             <img src="/uploaded/{{item.image.filename}}" style="width: 100%;">
         </div>

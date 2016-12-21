@@ -40,7 +40,12 @@
 .pages-menu .page:not(.selected):hover{
     background: #a0f9f1;
 }
-
+.page-name{
+    font-size: 14px;
+    text-align: center;
+    height: 20px;
+    margin-top: 1px;
+}
 .add-page{
     background: #C3C3C3;
     padding: 10px 15px;

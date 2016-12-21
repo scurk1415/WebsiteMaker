@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter, Input } from "@angular/core";
 import { SolutionThemes } from "../shared/enums";
+import { EditorService } from "./editor.service";
 
 @Component({
     selector: 'dip-editor-controls',
@@ -7,8 +8,6 @@ import { SolutionThemes } from "../shared/enums";
     styleUrls: ['./editor-controls.component.css']
 })
 export class EditorControlsComponent {
-
-    @Output() deletePage = new EventEmitter<Number>();
     @Output() changeSelectedPage = new EventEmitter<Number>();
     @Output() saveSolution = new EventEmitter();
     @Output() changePageSolution = new EventEmitter<Number>();
@@ -31,7 +30,7 @@ export class EditorControlsComponent {
         },
     ];
 
-    constructor() { }
+    constructor(private _editorSvc: EditorService) { }
 
     onSave(){
         this.saveSolution.emit();
@@ -45,12 +44,18 @@ export class EditorControlsComponent {
     onAddPage(){
         let firstPage = JSON.parse(JSON.stringify(this.solution.pages[0]));
             // Object.assign({},this.pages[0]);
+        firstPage.name = "Page";
         this.solution.pages.push(firstPage);
+
+        this._editorSvc.onPageAddedDeleted(this.solution.pages);
     }
 
     //delete current page and set the the new current page to page 1
     onDeletePage(index: Number){
-        this.deletePage.emit(index);
+        //this.deletePage.emit(index);
+        this.solution.pages.splice(index,1);
+        this.page = this.solution.pages[0];
+        this._editorSvc.onPageAddedDeleted(this.solution.pages);
     }
 
     onChangePage(type: number){
