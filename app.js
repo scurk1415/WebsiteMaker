@@ -16,9 +16,9 @@ var stripeRoutes = require('./routes/stripe');
 var app = express();
 mongoose.Promise = global.Promise;
 //dev enviroment
-//mongoose.connect('localhost:27017/diploma');
+mongoose.connect('localhost:27017/diploma');
 //mongolab
-mongoose.connect('admin_ales:diplomska@ds119568.mlab.com:19568/diplomska');
+//mongoose.connect('admin_ales:diplomska@ds119568.mlab.com:19568/diplomska');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
