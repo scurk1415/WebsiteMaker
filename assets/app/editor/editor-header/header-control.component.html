@@ -3,12 +3,29 @@
         <dip-control-header [control]="tmpHeader"></dip-control-header>
 
         <div *ngIf="tmpHeader.selection == controlViews.Edit">
-            <div class="form-field">
-                <div class="input-field">
+            <div class="form-field clearfix">
+                <div class="input-field left">
                     <input [(ngModel)]="header.title"
                            [class.active]="header.title"
                            style="width: 300px;">
                     <label>Title</label>
+                </div>
+                <div class="left left20">
+                    <div class="form-label">
+                        <label for="TitleColor">Color</label>
+                    </div>
+                    <input id="TitleColor"
+                           class="colorpicker"
+                           [(colorPicker)]="header.title_color"
+                           [style.background]="header.title_color"
+                           [cpPosition]="'bottom'"
+                           [cpOKButton]="true"
+                           [cpOKButtonClass]= "'colorpicker-button button right10'"
+                           [cpCancelButton]="true"
+                           [cpCancelButtonClass]= "'colorpicker-button button'"/>
+                </div>
+                <div class="left left20">
+                    <dip-combobox [items]="font_sizes" [label]="'Font size'"  [selectedItem]="header.font_size" (selected)="header.font_size = $event" [cbStyle]="{width: '200px'}"></dip-combobox>
                 </div>
             </div>
             <div class="form-field">

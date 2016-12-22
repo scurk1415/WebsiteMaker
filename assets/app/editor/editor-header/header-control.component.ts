@@ -11,8 +11,8 @@ export class HeaderControlComponent implements OnInit {
     @Input() tmpHeader: any;
 
     private options: Object;
-    //private response: any = {};
     controlViews = ControlViews;
+    private font_sizes = [];
 
     constructor() {
     }
@@ -22,10 +22,22 @@ export class HeaderControlComponent implements OnInit {
         this.options = {
             url: 'http://localhost:10050/upload'
         };
+
+        this.font_sizes = [
+            { text: "Select font size...", value: ""},
+            { text: "18px", value: "18px"},
+            { text: "24px", value: "24px"},
+            { text: "28px", value: "28px"},
+            { text: "36px", value: "36px"},
+            { text: "42px", value: "42px"},
+            { text: "50px", value: "50px"},
+            { text: "60px", value: "60px"},
+            { text: "72px", value: "72px"},
+            { text: "100px", value: "100px"}
+        ];
     }
 
     onFileUploaded(file){
-        console.log(file);
         this.header.logo = file;
     }
 

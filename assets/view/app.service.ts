@@ -23,7 +23,6 @@ export class AppService{
     }
 
     onPageChange(item: NavItem){
-        console.log(item);
         if (item.action_type == this.nav_action_types.Url){
             window.location.href = item.action;
         }

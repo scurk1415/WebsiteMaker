@@ -3,7 +3,8 @@ import { Header } from "../../models/header";
 
 @Component({
     selector: 'dip-header-normal',
-    templateUrl: 'header-normal.component.html'
+    templateUrl: 'header-normal.component.html',
+    styleUrls: ['header-normal.component.css']
 })
 export class HeaderNormalComponent implements OnInit {
     @Input() header: Header;

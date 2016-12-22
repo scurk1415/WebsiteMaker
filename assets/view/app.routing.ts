@@ -5,6 +5,10 @@ const routes: Routes = [
     {
         path: 'view/:id',
         component: ViewComponent
+    },
+    {
+        path: 'view/:id/:page',
+        component: ViewComponent
     }
 ];
 
