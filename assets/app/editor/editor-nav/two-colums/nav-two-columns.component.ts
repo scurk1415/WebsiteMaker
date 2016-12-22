@@ -13,6 +13,7 @@ export class NavTwoColumnsComponent implements OnInit {
     public tmpNav = {
         showControl: false,
         name: "Nav",
+        showOverlay: false,
         float: true,
         disableDock: true,
         dragPosition:{

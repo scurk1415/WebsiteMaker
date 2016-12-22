@@ -9,8 +9,8 @@ import { MainLayoutTypes } from "../../shared/enums";
 })
 export class MainStyleComponent implements OnInit {
     @Input() main: Main;
-    private font_sizes = [];
-    private paddings = [];
+    font_sizes = [];
+    paddings = [];
 
     public layoutTypes = MainLayoutTypes;
 

@@ -12,7 +12,7 @@ export class HeaderControlComponent implements OnInit {
 
     private options: Object;
     controlViews = ControlViews;
-    private font_sizes = [];
+    font_sizes = [];
 
     constructor() {
     }

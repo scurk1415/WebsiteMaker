@@ -11,7 +11,8 @@ export class NavNormalComponent implements OnInit {
     @Input() pages;
     public tmpNav = {
         showControl: false,
-        name: "Nav"
+        name: "Nav",
+        showOverlay: true
     };
 
     constructor() { }

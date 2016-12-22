@@ -2,7 +2,10 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { Ng2UploaderModule } from "ng2-uploader";
-import { ColorPickerModule } from 'angular2-color-picker';
+import {
+    ColorPickerModule, DialogComponent, SliderDirective, TextDirective,
+    ColorPickerDirective
+} from 'angular2-color-picker';
 
 import { EditorComponent } from "./editor.component";
 import { editorRouting } from "./editor.routing";
@@ -46,7 +49,10 @@ import { EditorTwoColumnsComponent } from "./editor-themes/editor-two-columns.co
         HiddenComponent,
         Draggable,
         EditorNormalComponent,
-        EditorTwoColumnsComponent
+        EditorTwoColumnsComponent,
+        DialogComponent,
+        SliderDirective,
+        TextDirective
     ],
     providers: [EditorService]
 })

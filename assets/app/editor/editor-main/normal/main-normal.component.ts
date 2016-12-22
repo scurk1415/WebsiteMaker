@@ -11,7 +11,7 @@ import { MainLayoutTypes } from "../../../shared/enums";
 export class MainNormalComponent implements OnInit {
     @Input() main: Main;
 
-    public tmpMain= {};
+    public tmpMain : any;
 
     public layoutTypes = MainLayoutTypes;
 
@@ -19,7 +19,9 @@ export class MainNormalComponent implements OnInit {
 
     ngOnInit() {
         this.tmpMain = {
+            showControl: false,
             name: 'Main',
+            showOverlay: true,
             float: false,
             theme_on: true
         }

@@ -11,7 +11,8 @@ export class HeaderNormalComponent implements OnInit {
 
     public tmpHeader= {
         showControl: false,
-        name: "Header"
+        name: "Header",
+        showOverlay: true
     };
 
     constructor() { }

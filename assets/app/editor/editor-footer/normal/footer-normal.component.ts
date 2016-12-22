@@ -12,7 +12,8 @@ export class FooterNormalComponent implements OnInit {
 
     public tmpFooter= {
         showControl: false,
-        name: "Footer"
+        name: "Footer",
+        showOverlay: true
     };
     constructor() { }
 
