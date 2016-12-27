@@ -13,7 +13,7 @@ export class FooterNormalComponent implements OnInit {
     public tmpFooter= {
         showControl: false,
         name: "Footer",
-        showOverlay: true
+        showOverlay: false
     };
     constructor() { }
 

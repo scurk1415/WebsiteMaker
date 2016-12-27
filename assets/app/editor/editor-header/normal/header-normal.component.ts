@@ -12,7 +12,7 @@ export class HeaderNormalComponent implements OnInit {
     public tmpHeader= {
         showControl: false,
         name: "Header",
-        showOverlay: true
+        showOverlay: false
     };
 
     constructor() { }

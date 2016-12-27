@@ -12,7 +12,7 @@ export class NavNormalComponent implements OnInit {
     public tmpNav = {
         showControl: false,
         name: "Nav",
-        showOverlay: true
+        showOverlay: false
     };
 
     constructor() { }

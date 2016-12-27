@@ -18,9 +18,11 @@ export class MainTwoColumnsComponent implements OnInit {
 
     ngOnInit() {
         this.tmpMain = {
+            showControl: false,
             name: 'Main',
+            showOverlay: false,
             float: false,
-            theme_on: true
+            theme_on: true,
         }
     }
 

@@ -21,7 +21,7 @@ export class MainNormalComponent implements OnInit {
         this.tmpMain = {
             showControl: false,
             name: 'Main',
-            showOverlay: true,
+            showOverlay: false,
             float: false,
             theme_on: true
         }

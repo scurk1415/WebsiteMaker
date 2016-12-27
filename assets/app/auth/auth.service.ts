@@ -1,9 +1,9 @@
-import {Injectable} from "@angular/core";
-import {Http, Headers} from "@angular/http";
-import {Observable} from "rxjs/rx";
+import { Injectable } from "@angular/core";
+import { Http, Headers } from "@angular/http";
+import { Observable } from "rxjs/rx";
 import "rxjs/rx";
-import {User} from "./user";
-import {FormControl} from "@angular/forms";
+import { User } from "./user";
+import { FormControl } from "@angular/forms";
 
 @Injectable()
 export class AuthService{
