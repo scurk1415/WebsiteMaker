@@ -15,6 +15,7 @@ var stripeRoutes = require('./routes/stripe');
 
 var app = express();
 mongoose.Promise = global.Promise;
+
 //dev enviroment
 mongoose.connect('localhost:27017/diploma');
 //mongolab
