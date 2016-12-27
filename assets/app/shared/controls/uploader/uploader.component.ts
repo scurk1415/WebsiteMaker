@@ -28,7 +28,7 @@ export class UploaderComponent implements OnInit {
         }
         else{
             this.options = {
-                url: 'http://localhost:10050/upload',
+                url: '/upload',
                 filterExtensions: true,
                 allowedExtensions: ['image/png', 'image/jpg'],
                 calculateSpeed: true,
