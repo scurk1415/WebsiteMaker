@@ -33,7 +33,7 @@ import { EditorTwoColumnsComponent } from "./editor-themes/editor-two-columns.co
         SharedModule,
         FormsModule,
         ColorPickerModule,
-        Ng2UploaderModule
+        // Ng2UploaderModule
     ],
     declarations: [
         ControlHeaderComponent,
@@ -50,9 +50,9 @@ import { EditorTwoColumnsComponent } from "./editor-themes/editor-two-columns.co
         Draggable,
         EditorNormalComponent,
         EditorTwoColumnsComponent,
-        DialogComponent,
+        /*DialogComponent,
         SliderDirective,
-        TextDirective
+        TextDirective*/
     ],
     providers: [EditorService]
 })
