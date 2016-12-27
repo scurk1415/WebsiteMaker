@@ -4,7 +4,7 @@
     <dip-hidden *ngIf="!header.display || !header.height"></dip-hidden>
     <div class="align-center relative" *ngIf="header.display && header.height" [ngStyle]="{'background-color': header.background}" [style.height.px]="header.height">
         <h1 class="header-title" [ngStyle]="{'height': header.font_size,'line-height': header.font_size,'font-size': header.font_size, 'color': header.title_color}" *ngIf="header.title">{{header.title}}</h1>
-        <img class="background-image" [attr.src]="'/uploaded/'+ header.logo.filename" alt="">
+        <img class="background-image" *ngIf="header.logo && header.logo.filename" [attr.src]="'/uploaded/'+ header.logo.filename" alt="">
     </div>
 </div>
 
