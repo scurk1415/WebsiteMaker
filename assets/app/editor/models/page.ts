@@ -9,6 +9,7 @@ export class Page{
         public nav: Nav,
         public main: Main,
         public footer: Footer,
-        public theme: number
+        public theme: number,
+        public name: string
     ){}
 }

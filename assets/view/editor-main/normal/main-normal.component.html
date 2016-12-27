@@ -1,4 +1,4 @@
-<div class="element" [style.background]="main.background" style="min-height: 200px;">
+<div class="element" [ngStyle]="{'background': main.background, 'padding': main.padding}" style="min-height: 200px;">
     <div class="align-center" *ngIf="main.layout != layoutTypes.Scroll">
         <h1 [ngStyle]="{'color': main.title_color, 'font-size': main.title_size}" *ngIf="main.title">
             {{main.title}}
