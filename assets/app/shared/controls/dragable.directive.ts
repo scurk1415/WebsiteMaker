@@ -64,7 +64,7 @@ export class Draggable implements OnInit{
         event.stopPropagation();
     }
 
-    @Input('position')
+    @Input('ng2-draggable-position')
     set dragPosition(value){
         this._dragPosition = value;
     }
