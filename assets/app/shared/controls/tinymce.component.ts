@@ -26,8 +26,8 @@ export class TinyMceComponent implements AfterViewInit, OnDestroy {
         tinymce.init({
             selector: '#' + this.elementId,
             plugins: ['link', 'paste', 'table', 'code', 'textcolor'],
-            toolbar: "undo redo | styleselect fontsizeselect forecolor | bold italic | alignleft aligncenter alignright | link image | code",
-            fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
+            toolbar: "undo redo | styleselect fontsizeselect forecolor | bold italic | alignleft aligncenter alignright justify | link image | code",
+            fontsize_formats: '8px 10px 12px 14px 18px 24px 36px',
             menubar: false,
             setup: editor => {
                 this.editor = editor;
