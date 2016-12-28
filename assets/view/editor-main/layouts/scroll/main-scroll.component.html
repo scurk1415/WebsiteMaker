@@ -1,11 +1,11 @@
-<section class="main-scroll-wrapper" *ngFor="let item of main.items" [ngStyle]="{'background': 'url(/uploaded/'+item.image.filename + ')'}">
+<section class="main-scroll-wrapper" *ngFor="let item of main.items" [ngStyle]="{'background': 'url(/uploaded/'+item.image?.filename + ')'}">
     <div class="align-center">
-        <h1 [ngStyle]="{'color': main.title_color, 'font-size': main.title_size}" *ngIf="main.title">
-            {{main.title}}
+        <h1 [ngStyle]="{'color': main.title_color, 'font-size': main.title_size}" *ngIf="item.title">
+            {{item.title}}
         </h1>
         <div class="break-word top10"
-             *ngIf="main.description"
-             [innerHTML]="main.description | sanitizeHtml">
+             *ngIf="item.description"
+             [innerHTML]="item.description | sanitizeHtml">
         </div>
     </div>
 </section>

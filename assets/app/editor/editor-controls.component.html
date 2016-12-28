@@ -19,6 +19,7 @@
 
 <div class="flex" style="flex-direction: column; position: fixed; left: 40px; top: 40%; z-index: 500;">
     <button class="button" (click)="onSave()">Save</button>
+    <button class="button top20" (click)="openSettings=true">Settings</button>
     <a class="button top20" [href]="'/view/' + solution._id" target="_blank">View site</a>
     <h1 class="top20 align-center">Themes</h1>
     <button class="button"
@@ -29,3 +30,5 @@
         {{theme.name}} {{theme.value}}
     </button>
 </div>
+
+<dip-editor-settings *ngIf="openSettings" (onSettingsClose)="onSettingsClose($event)" [settings]="solution.settings"></dip-editor-settings>

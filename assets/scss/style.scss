@@ -41,5 +41,17 @@ h1{
     position: relative;
 }
 
+.material-icons{
+    font-size: 32px;
+    width: 50px;
+    text-align: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.material-icons.selected{
+    background: #c5c5c5;
+}
+
 
 

@@ -1,73 +1,43 @@
 <div class="form-field clearfix">
     <div class="left">
         <div class="form-label">
-            <label for="Background">Background</label>
+            <label>Background</label>
         </div>
-        <input id="Background"
-               class="colorpicker"
-               [(colorPicker)]="main.background"
-               [style.background]="main.background"
-               [cpPosition]="'bottom'"
-               [cpOKButton]="true"
-               [cpOKButtonClass]= "'colorpicker-button button right10'"
-               [cpCancelButton]="true"
-               [cpCancelButtonClass]= "'colorpicker-button button'"/>
+        <dip-colorpicker [color]="main.background"
+                         (colorChanged)="main.background=$event">
+        </dip-colorpicker>
     </div>
     <div class="left left20">
         <div class="form-label">
-            <label for="CardBackground">Card</label>
+            <label>Card</label>
         </div>
-        <input id="CardBackground"
-               class="colorpicker"
-               [(colorPicker)]="main.card_background"
-               [style.background]="main.card_background"
-               [cpPosition]="'bottom'"
-               [cpOKButton]="true"
-               [cpOKButtonClass]= "'colorpicker-button button right10'"
-               [cpCancelButton]="true"
-               [cpCancelButtonClass]= "'colorpicker-button button'"/>
+        <dip-colorpicker [color]="main.card_background"
+                         (colorChanged)="main.card_background=$event">
+        </dip-colorpicker>
     </div>
     <div class="left left20">
         <div class="form-label">
-            <label for="TitleColor">Title</label>
+            <label>Title</label>
         </div>
-        <input id="TitleColor"
-               class="colorpicker"
-               [(colorPicker)]="main.title_color"
-               [style.background]="main.title_color"
-               [cpPosition]="'bottom'"
-               [cpOKButton]="true"
-               [cpOKButtonClass]= "'colorpicker-button button right10'"
-               [cpCancelButton]="true"
-               [cpCancelButtonClass]= "'colorpicker-button button'"/>
+        <dip-colorpicker [color]="main.title_color"
+                         (colorChanged)="main.title_color=$event">
+        </dip-colorpicker>
     </div>
     <div class="left left20">
         <div class="form-label">
-            <label for="DescriptionColor">Description</label>
+            <label>Description</label>
         </div>
-        <input id="DescriptionColor"
-               class="colorpicker"
-               [(colorPicker)]="main.description_color"
-               [style.background]="main.description_color"
-               [cpPosition]="'bottom'"
-               [cpOKButton]="true"
-               [cpOKButtonClass]= "'colorpicker-button button right10'"
-               [cpCancelButton]="true"
-               [cpCancelButtonClass]= "'colorpicker-button button'"/>
+        <dip-colorpicker [color]="main.description_color"
+                         (colorChanged)="main.description_color=$event">
+        </dip-colorpicker>
     </div>
     <div class="left left20">
         <div class="form-label">
-            <label for="LabelColor">Label</label>
+            <label>Label</label>
         </div>
-        <input id="LabelColor"
-               class="colorpicker"
-               [(colorPicker)]="main.label_color"
-               [style.background]="main.label_color"
-               [cpPosition]="'bottom'"
-               [cpOKButton]="true"
-               [cpOKButtonClass]= "'colorpicker-button button right10'"
-               [cpCancelButton]="true"
-               [cpCancelButtonClass]= "'colorpicker-button button'"/>
+        <dip-colorpicker [color]="main.label_color"
+                         (colorChanged)="main.label_color=$event">
+        </dip-colorpicker>
     </div>
 </div>
 <div class="form-field clearfix">

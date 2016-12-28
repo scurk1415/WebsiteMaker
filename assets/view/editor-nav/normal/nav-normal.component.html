@@ -1,5 +1,5 @@
 <div class="element editor_nav" [ngClass]="{'nav-absolute': nav.absolute}" [ngStyle]="{'background': nav.background}" *ngIf="nav.display">
-    <ul class="nav-menu" [ngClass]="{'align_right': nav.align_right}">
+    <ul class="nav-menu" [ngClass]="{'align_right': nav.align_right}" [ngStyle]="{'max-width': settings.max_width +'px'}">
         <li class="nav-menu-item"
             *ngFor="let item of nav.menu"
             [ngStyle]="{'background': nav.tab_color}">

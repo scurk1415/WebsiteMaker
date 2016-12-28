@@ -12,17 +12,11 @@
                 </div>
                 <div class="left left20">
                     <div class="form-label">
-                        <label for="TitleColor">Color</label>
+                        <label>Color</label>
                     </div>
-                    <input id="TitleColor"
-                           class="colorpicker"
-                           [(colorPicker)]="header.title_color"
-                           [style.background]="header.title_color"
-                           [cpPosition]="'bottom'"
-                           [cpOKButton]="true"
-                           [cpOKButtonClass]= "'colorpicker-button button right10'"
-                           [cpCancelButton]="true"
-                           [cpCancelButtonClass]= "'colorpicker-button button'"/>
+                    <dip-colorpicker [color]="header.title_color"
+                                     (colorChanged)="header.title_color=$event">
+                    </dip-colorpicker>
                 </div>
                 <div class="left left20">
                     <dip-combobox [items]="font_sizes" [label]="'Font size'"  [selectedItem]="header.font_size" (selected)="header.font_size = $event" [cbStyle]="{width: '200px'}"></dip-combobox>

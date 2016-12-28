@@ -1,10 +1,8 @@
-<div id="editor-app" class="relative clearfix">
-    <dip-header-normal [header]="page.header"></dip-header-normal>
+<dip-header-normal [header]="page.header"></dip-header-normal>
 
-    <div class="relative" style="display: flex;">
-        <dip-nav-two-columns [nav]="page.nav" [pages]="solution.pages" [ngStyle]="{'width': page.nav.display ? '20%' : '0'}"></dip-nav-two-columns>
-        <dip-main-two-columns [main]="page.main"  [ngStyle]="{'width': page.nav.display ? '80%' : '100%'}"></dip-main-two-columns>
-    </div>
-
-    <dip-footer-normal [footer]="page.footer"></dip-footer-normal>
+<div class="relative" style="display: flex;">
+    <dip-nav-two-columns [nav]="page.nav" [pages]="solution.pages" [ngStyle]="{'width': page.nav.display ? '20%' : '0'}"></dip-nav-two-columns>
+    <dip-main-two-columns [main]="page.main"  [ngStyle]="{'width': page.nav.display ? '80%' : '100%'}"></dip-main-two-columns>
 </div>
+
+<dip-footer-normal [footer]="page.footer"></dip-footer-normal>

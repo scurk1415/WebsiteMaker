@@ -27,7 +27,7 @@ export class AppService{
             window.location.href = item.action;
         }
         else if(item.action_type == this.nav_action_types.AppPage){
-            this.changePage.emit(item.page);
+            this.changePage.emit(item.page_id);
         }
     }
 }

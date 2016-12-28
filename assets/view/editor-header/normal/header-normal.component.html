@@ -1,4 +1,4 @@
-<div class="element align-center" *ngIf="header.display && header.height" [ngStyle]="{'background-color': header.background,'height': header.height + 'px', 'padding-top':header.padding_top + 'px'}">
+<div class="element header-wrapper align-center" *ngIf="header.display" [ngStyle]="{'background-color': header.background,'height': header.height || 100 + 'px', 'padding-top':header.padding_top + 'px'}">
     <h1 class="header-title" [ngStyle]="{'height': header.font_size,'line-height': header.font_size,'font-size': header.font_size,'color': header.title_color}" *ngIf="header.title">{{header.title}}</h1>
     <img class="background-image" *ngIf="header.logo?.filename" [attr.src]="'/uploaded/'+ header.logo.filename" alt="">
 </div>

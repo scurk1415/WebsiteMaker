@@ -8,6 +8,7 @@ import { Main } from "./models/main";
 import { Nav } from "./models/nav";
 import { Page } from "./models/page";
 import { AuthService } from "../auth/auth.service";
+import { Settings } from "./models/settings";
 
 @Injectable()
 export class EditorService{
@@ -55,11 +56,12 @@ export class EditorService{
         const footer = new Footer();
         const main = new Main();
         const nav = new Nav();
-        const page = new Page(header, nav, main, footer, 1, "Page")
+        const settings = new Settings();
+        const page = new Page(header, nav, main, footer, 1, "Page", this.createUUID())
         let pages = new Array<Page>();
         pages.push(page);
 
-        const solution = new Solution(AuthService.getUserId(), obj.name, pages);
+        const solution = new Solution(AuthService.getUserId(), obj.name, pages, settings);
 
         const body = JSON.stringify(solution);
         const headers = new Headers({'Content-type': 'application/json'});
@@ -84,15 +86,20 @@ export class EditorService{
     }
 
     saveSolution(solution: Solution){
+        console.log(solution);
         const body = JSON.stringify(solution);
         const headers = new Headers({'Content-type': 'application/json'});
 
-        return this._http.put('/solution/'+ solution._id, body, {headers })
+        return this._http.put('/solution/'+ solution._id, body, { headers })
             .map( response => response.json())
             .catch( error => Observable.throw(error));
     }
 
     onPageAddedDeleted(pages: Array<Page>){
         this.pageAddedDeleted.emit(pages);
+    }
+
+    createUUID() {
+        return (new Date).getTime().toString(20) + Math.floor(1E7*Math.random()).toString(20);
     }
 }

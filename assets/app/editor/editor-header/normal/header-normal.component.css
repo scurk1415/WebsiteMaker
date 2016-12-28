@@ -1,3 +1,7 @@
+.header-wrapper{
+    min-height: 100px;
+    height: 100px;
+}
 .header-title{
     position: absolute;
     top: 0;

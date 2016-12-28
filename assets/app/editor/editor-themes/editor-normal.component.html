@@ -1,4 +1,4 @@
-<div id="editor-app" class="relative clearfix">
+<div id="editor-app" class="relative clearfix" [ngStyle]="{'background': solution.settings.inner_background}">
     <dip-header-normal [header]="page.header"></dip-header-normal>
     <dip-nav-normal [nav]="page.nav" [pages]="solution.pages"></dip-nav-normal>
     <dip-main-normal [main]="page.main"></dip-main-normal>

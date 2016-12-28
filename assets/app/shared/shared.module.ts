@@ -9,12 +9,15 @@ import { TinyMceComponent } from "./controls/tinymce.component";
 import { SanitizeHtml } from "./pipes/sanitize-html.pipe";
 import { SanitizeUrl } from "./pipes/sanitize-url.pipe";
 import { FormatedPrice } from "./pipes/formated-price.pipe";
+import { ColorpickerComponent } from "./controls/colorpicker/colorpicker.component";
+import { ColorPickerModule, DialogComponent, SliderDirective, TextDirective, ColorPickerDirective } from 'angular2-color-picker';
 
 @NgModule({
     imports:[
         CommonModule,
         FormsModule,
         Ng2UploaderModule,
+        ColorPickerModule
     ],
     declarations:[
         ErrorComponent,
@@ -23,7 +26,11 @@ import { FormatedPrice } from "./pipes/formated-price.pipe";
         TinyMceComponent,
         SanitizeHtml,
         SanitizeUrl,
-        FormatedPrice
+        FormatedPrice,
+        ColorpickerComponent,
+        /*DialogComponent,
+         SliderDirective,
+         TextDirective*/
     ],
     exports:[
         ErrorComponent,
@@ -32,7 +39,11 @@ import { FormatedPrice } from "./pipes/formated-price.pipe";
         TinyMceComponent,
         SanitizeHtml,
         SanitizeUrl,
-        FormatedPrice
+        FormatedPrice,
+        ColorpickerComponent,
+        /*DialogComponent,
+         SliderDirective,
+         TextDirective*/
     ]
 })
 

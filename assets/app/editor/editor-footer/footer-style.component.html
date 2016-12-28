@@ -28,51 +28,35 @@
         </div>
         <div class="left left20">
             <div class="form-label">
-                <label for="BackgroundColor">Background</label>
+                <label>Background</label>
             </div>
-            <input id="BackgroundColor"
-                   class="colorpicker"
-                   [(colorPicker)]="footer.background"
-                   [style.background]="footer.background"
-                   [cpPosition]="'bottom'"
-                   [cpCancelButton]="true"
-                   [cpCancelButtonClass]= "'colorpicker-button button'"/>
+            <dip-colorpicker [color]="footer.background"
+                             (colorChanged)="footer.background=$event">
+            </dip-colorpicker>
         </div>
         <div class="left left20">
             <div class="form-label">
-                <label for="CopyrightBackground">Copyright</label>
+                <label>Copyright</label>
             </div>
-            <input id="CopyrightBackground"
-                   class="colorpicker"
-                   [(colorPicker)]="footer.copyright_background"
-                   [style.background]="footer.copyright_background"
-                   [cpPosition]="'bottom'"
-                   [cpCancelButton]="true"
-                   [cpCancelButtonClass]= "'colorpicker-button button'"/>
+            <dip-colorpicker [color]="footer.copyright_background"
+                             (colorChanged)="footer.copyright_background=$event">
+            </dip-colorpicker>
         </div>
         <div class="left left20">
             <div class="form-label">
-                <label for="FontColor">Font color</label>
+                <label>Font color</label>
             </div>
-            <input id="FontColor"
-                   class="colorpicker"
-                   [(colorPicker)]="footer.font_color"
-                   [style.background]="footer.font_color"
-                   [cpPosition]="'bottom'"
-                   [cpCancelButton]="true"
-                   [cpCancelButtonClass]= "'colorpicker-button button'"/>
+            <dip-colorpicker [color]="footer.font_color"
+                             (colorChanged)="footer.font_color=$event">
+            </dip-colorpicker>
         </div>
         <div class="left left20">
             <div class="form-label">
-                <label for="LinkColor">Link color</label>
+                <label>Link color</label>
             </div>
-            <input id="LinkColor"
-                   class="colorpicker"
-                   [(colorPicker)]="footer.link_color"
-                   [style.background]="footer.link_color"
-                   [cpPosition]="'bottom'"
-                   [cpCancelButton]="true"
-                   [cpCancelButtonClass]= "'colorpicker-button button'"/>
+            <dip-colorpicker [color]="footer.link_color"
+                             (colorChanged)="footer.link_color=$event">
+            </dip-colorpicker>
         </div>
     </div>
 </div>

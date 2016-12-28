@@ -1,0 +1,11 @@
+<div class="colorpicker-wrapper relative">
+    <input class="colorpicker"
+           [colorPicker]="color"
+           [style.background]="color"
+           [cpPosition]="'bottom'"
+           [cpOKButton]="true"
+           [cpOKButtonClass]= "'colorpicker-button button right10'"
+           [cpCancelButton]="true"
+           [cpCancelButtonClass]= "'colorpicker-button button'"
+           (colorPickerChange)="onColorChange($event)"/>
+</div>

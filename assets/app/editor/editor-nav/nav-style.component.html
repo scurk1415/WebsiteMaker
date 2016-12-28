@@ -44,43 +44,29 @@
 
         <div class="left left20">
             <div class="form-label">
-                <label for="BackgroundColor">Background</label>
+                <label>Background</label>
             </div>
-            <input id="BackgroundColor"
-                   class="colorpicker"
-                   [(colorPicker)]="nav.background"
-                   [style.background]="nav.background"
-                   [cpPosition]="'bottom'"
-                   [cpCancelButton]="true"
-                   [cpCancelButtonClass]= "'colorpicker-button button'"/>
+            <dip-colorpicker [color]="nav.background"
+                             (colorChanged)="nav.background=$event">
+            </dip-colorpicker>
         </div>
 
         <div class="left left20">
             <div class="form-label">
-                <label for="TabColor">Tab</label>
+                <label>Tab</label>
             </div>
-            <input id="TabColor"
-                   class="colorpicker"
-                   [(colorPicker)]="nav.tab_color"
-                   [style.background]="nav.tab_color"
-                   [cpPosition]="'bottom'"
-                   [cpCancelButton]="true"
-                   [cpCancelButtonClass]= "'colorpicker-button button'"/>
+            <dip-colorpicker [color]="nav.tab_color"
+                             (colorChanged)="nav.tab_color=$event">
+            </dip-colorpicker>
         </div>
 
         <div class="left left20">
             <div class="form-label">
-                <label for="FontColor">Font</label>
+                <label>Font</label>
             </div>
-            <input id="FontColor"
-                   class="colorpicker"
-                   [(colorPicker)]="nav.font_color"
-                   [style.background]="nav.font_color"
-                   [cpPosition]="'bottom'"
-                   [cpOKButton]="true"
-                   [cpOKButtonClass]= "'colorpicker-button button right10'"
-                   [cpCancelButton]="true"
-                   [cpCancelButtonClass]= "'colorpicker-button button'"/>
+            <dip-colorpicker [color]="nav.font_color"
+                             (colorChanged)="nav.font_color=$event">
+            </dip-colorpicker>
         </div>
     </div>
     <div class="clearfix">

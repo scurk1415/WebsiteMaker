@@ -1,11 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
-import { Ng2UploaderModule } from "ng2-uploader";
-import {
-    ColorPickerModule, DialogComponent, SliderDirective, TextDirective,
-    ColorPickerDirective
-} from 'angular2-color-picker';
 
 import { EditorComponent } from "./editor.component";
 import { editorRouting } from "./editor.routing";
@@ -24,6 +19,7 @@ import { MainComponents } from "./editor-main/main";
 import { Draggable } from "../shared/controls/dragable.directive";
 import { EditorNormalComponent } from "./editor-themes/editor-normal.component";
 import { EditorTwoColumnsComponent } from "./editor-themes/editor-two-columns.component";
+import { EditorSettingsComponent } from "./settings/editor-settings.component";
 
 @NgModule({
     imports: [
@@ -31,9 +27,7 @@ import { EditorTwoColumnsComponent } from "./editor-themes/editor-two-columns.co
         editorRouting,
         ReactiveFormsModule,
         SharedModule,
-        FormsModule,
-        ColorPickerModule,
-        // Ng2UploaderModule
+        FormsModule
     ],
     declarations: [
         ControlHeaderComponent,
@@ -50,9 +44,7 @@ import { EditorTwoColumnsComponent } from "./editor-themes/editor-two-columns.co
         Draggable,
         EditorNormalComponent,
         EditorTwoColumnsComponent,
-        /*DialogComponent,
-        SliderDirective,
-        TextDirective*/
+        EditorSettingsComponent
     ],
     providers: [EditorService]
 })

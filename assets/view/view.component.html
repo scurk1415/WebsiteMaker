@@ -1,6 +1,8 @@
-﻿<div id="editor-app-wrapper" *ngIf="solution">
-    <dip-editor-normal [solution]="solution" [page]="page" *ngIf="page.theme == solutionThemes.Normal"></dip-editor-normal>
-    <dip-editor-two-columns [solution]="solution" [page]="page" *ngIf="page.theme == solutionThemes.TwoColumns"></dip-editor-two-columns>
+﻿<div id="editor-app-wrapper" class="relative clearfix" *ngIf="solution" [ngStyle]="{'background': solution.settings.background}">
+    <div style="margin: 0 auto;" [ngStyle]="{'max-width': solution.settings.max_width +'px', 'background': solution.settings.inner_background}">
+        <dip-editor-normal [solution]="solution" [page]="page" *ngIf="page.theme == solutionThemes.Normal"></dip-editor-normal>
+        <dip-editor-two-columns [solution]="solution" [page]="page" *ngIf="page.theme == solutionThemes.TwoColumns"></dip-editor-two-columns>
+    </div>
 </div>
 <div *ngIf="!solution">
     Waiting for solution

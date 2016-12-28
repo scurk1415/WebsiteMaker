@@ -54,7 +54,8 @@
 .add-page:hover{
     background: #009688;
 }
-.delete-button{
+.material-icons.delete-button{
+    width: 24px;
     border-radius: 100%;
     position: absolute;
     top: 2px;
@@ -69,7 +70,7 @@
     cursor: pointer;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
-.delete-button:hover{
+.material-icons.delete-button:hover{
     background: #F43100;
     box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18),0 4px 15px 0 rgba(0,0,0,0.15);
 }

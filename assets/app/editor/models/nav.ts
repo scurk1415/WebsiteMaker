@@ -20,6 +20,6 @@ export class NavItem{
         public title?: string,
         public action?: string,
         public action_type?: Number,
-        public page?: Number,
+        public page_id?: Number,
     ){}
 }

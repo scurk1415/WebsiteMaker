@@ -46,7 +46,7 @@ export class NavControlComponent implements OnInit{
         this.solution_pages = [];
         this.solution_pages.push(new SelectListItem("Select page", ""));
         for (let i = 0; i< this.pages.length; i++){
-            let item = new SelectListItem(this.pages[i].name, i);
+            let item = new SelectListItem(this.pages[i].name, this.pages[i].unique_id);
             this.solution_pages.push(item);
         }
     }

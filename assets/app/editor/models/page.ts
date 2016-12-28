@@ -10,6 +10,7 @@ export class Page{
         public main: Main,
         public footer: Footer,
         public theme: number,
-        public name: string
+        public name: string,
+        public unique_id: string
     ){}
 }

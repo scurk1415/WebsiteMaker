@@ -33,7 +33,11 @@ export class ViewComponent implements OnInit, OnDestroy{
         );
 
         this._editorSvc.changePage.subscribe(
-            data => this.page = this.solution.pages[data]
+            data => {
+                const page = this.solution.pages.filter( p => p.unique_id === data)[0];
+                const index = page ? this.solution.pages.indexOf(page) : 0;
+                this.page = this.solution.pages[index];
+            }
         )
     }
 

@@ -74,6 +74,7 @@ router.put('/:id', function(req, res, next){
         }
 
         doc.pages = req.body.pages;
+        doc.settings = req.body.settings;
         doc.save(function(err, result){
             if(err){
                 return res.status(404).json({

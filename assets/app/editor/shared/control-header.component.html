@@ -3,13 +3,13 @@
         <h1>{{control.name}}</h1>
     </div>
     <div class="right">
-        <button (click)="control.selection=controlViews.Edit">Edit</button>
-        <button (click)="control.selection=controlViews.Style">Style</button>
-        <button *ngIf="control.theme_on" (click)="control.selection=controlViews.Theme">Theme</button>
+        <button class="material-icons" (click)="control.selection=controlViews.Edit" title="Edit" [ngClass]="{'selected': control.selection==controlViews.Edit}">edit</button>
+        <button class="material-icons" (click)="control.selection=controlViews.Style" title="Style"[ngClass]="{'selected': control.selection==controlViews.Style}">brush</button>
+        <button class="material-icons" *ngIf="control.theme_on" (click)="control.selection=controlViews.Theme" title="Theme"[ngClass]="{'selected': control.selection==controlViews.Theme}">format_paint</button>
 
-        <button (click)="control.float=true" *ngIf="!control.float && !control.disableDock">Float</button>
-        <button (click)="control.float=false" *ngIf="control.float && !control.disableDock">Dock</button>
+        <button class="material-icons" (click)="control.float=true" *ngIf="!control.float && !control.disableDock" title="Float mode">flip_to_front</button>
+        <button class="material-icons" (click)="control.float=false" *ngIf="control.float && !control.disableDock" title="Dock mode">flip_to_back</button>
 
-        <button (click)="control.showControl=false">Close</button>
+        <button class="material-icons" (click)="control.showControl=false" title="Close panel">exit_to_app</button>
     </div>
 </div>

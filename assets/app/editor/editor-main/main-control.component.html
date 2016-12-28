@@ -11,7 +11,7 @@
                     <label>Title</label>
                 </div>
                 <div class="top20">
-                    <dip-tinymce [elementId]="'test'" [content]="main.description" (onEditorKeyup)="main.description=$event"></dip-tinymce>
+                    <dip-tinymce [elementId]="'MainDescription'" [content]="main.description" (onEditorKeyup)="main.description=$event"></dip-tinymce>
                 </div>
             </div>
 
@@ -26,31 +26,19 @@
                     </div>
                     <div class="left left20">
                         <div class="form-label">
-                            <label for="ButtonBackgroundColor">Background</label>
+                            <label>Background</label>
                         </div>
-                        <input id="ButtonBackgroundColor"
-                               class="colorpicker"
-                               [(colorPicker)]="main.button_background"
-                               [style.background]="main.button_background"
-                               [cpPosition]="'bottom'"
-                               [cpOKButton]="true"
-                               [cpOKButtonClass]= "'colorpicker-button button right10'"
-                               [cpCancelButton]="true"
-                               [cpCancelButtonClass]= "'colorpicker-button button'"/>
+                        <dip-colorpicker [color]="main.button_background"
+                                         (colorChanged)="main.button_background=$event">
+                        </dip-colorpicker>
                     </div>
                     <div class="left left20">
                         <div class="form-label">
-                            <label for="ButtonTextColor">Color</label>
+                            <label>Color</label>
                         </div>
-                        <input id="ButtonTextColor"
-                               class="colorpicker"
-                               [(colorPicker)]="main.button_color"
-                               [style.background]="main.button_color"
-                               [cpPosition]="'bottom'"
-                               [cpOKButton]="true"
-                               [cpOKButtonClass]= "'colorpicker-button button right10'"
-                               [cpCancelButton]="true"
-                               [cpCancelButtonClass]= "'colorpicker-button button'"/>
+                        <dip-colorpicker [color]="main.button_color"
+                                         (colorChanged)="main.button_color=$event">
+                        </dip-colorpicker>
                     </div>
                 </div>
                 <button class="button small" (click)="addFormItem()">Add item</button>
@@ -62,9 +50,9 @@
                                 {{item.label}}
                             </div>
 
-                            <button class="right left20" (click)="deleteItem(item)">Delete</button>
-                            <button class="right left20" *ngIf="edit[i]!=true" (click)="edit[i]=true">Edit</button>
-                            <button class="right left20" *ngIf="edit[i]==true" (click)="edit[i]=false">Close</button>
+                            <button class="right material-icons" (click)="deleteItem(item)">delete</button>
+                            <button class="right material-icons" *ngIf="edit[i]!=true" (click)="edit[i]=true">edit</button>
+                            <button class="right material-icons" *ngIf="edit[i]==true" (click)="edit[i]=false">exit_to_app</button>
                         </div>
                         <div class="dg-row-alternative" *ngIf="edit[i]==true">
                             <div style="display: flex; align-items: flex-start;">
@@ -112,9 +100,9 @@
                                 {{item.title}}
                             </div>
 
-                            <button class="right left20" (click)="deleteItem(item)">Delete</button>
-                            <button class="right left20" *ngIf="edit[i]!=true" (click)="edit[i]=true">Edit</button>
-                            <button class="right left20" *ngIf="edit[i]==true" (click)="edit[i]=false">Close</button>
+                            <button class="right material-icons" (click)="deleteItem(item)">delete</button>
+                            <button class="right material-icons" *ngIf="edit[i]!=true" (click)="edit[i]=true">edit</button>
+                            <button class="right material-icons" *ngIf="edit[i]==true" (click)="edit[i]=false">exit_to_app</button>
                         </div>
                         <div class="dg-row-alternative" *ngIf="edit[i]==true">
                             <div style="display: flex; align-items: flex-start;">
@@ -129,7 +117,7 @@
                                         <label>Title</label>
                                     </div>
                                     <div class="top20">
-                                        <dip-tinymce [elementId]="'test'" [content]="item.description" (onEditorKeyup)="keyupHandlerFunction($event , item)"></dip-tinymce>
+                                        <dip-tinymce [elementId]="'ItemDescription'+i" [content]="item.description" (onEditorKeyup)="keyupHandlerFunction($event , item)"></dip-tinymce>
                                     </div>
                                 </div>
                             </div>

@@ -1,0 +1,40 @@
+<div class="popup-wrapper">
+    <div class="popup-overlay" (click)="onToggleSettings()"></div>
+    <div class="card popup-content">
+        <!--card header-->
+        <div class="align-center relative">
+            <h1 class="card-title">Settings</h1>
+            <button class="popup-close material-icons" (click)="onToggleSettings()">close</button>
+        </div>
+
+        <!--card content-->
+        <div class="form-label warning">
+            <label>Warning: Most of these attributes are only visible on preview page.</label>
+        </div>
+        <div class="form-field top20 clearfix">
+            <div class="left">
+                <div class="form-label">
+                    <label title="Visible if a control has a transparent background.">Inner background</label>
+                </div>
+                <dip-colorpicker [color]="settings.inner_background"
+                                 (colorChanged)="settings.inner_background=$event">
+                </dip-colorpicker>
+            </div>
+            <div class="left left20">
+                <div class="form-label">
+                    <label>Outer background</label>
+                </div>
+
+                <dip-colorpicker [color]="settings.background"
+                                 (colorChanged)="settings.background=$event">
+                </dip-colorpicker>
+            </div>
+            <div class="input-field left left20">
+                <input [(ngModel)]="settings.max_width"
+                       [class.active]="settings.max_width"
+                       style="width: 100px;">
+                <label>Max width</label>
+            </div>
+        </div>
+    </div>
+</div>

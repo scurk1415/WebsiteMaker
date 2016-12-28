@@ -1,8 +1,8 @@
 <div class="element" (mouseover)="tmpHeader.showOverlay=true" (mouseleave)="tmpHeader.showOverlay=false" [style.paddingTop.px]="header.padding_top">
     <dip-editor-overlay [element]="tmpHeader" *ngIf="!tmpHeader.showControl"></dip-editor-overlay>
 
-    <dip-hidden *ngIf="!header.display || !header.height"></dip-hidden>
-    <div class="align-center relative" *ngIf="header.display && header.height" [ngStyle]="{'background-color': header.background}" [style.height.px]="header.height">
+    <dip-hidden *ngIf="!header.display"></dip-hidden>
+    <div class="header-wrapper align-center relative" *ngIf="header.display" [ngStyle]="{'background-color': header.background, 'height': header.height +'px'}">
         <h1 class="header-title" [ngStyle]="{'height': header.font_size,'line-height': header.font_size,'font-size': header.font_size, 'color': header.title_color}" *ngIf="header.title">{{header.title}}</h1>
         <img class="background-image" *ngIf="header.logo?.filename" [attr.src]="'/uploaded/'+ header.logo.filename" alt="">
     </div>

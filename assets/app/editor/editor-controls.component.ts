@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter, Input } from "@angular/core";
 import { SolutionThemes } from "../shared/enums";
 import { EditorService } from "./editor.service";
+import { Settings } from "./models/settings";
 
 @Component({
     selector: 'dip-editor-controls',
@@ -18,6 +19,7 @@ export class EditorControlsComponent {
     @Input() themeId;
 
     public showPages: boolean = false;
+    public openSettings: boolean = false;
     public themeTypes = SolutionThemes;
     public themes = [
         {
@@ -40,11 +42,17 @@ export class EditorControlsComponent {
         this.showPages = !this.showPages;
     }
 
+    onSettingsClose(value: Settings){
+        this.solution.settings = value;
+        this.openSettings = false;
+    }
+
     //clone object and add it to pages
     onAddPage(){
         let firstPage = JSON.parse(JSON.stringify(this.solution.pages[0]));
             // Object.assign({},this.pages[0]);
         firstPage.name = "Page";
+        firstPage.unique_id = this._editorSvc.createUUID();
         this.solution.pages.push(firstPage);
 
         this._editorSvc.onPageAddedDeleted(this.solution.pages);

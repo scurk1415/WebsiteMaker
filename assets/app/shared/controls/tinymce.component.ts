@@ -25,8 +25,12 @@ export class TinyMceComponent implements AfterViewInit, OnDestroy {
     ngAfterViewInit() {
         tinymce.init({
             selector: '#' + this.elementId,
-            plugins: ['link', 'paste', 'table', 'code', 'textcolor'],
-            toolbar: "undo redo | styleselect fontsizeselect forecolor | bold italic | alignleft aligncenter alignright justify | link image | code",
+            plugins: [ 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+                        'searchreplace wordcount visualblocks visualchars code fullscreen',
+                        'insertdatetime media nonbreaking save table contextmenu directionality',
+                        'emoticons paste textcolor colorpicker textpattern imagetools codesample toc'],
+
+            toolbar: "undo redo | styleselect fontsizeselect forecolor | bold italic | alignleft aligncenter alignright alignjustify | insert | code codesample",
             fontsize_formats: '8px 10px 12px 14px 18px 24px 36px',
             menubar: false,
             setup: editor => {
