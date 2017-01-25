@@ -19,7 +19,7 @@ export class Draggable implements OnInit{
         }
     }
 
-    @HostListener('mousedown', ['$event'])
+    @HostListener('document:mousedown', ['$event'])
     onMouseDown(event:MouseEvent) {
         if(event.button === 2)
             return; // prevents right click drag, remove his if you don't want it
@@ -36,7 +36,6 @@ export class Draggable implements OnInit{
     @HostListener('document:mousemove', ['$event'])
     onMouseMove(event:MouseEvent) {
         if(this.md && this._allowDrag){
-            console.log(this.element.nativeElement.contains(event.target));
             this.element.nativeElement.style.top = (event.clientY - this.topStart) + 'px';
             this.element.nativeElement.style.left = (event.clientX - this.leftStart) + 'px';
         }

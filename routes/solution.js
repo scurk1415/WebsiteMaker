@@ -93,23 +93,18 @@ router.put('/:id', function(req, res, next){
 
 //get all solutions by user
 router.post('/list', function(req, res, next){
+    //Solution = mongo schema
     Solution.find({userId: req.body.userId}, function(err, doc){
         if(err){
-            return res.status(404).json({
-                title: 'error',
-                obj: err
-            });
+            return res.status(404).json( { title: 'Error!', obj: err } );
         }
         if(!doc){
             return res.status(404).json({
-                title: 'no solutions',
-                obj: {message: 'no solutions'}
+                title: 'No solutions',
+                obj: {message: 'No solutions found!'}
             });
         }
-
-        res.status(200).json({
-            solutions: doc
-        });
+        res.status(200).json({ solutions: doc });
     });
 });
 

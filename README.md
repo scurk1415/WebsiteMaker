@@ -1,4 +1,4 @@
-____# Diplomska naloga 
+# Diplomska naloga 
 
 For demos please see https://diplomska-angular2.herokuapp.com/ (not working yet).
 

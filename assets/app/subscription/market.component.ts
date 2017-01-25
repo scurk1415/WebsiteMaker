@@ -40,7 +40,7 @@ export class MarketComponent implements OnInit, OnDestroy {
             }
         };
 
-        var handler = (<any>window).StripeCheckout.configure({
+        let handler = (<any>window).StripeCheckout.configure({
             key: 'pk_test_4s9nCEVf4AlsjUQieGfE1Ayb',
             locale: 'auto',
             token: function (token: any) {

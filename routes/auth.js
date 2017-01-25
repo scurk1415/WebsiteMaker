@@ -19,7 +19,7 @@ router.post('/', function (req, res, next) {
     user.save(function(err, result){
         if(err){
             return res.status(404).json({
-                title: 'User alreadyt',
+                title: 'User already exists!',
                 obj: err
             });
         }

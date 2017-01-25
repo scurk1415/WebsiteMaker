@@ -39,4 +39,5 @@ Thumbs.db
 # my ignores #
 /node_modules/
 /public/uploaded/*
+/Pisni del
 .idea
