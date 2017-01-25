@@ -27,3 +27,8 @@ export enum FormTypes{
     Phone = 3,
     Message = 4
 }
+
+export enum UserRoles{
+    User = 0,
+    Admin = 1
+}

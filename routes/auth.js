@@ -13,7 +13,8 @@ router.post('/', function (req, res, next) {
         lastName: req.body.lastName,
         password: passHash.generate(req.body.password),
         email: req.body.email,
-        allowed_solutions: 0
+        allowed_solutions: 0,
+        role: 0
     });
 
     user.save(function(err, result){

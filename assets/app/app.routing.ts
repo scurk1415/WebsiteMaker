@@ -2,6 +2,7 @@ import {Routes, RouterModule} from "@angular/router";
 import {LandingComponent} from "./landing/landing.component";
 import {PageNotFoundComponent} from "./error/pagenotfound.component";
 import {AuthGuard} from "./auth/auth.guard";
+import { AdminGuard } from "./admin/admin.guard";
 
 const routes: Routes = [
     { path: '', pathMatch: 'full', component: LandingComponent },
@@ -17,6 +18,11 @@ const routes: Routes = [
     {
         path: 'auth',
         loadChildren: './auth/auth.module#AuthModule'
+    },
+    {
+        path: 'admin',
+        loadChildren: './admin/admin.module#AdminModule',
+        canActivate: [AdminGuard]
     },
     // redirect unmathched routes to error page
     { path: '**', component: PageNotFoundComponent }

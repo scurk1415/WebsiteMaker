@@ -10,6 +10,7 @@ import { AuthService } from "./auth/auth.service";
 import { AuthGuard } from "./auth/auth.guard";
 import { ErrorService } from "./error/error.service";
 import { AccountBoxComponent } from "./shared/header/account-box.component";
+import { AdminGuard } from "./admin/admin.guard";
 
 @NgModule({
     imports: [
@@ -26,7 +27,7 @@ import { AccountBoxComponent } from "./shared/header/account-box.component";
         routedComponents,
         AccountBoxComponent
     ],
-    providers: [AuthService, AuthGuard, ErrorService],
+    providers: [AuthService, AuthGuard, ErrorService, AdminGuard],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

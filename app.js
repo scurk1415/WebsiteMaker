@@ -12,6 +12,7 @@ var authRoutes = require('./routes/auth');
 var solutionRoutes = require('./routes/solution');
 var uploadRoutes = require('./routes/upload');
 var stripeRoutes = require('./routes/stripe');
+var adminRoutes = require('./routes/admin');
 
 var app = express();
 mongoose.Promise = global.Promise;
@@ -41,6 +42,7 @@ app.use(function(req, res, next) {
 });
 
 app.use('/upload', uploadRoutes);
+app.use('/adminidata', adminRoutes);
 app.use('/solution', solutionRoutes);
 app.use('/authenticate', authRoutes);
 app.use('/checkout', stripeRoutes);

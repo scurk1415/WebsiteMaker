@@ -17,13 +17,14 @@ header .nav-wrapper{
     li{
       float: left;
     }
-    li a{
+    li a.redirect-link,
+    li a.brand-logo{
       color: #ffffff;
       display: block;
       padding: 20px;
     }
 
-    li a:not(.brand-logo):hover,
+    li a.redirect-link:hover,
     li.active a{
       background: $primary-hover;
     }

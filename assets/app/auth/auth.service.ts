@@ -1,13 +1,16 @@
-import { Injectable } from "@angular/core";
+import { Injectable, OnInit } from "@angular/core";
 import { Http, Headers } from "@angular/http";
 import { Observable } from "rxjs/rx";
 import "rxjs/rx";
 import { User } from "./user";
 import { FormControl } from "@angular/forms";
+import { UserRoles } from "../shared/enums";
 
 @Injectable()
 export class AuthService{
+
     public user : User = null;
+    public useRoles = UserRoles;
 
     constructor(private _http: Http) { }
 
@@ -26,16 +29,16 @@ export class AuthService{
     }
 
     onSignUp(user: User){
-        var body = JSON.stringify(user);
-        var headers = new Headers({'Content-type': 'application/json'});
+        let body = JSON.stringify(user);
+        let headers = new Headers({'Content-type': 'application/json'});
         return this._http.post('/authenticate', body, { headers: headers })
                         .map(response => response.json())
                         .catch(error => Observable.throw(error.json()));
     }
 
     onSignIn(user: User){
-        var body = JSON.stringify(user);
-        var headers = new Headers({'Content-type': 'application/json'});
+        let body = JSON.stringify(user);
+        let headers = new Headers({'Content-type': 'application/json'});
 
         return this._http.post('/authenticate/signin', body, { headers: headers })
                         .map(response => {
@@ -49,13 +52,13 @@ export class AuthService{
     }
 
     updateUserPlan(assets: number){
-        var user = {
+        let user = {
             id: localStorage.getItem('userId'),
             solutions: assets
         };
 
-        var body = JSON.stringify(user);
-        var headers = new Headers({'Content-type': 'application/json'});
+        let body = JSON.stringify(user);
+        let headers = new Headers({'Content-type': 'application/json'});
 
         return this._http.put('/authenticate/updatePlan', body, { headers: headers })
                         .map(response => response.json())
@@ -68,6 +71,10 @@ export class AuthService{
 
     isLoggedIn(){
         return localStorage.getItem('token') !== null;
+    }
+
+    isSuperAdmin(){
+        return this.user && this.user.role == this.useRoles.Admin;
     }
 
     /* helpers/validators */

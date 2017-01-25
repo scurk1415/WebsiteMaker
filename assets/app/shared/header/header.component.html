@@ -2,13 +2,13 @@
     <nav class="clearfix">
         <ul class="main left clearfix">
             <li><a routerLink="/" class="brand-logo">Logo</a></li>
-            <li routerLinkActive="active"><a routerLink="editor">Overview</a></li>
-            <li routerLinkActive="active" *ngIf="!isLoggedIn()"><a routerLink="pricing">Pricing</a></li>
-            <li routerLinkActive="active" *ngIf="isLoggedIn()"><a routerLink="market">Marker</a></li>
+            <li routerLinkActive="active"><a class="redirect-link" routerLink="editor">Overview</a></li>
+            <li routerLinkActive="active" *ngIf="!isLoggedIn()"><a class="redirect-link" routerLink="pricing">Pricing</a></li>
+            <li routerLinkActive="active" *ngIf="isLoggedIn()"><a class="redirect-link" routerLink="market">Marker</a></li>
         </ul>
         <ul class="right">
-            <li routerLinkActive="active" *ngIf="!isLoggedIn()"><a [routerLink]="['auth','login']">Login</a></li>
-            <li routerLinkActive="active" *ngIf="!isLoggedIn()"><a [routerLink]="['auth','signup']">Sign up</a></li>
+            <li routerLinkActive="active" *ngIf="!isLoggedIn()"><a class="redirect-link" [routerLink]="['auth','login']">Login</a></li>
+            <li routerLinkActive="active" *ngIf="!isLoggedIn()"><a class="redirect-link" [routerLink]="['auth','signup']">Sign up</a></li>
             <li *ngIf="isLoggedIn()">
                 <dip-account-box></dip-account-box>
             </li>

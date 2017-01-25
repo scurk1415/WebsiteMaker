@@ -23,3 +23,6 @@
     text-overflow: ellipsis;
     overflow: hidden;
 }
+.account-box ul a{
+    color: initial;
+}

@@ -1,9 +1,11 @@
 <div class="account-box" (click)="toggleOptions()">
-    <a class="username" *ngIf="account" [title]="account.email">
+    <a class="redirect-link" *ngIf="account" [title]="account.email">
         {{account.email}}
 
     </a>
     <ul *ngIf="showOptions">
+
+        <li *ngIf="isSuperAdmin()"><a [routerLink]="['admin']">Admin dashboard</a></li>
         <li (click)="logOut()">Logout</li>
     </ul>
 </div>

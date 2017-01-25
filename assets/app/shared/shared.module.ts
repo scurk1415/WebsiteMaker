@@ -11,6 +11,7 @@ import { SanitizeUrl } from "./pipes/sanitize-url.pipe";
 import { FormatedPrice } from "./pipes/formated-price.pipe";
 import { ColorpickerComponent } from "./controls/colorpicker/colorpicker.component";
 import { ColorPickerModule, DialogComponent, SliderDirective, TextDirective, ColorPickerDirective } from 'angular2-color-picker';
+import { FilterPipe } from "./pipes/array.pipe";
 
 @NgModule({
     imports:[
@@ -28,6 +29,7 @@ import { ColorPickerModule, DialogComponent, SliderDirective, TextDirective, Col
         SanitizeUrl,
         FormatedPrice,
         ColorpickerComponent,
+        FilterPipe
         /*DialogComponent,
          SliderDirective,
          TextDirective*/
@@ -41,6 +43,7 @@ import { ColorPickerModule, DialogComponent, SliderDirective, TextDirective, Col
         SanitizeUrl,
         FormatedPrice,
         ColorpickerComponent,
+        FilterPipe
         /*DialogComponent,
          SliderDirective,
          TextDirective*/

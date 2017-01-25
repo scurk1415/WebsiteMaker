@@ -1,0 +1,22 @@
+.collection{
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+.collection th{
+    text-align: left;
+}
+.collection .collection-item{
+    border-bottom: 1px solid #939894;
+}
+.collection .collection-item:hover{
+    background: #e7e8e7;
+}
+.collection .collection-item td{
+    padding: 10px 0;
+}
+.material-icons{
+    font-size: 25px;
+}
+.material-icons:hover{
+    color: #8c8c8c;
+}

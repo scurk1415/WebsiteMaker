@@ -30,6 +30,10 @@ export class AccountBoxComponent implements OnInit{
         this._router.navigate(['/']);
     }
 
+    isSuperAdmin(){
+        return this._authSvc.isSuperAdmin();
+    }
+
     toggleOptions(){
         this.showOptions = !this.showOptions;
     }

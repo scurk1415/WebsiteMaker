@@ -1,0 +1,51 @@
+<div class="card centered" style="width: 850px;">
+    <div>
+        <input type="text" #search (keyup)="0" placeholder="Search email">
+    </div>
+    <table class="collection top20">
+        <thead>
+            <tr>
+                <th style="width: 300px;">Id</th>
+                <th style="width: 300px;">Email</th>
+                <th style="width: 100px;">Allowed</th>
+                <th style="width: 100px;">Created</th>
+                <th style="width: 50px;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users | filterArray : 'email' : search.value; let i = index;" class="collection-item">
+                <td colspan="5" class="clearfix">
+                    <div class="left" style="width: 300px;">{{user._id}}</div>
+                    <div class="left" style="width: 300px;">{{user.email}}</div>
+                    <div class="left" style="width: 100px;">{{user.allowed_solutions}}</div>
+                    <div class="left" style="width: 100px;">{{(solutions | filterArray : 'userId' : user._id).length}}</div>
+                    <div class="left" style="width: 50px;">
+                        <i class="material-icons" (click)="edit[i]=true" *ngIf="!edit[i]">remove_red_eye</i>
+                        <i class="material-icons" (click)="edit[i]=false" *ngIf="edit[i]">exit_to_app</i>
+                    </div>
+
+                    <div style="width: 100%;" *ngIf="edit[i]">
+                        <table class="top20">
+                            <thead>
+                            <tr>
+                                <th style="width: 300px;">Id</th>
+                                <th style="width: 300px;">Name</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let solution of solutions | filterArray : 'userId' : user._id;">
+                                    <td>
+                                        {{solution._id}}
+                                    </td>
+                                    <td>
+                                        {{solution.name}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
