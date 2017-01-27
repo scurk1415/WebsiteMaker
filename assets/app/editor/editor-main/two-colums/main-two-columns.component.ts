@@ -10,6 +10,7 @@ import { MainLayoutTypes } from "../../../shared/enums";
 })
 export class MainTwoColumnsComponent implements OnInit {
     @Input() main: Main;
+    @Input() main_contents: Main[];
 
     public tmpMain;
     public layoutTypes = MainLayoutTypes;
@@ -19,6 +20,7 @@ export class MainTwoColumnsComponent implements OnInit {
     ngOnInit() {
         this.tmpMain = {
             showControl: false,
+            type: "main",
             name: 'Main',
             showOverlay: false,
             float: false,

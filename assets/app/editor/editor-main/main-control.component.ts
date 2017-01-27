@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { ControlViews, MainLayoutTypes, FormTypes } from "../../shared/enums";
 import { Main, MainItem, FormItem } from "../models/main";
+import { EditorService } from "../editor.service";
 
 @Component({
     selector: 'dip-main-control',
@@ -15,10 +16,12 @@ export class MainControlComponent implements OnInit{
     public layoutTypes = MainLayoutTypes;
     public form_types = FormTypes;
     public form_input_types = [];
-
     public edit: Array<boolean> = new Array();
+    public tinyId : string;
 
     public test;
+
+    constructor(private _editorSvc: EditorService){}
 
     ngOnInit() {
         if(!this.main.items){
@@ -34,8 +37,9 @@ export class MainControlComponent implements OnInit{
             { text: "Phone", value: this.form_types.Phone},
             { text: "Message", value: this.form_types.Message},
         ];
-    }
 
+        this.tinyId = this._editorSvc.createUUID();
+    }
     addItem(){
         var item = new MainItem("Title");
         this.main.items.push(item);

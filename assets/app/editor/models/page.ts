@@ -7,7 +7,7 @@ export class Page{
     constructor(
         public header: Header,
         public nav: Nav,
-        public main: Main,
+        public main_contents: Array<Main>,
         public footer: Footer,
         public theme: number,
         public name: string,

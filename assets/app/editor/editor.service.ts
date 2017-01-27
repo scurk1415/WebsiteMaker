@@ -41,23 +41,23 @@ export class EditorService{
         if(this.solutions.length == 0 ){
             this.getSolutions().subscribe(
                 (solutions: Solution[]) => {
-                    let solution =  solutions.find(function(solution: any) {return solution._id === uid;});
+                    let solution =  solutions.find(solution => solution._id === uid);
                     this.solutionRetrieved.emit(solution);
                 }
             );
         }
         else{
-            return this.solutions.find(function(solution: any) {return solution._id === uid;});
+            return this.solutions.find(solution => solution._id === uid);
         }
     }
 
     createSolution(obj: any){
         const header = new Header();
         const footer = new Footer();
-        const main = new Main();
+        const main_contents = [new Main()];
         const nav = new Nav();
         const settings = new Settings();
-        const page = new Page(header, nav, main, footer, 1, "Page", this.createUUID())
+        const page = new Page(header, nav, main_contents, footer, 1, "Page", this.createUUID())
         let pages = new Array<Page>();
         pages.push(page);
 

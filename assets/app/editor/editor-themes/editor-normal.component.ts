@@ -11,6 +11,8 @@ export class EditorNormalComponent implements OnInit{
     @Input() solution: Solution;
     @Input() page: Page;
 
+    public test = [1,2];
+
     constructor (){}
 
     ngOnInit(): void {

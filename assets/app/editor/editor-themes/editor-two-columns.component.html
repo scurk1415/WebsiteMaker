@@ -3,7 +3,9 @@
 
     <div class="relative" style="display: flex;">
         <dip-nav-two-columns [nav]="page.nav" [pages]="solution.pages" style="width: 20%;"></dip-nav-two-columns>
-        <dip-main-two-columns [main]="page.main" style="width: 80%;"></dip-main-two-columns>
+        <div  style="width: 80%;">
+            <dip-main-two-columns [main]="main" [main_contents]="page.main_contents" *ngFor="let main of page.main_contents"></dip-main-two-columns>
+        </div>
     </div>
 
     <dip-footer-normal [footer]="page.footer"></dip-footer-normal>

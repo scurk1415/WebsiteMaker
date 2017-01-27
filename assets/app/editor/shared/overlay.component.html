@@ -1,4 +1,7 @@
 <div class="editor_overlay" *ngIf="element.showOverlay">
     <button class="button" (click)="element.showControl=true">Edit</button>
+
+    <button class="button left20" (click)="addMainContent()" *ngIf="element.type == 'main'" [disabled]="main_contents.length > 4">Add</button>
+    <button class="button left20" (click)="deleteMainContent()"  *ngIf="element.type == 'main'" [disabled]="main_contents.length < 2" >Delete</button>
     <!--<button class="button left20" (click)="element.showControl=false">Hide</button>-->
 </div>

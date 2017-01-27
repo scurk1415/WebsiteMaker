@@ -11,7 +11,7 @@
                     <label>Title</label>
                 </div>
                 <div class="top20">
-                    <dip-tinymce [elementId]="'MainDescription'" [content]="main.description" (onEditorKeyup)="main.description=$event"></dip-tinymce>
+                    <dip-tinymce [elementId]="tinyId" [content]="main.description" (onEditorKeyup)="main.description=$event"></dip-tinymce>
                 </div>
             </div>
 
@@ -117,7 +117,7 @@
                                         <label>Title</label>
                                     </div>
                                     <div class="top20">
-                                        <dip-tinymce [elementId]="'ItemDescription'+i" [content]="item.description" (onEditorKeyup)="keyupHandlerFunction($event , item)"></dip-tinymce>
+                                        <dip-tinymce [elementId]="tinyId +'_ItemDescription_'+i" [content]="item.description" (onEditorKeyup)="keyupHandlerFunction($event , item)"></dip-tinymce>
                                     </div>
                                 </div>
                             </div>

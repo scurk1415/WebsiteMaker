@@ -1,5 +1,5 @@
 <div class="element" (mouseover)="tmpMain.showOverlay=true" (mouseleave)="tmpMain.showOverlay=false" [ngStyle]="{'background': main.background, 'padding': main.padding}" style="min-height: 200px;">
-    <dip-editor-overlay [element]="tmpMain" *ngIf="!tmpMain.showControl"></dip-editor-overlay>
+    <dip-editor-overlay [element]="tmpMain" [main_contents]="main_contents" [main]="main" *ngIf="!tmpMain.showControl"></dip-editor-overlay>
 
     <div class="align-center" *ngIf="main.layout != layoutTypes.Scroll">
         <h1 [ngStyle]="{'color': main.title_color, 'font-size': main.title_size}" *ngIf="main.title">
